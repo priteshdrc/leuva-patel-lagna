@@ -287,6 +287,8 @@ function render(){
   const tt=totals();const left=tt.a-tt.d;
   const navs=[["home","home","navHome"],["groups","people","navGroups"],["pending","list","navPending"],["setup","gear","navSetup"]];
   $("#nav-groups").hidden=!G.on;
+  // On the home server: Groups | Pending | Settings | Rituals. The static guide keeps Rituals first.
+  const navHome=$("#nav-home");if(G.on&&navHome.nextElementSibling)navHome.parentNode.appendChild(navHome);
   navs.forEach(x=>{const b=$("#nav-"+x[0]);const cur=x[0]===route||(x[0]==="home"&&route.startsWith("r-"))||(x[0]==="groups"&&(route.startsWith("g-")||route.startsWith("j-")));
     b.innerHTML=ic(x[1])+'<span>'+esc(t(x[2]))+'</span>'+(x[0]==="pending"&&left>0?'<span class="badge">'+n(left>999?"999+":left)+'</span>':"");
     if(cur)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
