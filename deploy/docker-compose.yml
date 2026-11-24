@@ -1,5 +1,5 @@
 # Leuva Patel Lagna on the Orange Pi. Lives in /opt/leuva-lagna (see install.sh).
-# The app listens only on 127.0.0.1:8200; the shared edge Caddy (/opt/edge)
+# The app listens only on 127.0.0.1:${APP_PORT} (default 8200); the shared edge Caddy (/opt/edge)
 # serves it over HTTPS, like Nifty Arena and Everything Life.
 services:
   app:
@@ -15,7 +15,8 @@ services:
       TRUST_PROXY: "1"
       TZ: ${TZ:-Asia/Kolkata}
     ports:
-      - "${APP_BIND:-127.0.0.1}:8200:8200"
+      # APP_PORT: the port on the Pi (install.sh picks a free one if 8200 is taken).
+      - "${APP_BIND:-127.0.0.1}:${APP_PORT:-8200}:8200"
     volumes:
       - ./data:/data
     user: "1000:1000"

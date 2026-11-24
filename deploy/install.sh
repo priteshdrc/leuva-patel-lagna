@@ -49,6 +49,29 @@ if grep -q '^ADMIN_PASSWORD=CHANGE_ME$' "$DIR/.env"; then
   echo ">> Set ADMIN_PASSWORD in $DIR/.env first (12+ characters)." >&2; exit 1
 fi
 
+# ---- port on this Pi (the container always listens on 8200 inside)
+env_get() { grep -E "^$1=" "$DIR/.env" 2>/dev/null | tail -n 1 | cut -d= -f2- || true; }
+port_busy() {  # is something other than our own container listening on 127.0.0.1:$1 / *:$1 ?
+  local p=$1
+  if docker ps --filter name='^leuva-lagna$' --format '{{.Ports}}' 2>/dev/null | grep -q ":$p->"; then return 1; fi
+  if command -v ss >/dev/null 2>&1 && ss -Hltn "sport = :$p" 2>/dev/null | grep -q .; then return 0; fi
+  timeout 1 bash -c "exec 3<>/dev/tcp/127.0.0.1/$p" 2>/dev/null   # something answers on it
+}
+PORT=$(env_get APP_PORT)
+if [ -z "$PORT" ]; then
+  PORT=8200
+  if port_busy "$PORT"; then
+    for p in $(seq 8201 8299); do if ! port_busy "$p"; then PORT=$p; break; fi; done
+    echo ">> Port 8200 is already used on this Pi, so Leuva Patel Lagna will use $PORT."
+  fi
+  echo "APP_PORT=$PORT" >> "$DIR/.env"
+elif port_busy "$PORT"; then
+  echo ">> APP_PORT=$PORT in $DIR/.env is already used by something else:" >&2
+  ss -Hltnp "sport = :$PORT" >&2 2>/dev/null || true
+  echo "   Pick a free port, e.g. sudo sed -i 's/^APP_PORT=.*/APP_PORT=8210/' $DIR/.env, and run this again." >&2
+  exit 1
+fi
+
 # ---- image
 if ! docker pull -q "$IMAGE" >/dev/null 2>&1; then
   echo
@@ -62,17 +85,18 @@ fi
 cd "$DIR"
 # First start goes through autoupdate.sh too, so only a CI-signed image ever runs.
 if ! bash "$DIR/autoupdate.sh"; then
-  echo ">> The image's signature didn't check out, so it wasn't started (see above)." >&2; exit 1
+  echo ">> Starting the app failed (see the message above: a signature problem says REFUSING TO DEPLOY," >&2
+  echo "   anything else is Docker's own error)." >&2; exit 1
 fi
 
 echo ">> Waiting for the app..."
 healthy=no
 for _ in $(seq 1 30); do
-  if curl -fsS http://127.0.0.1:8200/api/health >/dev/null 2>&1; then healthy=yes; break; fi
+  if curl -fsS "http://127.0.0.1:$PORT/api/health" >/dev/null 2>&1; then healthy=yes; break; fi
   sleep 2
 done
 if [ "$healthy" != yes ]; then
-  echo ">> The app didn't answer on 127.0.0.1:8200. Logs:" >&2
+  echo ">> The app didn't answer on 127.0.0.1:$PORT. Logs:" >&2
   docker compose logs --tail 50 app >&2; exit 1
 fi
 
@@ -82,11 +106,22 @@ systemctl enable --now leuva-lagna-update.timer leuva-lagna-backup.timer
 domain=$(grep -E '^PUBLIC_URL=' .env | tail -n 1 | cut -d= -f2- | sed -E 's#^https?://##; s#/.*$##')
 cat <<EOF
 
->> Leuva Patel Lagna is running on 127.0.0.1:8200.
+>> Leuva Patel Lagna is running on 127.0.0.1:$PORT.
 
-   HTTPS: add this site block to $EDGE/Caddyfile (see deploy/README.md), put
-   LAGNA_DOMAIN=$domain in $EDGE/.env, then reload Caddy:
-     cd $EDGE && sudo docker compose up -d && sudo docker compose exec caddy caddy reload --config /etc/caddy/Caddyfile
+   HTTPS: add this block to $EDGE/Caddyfile (if it isn't there yet):
+
+# Leuva Patel Lagna (priteshdrc/leuva-patel-lagna), app on 127.0.0.1:$PORT.
+{\$LAGNA_DOMAIN} {
+	encode zstd gzip
+	import common_headers
+	request_body {
+		max_size 64KB
+	}
+	reverse_proxy 127.0.0.1:$PORT
+}
+
+   put LAGNA_DOMAIN=$domain in $EDGE/.env, then restart Caddy:
+     cd $EDGE && sudo docker compose up -d --force-recreate
 
    Then open https://$domain, go to Settings > Admin login, and create the first group.
 

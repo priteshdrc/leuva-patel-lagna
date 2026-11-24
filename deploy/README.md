@@ -4,7 +4,7 @@ Same pattern as Nifty Arena and Everything Life:
 
 | Piece | Where |
 |---|---|
-| App container `leuva-lagna` | `/opt/leuva-lagna`, listens on **127.0.0.1:8200** only |
+| App container `leuva-lagna` | `/opt/leuva-lagna`, listens on **127.0.0.1:8200** only (or the next free port: `APP_PORT` in `.env`; install.sh picks it and prints the matching Caddy block) |
 | HTTPS | the shared edge Caddy in `/opt/edge` |
 | Updates | `leuva-lagna-update.timer` pulls `ghcr.io/priteshdrc/leuva-patel-lagna:latest` every minute and runs it **only if this repo's CI signed it** (cosign) |
 | Backups | `leuva-lagna-backup.timer`, 02:45 nightly → `/opt/leuva-lagna/backups` |
@@ -32,7 +32,7 @@ Add this block to `/opt/edge/Caddyfile` (and to `deploy/edge/Caddyfile` in the E
 which is the master copy):
 
 ```caddy
-# Leuva Patel Lagna (priteshdrc/leuva-patel-lagna), app on 127.0.0.1:8200.
+# Leuva Patel Lagna (priteshdrc/leuva-patel-lagna), app on 127.0.0.1:8200 (use your APP_PORT).
 # The app sends its own CSP (with script hashes) and X-Frame-Options DENY.
 {$LAGNA_DOMAIN} {
 	encode zstd gzip
