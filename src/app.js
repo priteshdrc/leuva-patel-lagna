@@ -279,8 +279,8 @@ function render(){
   const ae=document.activeElement,focusId=ae&&ae.id,sel=ae&&typeof ae.selectionStart==="number"?[ae.selectionStart,ae.selectionEnd]:null;
   // keep what people are typing when the page re-renders (e.g. a family member's change arrives)
   const kept={};m.querySelectorAll("input[id],textarea[id],select[id]").forEach(el=>{if(el.type!=="checkbox"&&el.type!=="password"&&el.dataset.dirty)kept[el.id]=el.value;});
-  const groupView=()=>!G.on?'<p class="empty">'+esc(G.failed?t("gNeedServer"):t("gLoading"))+'</p>':route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
-  if(G.landing){m.innerHTML='<div class="view"><p class="empty">'+esc(t("gLoading"))+'</p></div>';}else
+  const groupView=()=>!G.on?(G.failed?'<p class="empty">'+esc(t("gNeedServer"))+'</p>':loadingBlock()):route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
+  if(G.landing){m.innerHTML='<div class="view">'+loadingBlock()+'</div>';}else
   m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
   for(const id in kept){const el=document.getElementById(id);if(el){el.value=kept[id];el.dataset.dirty="1";}}
   if(focusId){const f=document.getElementById(focusId);if(f&&(f.tagName==="INPUT"||f.tagName==="TEXTAREA")&&f.type!=="checkbox"){f.focus();if(sel)try{f.setSelectionRange(sel[0],sel[1]);}catch(e){}}}

@@ -262,9 +262,21 @@ textarea.inp{resize:vertical;line-height:1.45}
 .made{display:flex;flex-direction:column;gap:6px;background:color-mix(in srgb,var(--haldi) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--haldi) 50%,var(--line));border-radius:12px;padding:12px}
 .made pre{margin:0;white-space:pre-wrap;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px}
 .made .mini{align-self:flex-start}
+/* loading */
+.busybar{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--hh,78px));height:4px;z-index:60;overflow:hidden;background:color-mix(in srgb,var(--haldi) 25%,transparent)}
+.busybar::before{content:"";position:absolute;top:0;bottom:0;width:40%;background:var(--haldi);animation:busy 1s ease-in-out infinite}
+@keyframes busy{from{left:-40%}to{left:100%}}
+.spin{display:inline-block;width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--kanku);border-radius:50%;animation:spin .8s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loadblk{display:flex;align-items:center;justify-content:center;gap:12px;padding:32px 8px;color:var(--muted);font-weight:600}
+button.loading{position:relative;color:transparent!important;pointer-events:none}
+button.loading>*{visibility:hidden}
+button.loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid currentColor;border-color:var(--line);border-top-color:var(--kanku);border-radius:50%;animation:spin .8s linear infinite}
+.btn.loading::after{border-color:rgba(255,255,255,.35);border-top-color:#fff}
+.btn.ghost.loading::after,.mini.loading::after,.danger.loading::after{border-color:var(--line);border-top-color:var(--kanku)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media (max-width:370px){.langs button{padding:6px 7px;font-size:.76rem}.how li{font-size:.76rem}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.rit:active{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.spin,button.loading::after{animation-duration:2s}.busybar::before{animation:none;left:0;width:100%;opacity:.6}.rit:active{transform:none}}
 </style>
 
 <header class="top">
@@ -290,6 +302,7 @@ textarea.inp{resize:vertical;line-height:1.45}
   </div>
 </nav>
 <div class="toast" id="toast" hidden role="status"></div>
+<div class="busybar" id="busy" hidden aria-hidden="true"></div>
 
 <script>
 const RITUALS = [];

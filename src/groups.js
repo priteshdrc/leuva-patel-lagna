@@ -17,7 +17,7 @@ Object.assign(T,{
   gRitual:["કઈ વિધિ?","Which ritual?","कौन सी रस्म?"],
   gSide:["કયા પક્ષ માટે?","For which side?","किस पक्ष के लिए?"],
   gYou:["તમારું નામ","Your name","आपका नाम"],
-  gYouPh:["દા.ત. પ્રિતેશ","e.g. Pritesh","जैसे प्रितेश"],
+  gYouPh:["દા.ત. નામ","e.g. Name","जैसे नाम"],
   gMake:["ગ્રુપ બનાવો","Create group","ग्रुप बनाएँ"],
   gWho:["તમે કોણ છો?","Who are you?","आप कौन हैं?"],
   gWhoHint:["તમારું નામ પસંદ કરો, કે નવું નામ લખો.","Pick your name, or type a new one.","अपना नाम चुनें, या नया नाम लिखें।"],
@@ -140,7 +140,29 @@ const fmtCode=(c)=>String(c||"").replace(/(...)(?=.)/g,"$1-");
 const rupee=(x)=>"₹"+n(Number(x||0).toLocaleString("en-IN"));
 function errText(code){return T["e_"+code]?t("e_"+code):t("e_other");}
 
+/* ---------- "loading" feedback: a bar under the header and a spinner on the tapped button ---------- */
+function loadingBlock(){return '<div class="loadblk" role="status"><span class="spin" aria-hidden="true"></span><span>'+esc(t("gLoading"))+'</span></div>';}
+let busyN=0,busyTimer=null,busyBtn=null;
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(b)busyBtn=b;},true);
+document.addEventListener("submit",e=>{busyBtn=e.submitter||e.target.querySelector('button[type="submit"],button:not([type])');},true);
+function busyStart(){
+  busyN++;
+  const btn=busyBtn;busyBtn=null;
+  if(btn&&document.contains(btn)&&!btn.classList.contains("loading")){btn.classList.add("loading");btn.setAttribute("aria-busy","true");btn.disabled=true;}
+  if(!busyTimer)busyTimer=setTimeout(()=>{const b=document.getElementById("busy");if(b&&busyN>0)b.hidden=false;},150);
+}
+function busyEnd(){
+  busyN=Math.max(0,busyN-1);if(busyN)return;
+  clearTimeout(busyTimer);busyTimer=null;
+  const b=document.getElementById("busy");if(b)b.hidden=true;
+  document.querySelectorAll("button.loading").forEach(x=>{x.classList.remove("loading");x.removeAttribute("aria-busy");x.disabled=false;});
+}
 async function api(method,path,body,gid){
+  const track=!/\/wait\?/.test(path);
+  if(track)busyStart();
+  try{return await apiCall(method,path,body,gid);}finally{if(track)busyEnd();}
+}
+async function apiCall(method,path,body,gid){
   const h={"Content-Type":"application/json"};
   if(gid&&MY[gid])h.Authorization="Bearer "+MY[gid].token;
   if(gid&&MY[gid]&&MY[gid].owner)h["X-Owner-Token"]=MY[gid].owner;
@@ -255,7 +277,7 @@ function createForm(){
 }
 function viewJoin(){
   const j=G.join;let h='<button type="button" class="back" data-go="groups">'+ic("back").replace('aria-hidden','style="width:20px;height:20px" aria-hidden')+esc(t("back"))+'</button>';
-  if(!j||(!j.data&&!j.err))return h+'<p class="empty">'+esc(t("gLoading"))+'</p>';
+  if(!j||(!j.data&&!j.err))return h+loadingBlock();
   if(j.err)return h+'<section class="card"><p style="margin:0">'+esc(errText(j.err))+'</p><button type="button" class="btn" data-go="groups">'+esc(t("gCode"))+'</button></section>';
   const g=j.data.group,r=ritualOf(g.ritual);
   h+='<div class="rhead"><span class="ic">'+ic(r?r.icon:"lamp")+'</span><div><h1>'+esc(g.title)+'</h1><p>'+esc(r?tx(r.name):"")+(g.date?' · '+esc(daysText(g.date)):'')+'</p></div></div>';
@@ -268,7 +290,7 @@ function viewGroup(){
   const c=G.cur;let h='<button type="button" class="back" data-go="groups">'+ic("back").replace('aria-hidden','style="width:20px;height:20px" aria-hidden')+esc(t("navGroups"))+'</button>';
   if(!c)return h;
   if(c.err)return h+'<section class="card"><p style="margin:0">'+esc(errText(c.err))+'</p><button type="button" class="btn" data-go="groups">'+esc(t("gCode"))+'</button></section>';
-  if(!c.data)return h+'<p class="empty">'+esc(c.offline?t("gOffline"):t("gLoading"))+'</p>';
+  if(!c.data)return h+(c.offline?'<p class="empty">'+esc(t("gOffline"))+'</p>':loadingBlock());
   const d=c.data,g=d.group,r=ritualOf(g.ritual);
   const live=d.members.filter(m=>!m.removed);
   h+='<section class="ghead"><div class="rhead"><span class="ic">'+ic(r?r.icon:"lamp")+'</span><div style="min-width:0"><h1>'+esc(g.title)+'</h1><p>'+esc(r?tx(r.name):"")+(g.date?' · <b>'+esc(daysText(g.date))+'</b>':'')+'</p></div></div>';
@@ -417,7 +439,7 @@ function mcpCard(){
   h+='<div class="label">'+esc(t("mList"))+'</div>';
   const rows=MC.list&&MC.list.tokens||[];
   if(MC.list&&MC.list.error)h+='<p class="hint">'+esc(errText(MC.list.error))+'</p>';
-  else if(!rows.length)h+='<p class="hint">'+esc(MC.list?t("mNone"):t("gLoading"))+'</p>';
+  else if(!rows.length)h+=MC.list?'<p class="hint">'+esc(t("mNone"))+'</p>':loadingBlock();
   else h+='<ul class="mems">'+rows.map(r=>{const lvl={read:"mRead",add:"mAdd",full:"mFull"}[r.access];
     return '<li><span class="nm">'+esc(r.name)+'<span class="hint" style="display:block;font-weight:400">'+esc(t(r.kind==="oauth"?"mOauth":"mToken"))+' · '+esc(t(lvl))+' · '+esc(t("mUsed"))+': '+esc(r.last_used?ago(r.last_used):t("mNever"))+(r.expires_at?' · '+esc(t("mExp"))+' '+esc(new Date(r.expires_at).toLocaleDateString()):'')+'</span></span>'+
       (G.confirm==="mcp:"+r.id?confirmBox("mcp:"+r.id,t("mRevokeQ"),'data-gmcprevoke-yes="'+esc(r.id)+'"'):'<button type="button" class="mini danger2" data-gmcprevoke="'+esc(r.id)+'">'+esc(t("mRevoke"))+'</button>')+'</li>';}).join("")+'</ul>';
