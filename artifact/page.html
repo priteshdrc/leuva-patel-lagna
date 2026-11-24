@@ -1331,11 +1331,17 @@ function viewSetup(){
   let h='<h1 style="font-size:1.5rem;color:var(--kanku)">'+esc(t("setupTitle"))+'</h1>';
   h+='<section class="card"><div class="label" id="lang-l">'+esc(t("lang"))+'</div><div class="choice" role="group" aria-labelledby="lang-l">'+[["ગુજરાતી","gu"],["English","en"],["हिन्दी","hi"]].map((x,i)=>'<button type="button" data-lang="'+i+'" lang="'+x[1]+'" aria-pressed="'+(S.lang===i)+'">'+x[0]+'</button>').join("")+'</div></section>';
   h+='<section class="card"><div class="label" id="size-l">'+esc(t("size"))+'</div><div class="sizes" role="group" aria-labelledby="size-l">'+[[16,"sizeS",".9rem"],[19,"sizeM","1.05rem"],[22,"sizeL","1.25rem"]].map(x=>'<button type="button" data-fs="'+x[0]+'" aria-pressed="'+(S.fs===x[0])+'" style="font-size:'+x[2]+'">'+esc(t(x[1]))+'</button>').join("")+'</div></section>';
-  h+='<section class="card"><div class="label" id="whose-l">'+esc(t("whose"))+'</div>'+sideButtons()+'<label class="label" for="date-set">'+esc(t("date"))+'</label><div class="date-row"><input type="date" id="date-set" value="'+esc(S.date)+'"></div>'+(countText()?'<p class="count">'+esc(countText())+'</p>':'')+'</section>';
-  h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("aboutTitle"))+'</h2><p style="margin:0">'+esc(t("aboutP"))+'</p><p class="sync">'+esc(t(cloudOn?"savedCloud":"saved"))+'</p>';
-  h+=adminCard();
-  if(confirmFor==="all")h+='<div class="confirm"><b>'+esc(t("resetAllQ"))+'</b><div class="row"><button type="button" class="btn" data-resetall-yes>'+esc(t("yes"))+'</button><button type="button" class="btn ghost" data-reset-no>'+esc(t("no"))+'</button></div></div>';
-  else h+='<button type="button" class="danger" data-resetall>'+esc(t("resetAll"))+'</button>';
+  if(G.on){
+    // On the home server the ceremony, date and side live in each group, so Settings keeps only
+    // what belongs to this phone: language, text size and the admin login.
+    h+=adminCard();
+    h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("aboutTitle"))+'</h2><p style="margin:0">'+esc(t("aboutP"))+'</p>';
+  }else{
+    h+='<section class="card"><div class="label" id="whose-l">'+esc(t("whose"))+'</div>'+sideButtons()+'<label class="label" for="date-set">'+esc(t("date"))+'</label><div class="date-row"><input type="date" id="date-set" value="'+esc(S.date)+'"></div>'+(countText()?'<p class="count">'+esc(countText())+'</p>':'')+'</section>';
+    h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("aboutTitle"))+'</h2><p style="margin:0">'+esc(t("aboutP"))+'</p><p class="sync">'+esc(t(cloudOn?"savedCloud":"saved"))+'</p>';
+    if(confirmFor==="all")h+='<div class="confirm"><b>'+esc(t("resetAllQ"))+'</b><div class="row"><button type="button" class="btn" data-resetall-yes>'+esc(t("yes"))+'</button><button type="button" class="btn ghost" data-reset-no>'+esc(t("no"))+'</button></div></div>';
+    else h+='<button type="button" class="danger" data-resetall>'+esc(t("resetAll"))+'</button>';
+  }
   h+='</section>';
   return h;
 }
