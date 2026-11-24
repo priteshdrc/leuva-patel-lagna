@@ -1,0 +1,1260 @@
+<!doctype html><html lang="gu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#7A0A1F"><style>:root{padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>લગ્ન માર્ગદર્શિકા</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Saurashtra Leuva Patel wedding rituals guide with item lists and to-do lists – Gujarati, English, Hindi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@500;700;800&family=Hind+Vadodara:wght@400;500;600&family=Hind:wght@400;500;600&family=Mukta:wght@600;700&display=swap">
+<style>
+/* Layout: one narrow column (max 560px) like a phone app — red kanku header band,
+   ritual timeline on home, ritual page with three big tabs, fixed bottom nav. */
+:root{
+  --kanku:#A8102B;      /* sindoor red: header, primary buttons */
+  --kanku-deep:#7A0A1F;
+  --haldi:#E8A317;      /* turmeric: highlights, progress */
+  --leaf:#2E6B34;       /* ashopalav toran green: done state */
+  --bg:#FFFDFB;
+  --surface:#FFFFFF;
+  --surface-2:#FBF1EC;  /* faint kanku tint */
+  --fg:#2A1418;
+  --muted:#6E5357;
+  --line:#EAD7D0;
+  --on-kanku:#FFF7EE;
+  --done-bg:#EAF4EA;
+  --focus:#1F5FBF;
+  --f-head:"Mukta Vaani","Mukta","Noto Sans Gujarati",system-ui,sans-serif;
+  --f-body:"Hind Vadodara","Hind","Noto Sans Gujarati","Noto Sans Devanagari",system-ui,sans-serif;
+  --fs:18px;
+  --radius:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --kanku:#E04B62;--kanku-deep:#5E0A1A;--haldi:#F2B93B;--leaf:#6FBF73;
+  --bg:#170D0F;--surface:#221417;--surface-2:#2C1A1E;--fg:#F6ECE9;--muted:#C2A9AD;
+  --line:#3D2A2E;--on-kanku:#FFF7EE;--done-bg:#1C2C1D;--focus:#8AB4FF;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --kanku:#E04B62;--kanku-deep:#5E0A1A;--haldi:#F2B93B;--leaf:#6FBF73;
+  --bg:#170D0F;--surface:#221417;--surface-2:#2C1A1E;--fg:#F6ECE9;--muted:#C2A9AD;
+  --line:#3D2A2E;--on-kanku:#FFF7EE;--done-bg:#1C2C1D;--focus:#8AB4FF;color-scheme:dark}
+
+html{font-size:var(--fs);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:1rem;line-height:1.6;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--kanku-deep)}
+*{box-sizing:border-box}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-head);line-height:1.25;text-wrap:balance;margin:0}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--kanku-deep);color:var(--on-kanku)}
+.top .wrap{display:flex;align-items:center;gap:8px;padding-block:10px}
+.brand{flex:1;min-width:0;font-family:var(--f-head);font-weight:800;font-size:1.05rem;line-height:1.2;
+  background:none;border:0;padding:0;text-align:start;cursor:pointer;color:inherit}
+.brand small{display:block;font-family:var(--f-body);font-weight:500;font-size:.72rem;opacity:.85}
+.langs{display:flex;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:var(--on-kanku);padding:6px 10px;border-radius:999px;font-weight:600;font-size:.82rem;min-height:38px;cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--on-kanku);color:var(--kanku-deep)}
+.toran{height:14px;background:
+  radial-gradient(circle at 10px 0,var(--haldi) 6px,transparent 7px) 0 0/20px 14px repeat-x,
+  linear-gradient(var(--kanku-deep),var(--kanku-deep));}
+.toran::after{content:"";display:block;height:14px;background:
+  radial-gradient(ellipse 5px 9px at 20px 0,var(--leaf) 90%,transparent 100%) 0 0/40px 14px repeat-x}
+
+main{padding-block:16px 24px}
+.view{display:flex;flex-direction:column;gap:16px}
+
+/* Home hero */
+.hello{background:var(--surface-2);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:12px}
+.hello h1{font-size:1.45rem;color:var(--kanku)}
+.hello p{margin:0;color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0;padding:0;list-style:none}
+.how li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 8px;font-size:.82rem;line-height:1.35;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.how b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--kanku);color:var(--on-kanku);font-family:var(--f-head)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:12px}
+.label{font-weight:600;font-size:.95rem}
+.hint{color:var(--muted);font-size:.85rem;margin:0}
+.choice{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.choice button{min-height:56px;border:2px solid var(--line);background:var(--surface);border-radius:12px;font-weight:600;padding:6px;line-height:1.25;cursor:pointer;font-size:.9rem}
+.choice button[aria-pressed="true"]{border-color:var(--kanku);background:var(--surface-2);color:var(--kanku)}
+.date-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.date-row input{flex:1;min-width:0;min-height:52px;border:2px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--surface)}
+.count{font-family:var(--f-head);font-weight:800;font-size:1.25rem;color:var(--kanku);margin:0}
+
+.overall{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:12px;background:var(--surface-2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--leaf);border-radius:99px;transition:width .3s}
+.pct{font-weight:700;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:end}
+
+/* Timeline */
+.sec-title{font-size:1.2rem;display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.sec-title span{font-family:var(--f-body);font-weight:500;font-size:.82rem;color:var(--muted)}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;position:relative}
+.timeline::before{content:"";position:absolute;left:27px;top:20px;bottom:20px;width:3px;background:repeating-linear-gradient(var(--haldi) 0 6px,transparent 6px 12px)}
+.rit{display:flex;gap:12px;align-items:center;width:100%;text-align:start;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:12px;cursor:pointer;min-height:84px;position:relative}
+.rit:active{transform:scale(.99)}
+.rit .ic{flex:none;width:56px;height:56px;border-radius:50%;background:var(--surface-2);border:2px solid var(--haldi);display:grid;place-items:center;color:var(--kanku);position:relative;z-index:1}
+.rit .ic svg{width:30px;height:30px}
+.rit.done .ic{border-color:var(--leaf);background:var(--done-bg);color:var(--leaf)}
+.rit .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rit .nm{font-family:var(--f-head);font-weight:700;font-size:1.08rem;line-height:1.25}
+.rit .sh{font-size:.85rem;color:var(--muted);line-height:1.35}
+.rit .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--surface-2);color:var(--muted);line-height:1.6}
+.chip.b{background:color-mix(in srgb,var(--kanku) 14%,transparent);color:var(--kanku)}
+.chip.g{background:color-mix(in srgb,var(--haldi) 22%,transparent);color:color-mix(in srgb,var(--haldi) 45%,var(--fg))}
+.chip.ok{background:var(--done-bg);color:var(--leaf)}
+.chev{flex:none;color:var(--muted);font-size:1.6rem;line-height:1}
+.num{position:absolute;left:4px;top:4px;font-size:.68rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Ritual page */
+.back{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;border:0;background:var(--surface-2);padding:10px 16px;border-radius:99px;font-weight:600;min-height:48px;cursor:pointer}
+.rhead{display:flex;gap:14px;align-items:center}
+.rhead .ic{flex:none;width:68px;height:68px;border-radius:50%;background:var(--surface-2);border:3px solid var(--haldi);display:grid;place-items:center;color:var(--kanku)}
+.rhead .ic svg{width:38px;height:38px}
+.rhead h1{font-size:1.6rem;color:var(--kanku)}
+.rhead p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hh,78px));z-index:10;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--bg);padding-block:8px}
+.tabs button{min-height:56px;border:2px solid var(--line);border-radius:12px;background:var(--surface);font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;font-size:.95rem;padding:4px}
+.tabs button small{font-weight:500;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tabs button[aria-selected="true"]{background:var(--kanku);border-color:var(--kanku);color:var(--on-kanku)}
+.tabs button[aria-selected="true"] small{color:var(--on-kanku)}
+.about{margin:0;font-size:1.02rem}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;padding-bottom:16px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--kanku);color:var(--on-kanku);font-family:var(--f-head);font-weight:700}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:42px;bottom:2px;width:2px;background:var(--line)}
+.steps li span{padding-top:6px}
+.tip{background:color-mix(in srgb,var(--haldi) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--haldi) 50%,var(--line));border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tip b{font-family:var(--f-head);color:color-mix(in srgb,var(--haldi) 40%,var(--fg))}
+.note{font-size:.85rem;color:var(--muted);margin:0;border-top:1px dashed var(--line);padding-top:12px}
+
+/* Checklists */
+.listhead{display:flex;align-items:center;gap:12px}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.ck{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:60px;cursor:pointer;user-select:none}
+.ck input{position:absolute;opacity:0;pointer-events:none}
+.box{flex:none;width:32px;height:32px;border-radius:8px;border:2.5px solid var(--muted);display:grid;place-items:center;background:var(--surface);transition:background .15s}
+.box svg{width:20px;height:20px;opacity:0;color:#fff}
+.ck input:checked + .box{background:var(--leaf);border-color:var(--leaf)}
+.ck input:checked + .box svg{opacity:1}
+.ck input:focus-visible + .box{outline:3px solid var(--focus);outline-offset:2px}
+.ck .t{flex:1;min-width:0;line-height:1.4}
+.ck.on{background:var(--done-bg);border-color:color-mix(in srgb,var(--leaf) 35%,var(--line))}
+.ck.on .t{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
+.ck .chip{flex:none}
+.del{flex:none;border:0;background:var(--surface-2);width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;color:var(--muted)}
+.add{display:flex;gap:8px}
+.add input{flex:1;min-width:0;min-height:54px;border:2px dashed var(--line);border-radius:12px;padding:8px 12px;background:var(--surface)}
+.btn{min-height:54px;border:0;border-radius:12px;padding:8px 18px;font-weight:700;cursor:pointer;background:var(--kanku);color:var(--on-kanku);display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;line-height:1.2;text-align:center}
+.btn.ghost{background:var(--surface-2);color:var(--fg)}
+.btn.wa{background:#1E8E4A;color:#fff}
+.btn svg{width:22px;height:22px;flex:none}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.actions .full{grid-column:1/-1}
+.danger{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:12px;align-self:center;min-height:48px}
+.confirm{display:flex;flex-direction:column;gap:8px;background:var(--surface-2);border-radius:12px;padding:12px}
+.confirm .row{display:flex;gap:8px}.confirm .row .btn{flex:1}
+.empty{color:var(--muted);text-align:center;padding:24px 8px;margin:0}
+.group h3{font-size:1.05rem;display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.group h3 button{all:unset;cursor:pointer;color:var(--kanku);text-decoration:underline;text-underline-offset:3px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{min-height:44px;padding:6px 14px;border-radius:99px;border:2px solid var(--line);background:var(--surface);font-weight:600;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* Settings */
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sizes button{min-height:56px;border:2px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;font-weight:700}
+.sizes button[aria-pressed="true"]{border-color:var(--kanku);color:var(--kanku);background:var(--surface-2)}
+.sync{font-size:.85rem;color:var(--muted);margin:0}
+
+/* Bottom nav */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--surface);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -4px 16px rgba(60,10,20,.08)}
+.nav .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding-block:6px}
+.nav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:64px;justify-content:center;border-radius:12px;cursor:pointer;color:var(--muted);font-weight:600;font-size:.82rem;line-height:1.2;position:relative}
+.nav button svg{width:28px;height:28px}
+.nav button[aria-current="page"]{color:var(--kanku);background:var(--surface-2)}
+.badge{position:absolute;top:4px;right:calc(50% - 30px);background:var(--kanku);color:var(--on-kanku);font-size:.7rem;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:grid;place-items:center;padding:0 5px;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:99px;font-weight:600;z-index:40;max-width:90vw;text-align:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:370px){.langs button{padding:6px 7px;font-size:.76rem}.how li{font-size:.76rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.rit:active{transform:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <button class="brand" id="brand" type="button"></button>
+    <div class="langs" role="group" aria-label="Language / ભાષા">
+      <button type="button" data-lang="0" lang="gu">ગુજ</button>
+      <button type="button" data-lang="1" lang="en">Eng</button>
+      <button type="button" data-lang="2" lang="hi">हिं</button>
+    </div>
+  </div>
+  <div class="toran" aria-hidden="true"></div>
+</header>
+
+<main class="wrap" id="main"></main>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <button type="button" data-go="home" id="nav-home"></button>
+    <button type="button" data-go="pending" id="nav-pending"></button>
+    <button type="button" data-go="setup" id="nav-setup"></button>
+  </div>
+</nav>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+const RITUALS = [];
+</script>
+<script>
+RITUALS.push({
+  id: "chandlo",
+  icon: "coconut",
+  host: "g",
+  when: ["સગપણ નક્કી થાય ત્યારે, લગ્નના ૬–૧૨ મહિના પહેલાં", "When the match is fixed, 6–12 months before the wedding", "रिश्ता तय होते ही, शादी से 6–12 महीने पहले"],
+  name: ["ચાંદલો (સગપણ નક્કી કરવું)", "Chandlo (Fixing the Match)", "चांदलो (सगपण तय करना)"],
+  short: ["દીકરીના વડીલો દીકરાને ચાંદલો કરી સંબંધ પાકો કરે", "Bride's elders put a kanku tilak on the groom to fix the match", "कन्या पक्ष के बड़े वर को कंकु का चांदलो कर रिश्ता पक्का करते हैं"],
+  about: ["બંને કુટુંબ રાજી થાય પછી દીકરીના પિતા અને વડીલો દીકરાના ઘરે જાય છે. દીકરાને કપાળે કંકુનો ચાંદલો કરી શ્રીફળ અને રૂપિયા આપે છે. આથી સંબંધ પાકો ગણાય છે.", "Once both families agree, the bride's father and elders visit the groom's home. They put a kanku tilak (chandlo) on the boy's forehead and give him a coconut and cash (shagun). From this day the match is considered final.", "दोनों परिवारों की सहमति के बाद कन्या के पिता और बड़े वर के घर जाते हैं। वर के माथे पर कंकु का चांदलो कर श्रीफल और रुपये देते हैं। इससे रिश्ता पक्का माना जाता है।"],
+  steps: [
+    ["ગોર મહારાજને પૂછી સારો દિવસ અને ચોઘડિયું નક્કી કરો.", "Ask the family priest (gor maharaj) for a good day and time.", "गोर महाराज से अच्छा दिन और चोघड़िया तय करें।"],
+    ["દીકરીના પિતા, કાકા, મામા જેવા ૫–૧૧ વડીલો દીકરાના ઘરે જાય.", "5–11 elders from the bride's side (father, uncles, mama) go to the groom's home.", "कन्या पक्ष के 5–11 बड़े (पिता, काका, मामा) वर के घर जाते हैं।"],
+    ["દીકરાના ઘરે પાણી, ચા-નાસ્તાથી સ્વાગત થાય.", "The groom's family welcomes them with water, tea and snacks.", "वर पक्ष पानी, चाय-नाश्ते से स्वागत करता है।"],
+    ["દીકરાને બાજઠ પર બેસાડી કપાળે કંકુ-ચોખાનો ચાંદલો કરવામાં આવે.", "The boy sits on a low stool (bajath) and gets a kanku-rice tilak on his forehead.", "वर को बाजठ पर बिठाकर माथे पर कंकु-चावल का चांदलो किया जाता है।"],
+    ["શ્રીફળ, રૂપિયા (શુકન) અને ક્યારેક કપડાં હાથમાં આપવામાં આવે.", "He is given a coconut, shagun money and, in many families, clothes.", "उसे श्रीफल, शगुन के रुपये और कई परिवारों में कपड़े दिए जाते हैं।"],
+    ["બંને પક્ષ મોં મીઠું કરે અને ગોળ-ધાણા વહેંચે.", "Both sides share sweets and gol-dhana.", "दोनों पक्ष मुंह मीठा करते हैं और गोळ-धाणा बांटते हैं।"],
+    ["સગાઈ અને લગ્નના અંદાજિત સમયની વાત કરી લે.", "Elders talk roughly about dates for the engagement and wedding.", "बड़े सगाई और शादी के अंदाज़न समय की बात करते हैं।"]
+  ],
+  items: [
+    ["શ્રીફળ (નાળિયેર) – ૨", "Coconut (shreefal) – 2", "श्रीफल (नारियल) – 2", "b"],
+    ["કંકુ, ચોખા, નાડાછડી", "Kanku, rice, sacred thread (nadachhadi)", "कंकु, चावल, नाडाछड़ी", "b"],
+    ["શુકનના રૂપિયા (કવરમાં) – ₹૧૦૧ / ₹૫૦૧ / ₹૧,૧૦૧", "Shagun cash in envelope – ₹101 / ₹501 / ₹1,101", "शगुन के रुपये लिफाफे में – ₹101 / ₹501 / ₹1,101", "b"],
+    ["પૂજાની થાળી અને નાની વાટકી", "Puja plate (thali) and a small bowl", "पूजा की थाली और छोटी कटोरी", "b"],
+    ["દીકરા માટે કપડાં (પરિવારના રિવાજ મુજબ)", "Clothes for the groom (if your family does this)", "वर के लिए कपड़े (परिवार के रिवाज अनुसार)", "b"],
+    ["પેંડા / મીઠાઈ – ૨–૩ કિલો", "Pendas / sweets – 2–3 kg", "पेड़ा / मिठाई – 2–3 किलो"],
+    ["ગોળ અને ધાણા – ૫૦૦ ગ્રામ", "Jaggery and coriander seeds – 500 g", "गुड़ और धनिया – 500 ग्राम"],
+    ["બાજઠ (નાનો પાટલો) અને આસન", "Low stool (bajath) and a seat cloth", "बाजठ (छोटी चौकी) और आसन", "g"],
+    ["ચા-નાસ્તો / જમવાની વ્યવસ્થા", "Tea, snacks or a meal for guests", "चाय-नाश्ता / भोजन की व्यवस्था", "g"],
+    ["દીવો અને અગરબત્તી", "Diya (lamp) and incense", "दीया और अगरबत्ती", "g"]
+  ],
+  todos: [
+    ["ગોર મહારાજને ફોન કરી શુભ દિવસ નક્કી કરો", "Call the gor maharaj and fix an auspicious day", "गोर महाराज को फोन कर शुभ दिन तय करें"],
+    ["જનારા વડીલોની યાદી બનાવો અને જાણ કરો", "Decide which elders will go and inform them", "जाने वाले बड़ों की सूची बनाकर उन्हें बताएं", "b"],
+    ["ગાડી / વાહનની વ્યવસ્થા કરો", "Arrange a car or vehicle for travel", "गाड़ी / वाहन की व्यवस्था करें", "b"],
+    ["શુકનના રૂપિયા કવરમાં તૈયાર રાખો", "Keep the shagun money ready in an envelope", "शगुन के रुपये लिफाफे में तैयार रखें", "b"],
+    ["મીઠાઈ અને શ્રીફળ એક દિવસ પહેલાં લઈ લો", "Buy sweets and coconuts one day before", "मिठाई और श्रीफल एक दिन पहले ले लें"],
+    ["ઘરના નજીકના સગાંને બોલાવો", "Invite close family members to be at home", "घर के नज़दीकी रिश्तेदारों को बुलाएं", "g"],
+    ["ઘર સાફ કરી બેઠકની વ્યવસ્થા કરો", "Clean the house and arrange seating", "घर साफ कर बैठने की व्यवस्था करें", "g"],
+    ["સગાઈની અંદાજિત તારીખ વિશે બંને કુટુંબ વાત કરે", "Both families discuss a rough date for the engagement", "दोनों परिवार सगाई की अंदाज़न तारीख पर बात करें"]
+  ],
+  tip: ["ઘણા લેઉવા પટેલ કુટુંબોમાં ચાંદલા પછી સંબંધ તોડવો બહુ ખરાબ ગણાય છે, એટલે બધી વાત પહેલાં ખુલ્લા મને કરી લો. દહેજની કોઈ વાત ન કરવી — સમાજ સાદા લગ્નને માન આપે છે.", "In many Leuva Patel families, breaking a match after chandlo is taken very seriously, so talk openly about everything before. Never discuss dowry — the samaj values simple weddings.", "कई लेउवा पटेल परिवारों में चांदलो के बाद रिश्ता तोड़ना बहुत बुरा माना जाता है, इसलिए सारी बात पहले खुलकर कर लें। दहेज की कोई बात न करें — समाज सादे विवाह का सम्मान करता है।"]
+});
+
+RITUALS.push({
+  id: "goldhana",
+  icon: "pot",
+  host: "both",
+  when: ["ચાંદલા પછી, લગ્નના ૩–૬ મહિના પહેલાં", "After chandlo, 3–6 months before the wedding", "चांदलो के बाद, शादी से 3–6 महीने पहले"],
+  name: ["ગોળ ધાણા", "Gol Dhana", "गोळ धाणा"],
+  short: ["ગોળ-ધાણા વહેંચી સગપણની ખુશખબર આપવી", "Sharing jaggery and coriander seeds to announce the match", "गुड़-धनिया बांटकर रिश्ते की खुशखबरी देना"],
+  about: ["ગોળ મીઠાશનું અને ધાણા સમૃદ્ધિનું પ્રતીક છે. ગોળ-ધાણા ખાઈને બંને કુટુંબ સંબંધ સ્વીકારે છે અને સગાં-વહાલાંને ખુશખબર આપે છે. ઘણા કુટુંબોમાં દીકરાવાળા દીકરીના ઘરે ભેટ અને મીઠાઈ લઈને જાય છે.", "Jaggery stands for sweetness and coriander seeds for prosperity. By eating gol-dhana together, both families accept the relationship and announce it to relatives. In many families the groom's side visits the bride's home with gifts and sweets.", "गुड़ मिठास और धनिया समृद्धि का प्रतीक है। गोळ-धाणा खाकर दोनों परिवार रिश्ता स्वीकार करते हैं और रिश्तेदारों को खुशखबरी देते हैं। कई परिवारों में वर पक्ष कन्या के घर भेंट और मिठाई लेकर जाता है।"],
+  steps: [
+    ["બંને કુટુંબ સાથે બેસી દિવસ અને સ્થળ નક્કી કરે.", "Both families agree on the day and place.", "दोनों परिवार मिलकर दिन और जगह तय करते हैं।"],
+    ["ગોળ અને ધાણા મિક્સ કરી નાની વાટકીઓ કે પડીકાં તૈયાર કરો.", "Mix jaggery and coriander seeds and fill small bowls or packets.", "गुड़ और धनिया मिलाकर छोटी कटोरियां या पुड़िया तैयार करें।"],
+    ["ભગવાન અને કુળદેવી સામે દીવો કરી પહેલાં ગોળ-ધાણા ધરાવો.", "Light a diya and first offer gol-dhana to God and your kuldevi.", "भगवान और कुलदेवी के सामने दीया जलाकर पहले गोळ-धाणा चढ़ाएं।"],
+    ["દીકરા-દીકરીને બેસાડી વડીલો આશીર્વાદ આપે.", "The boy and girl sit together and elders bless them.", "वर-कन्या को बिठाकर बड़े आशीर्वाद देते हैं।"],
+    ["દીકરાવાળા દીકરીને ભેટ (સાડી, મીઠાઈ, ક્યારેક નાનું ઘરેણું) આપે.", "The groom's side gives the bride a gift (saree, sweets, sometimes small jewellery).", "वर पक्ष कन्या को भेंट (साड़ी, मिठाई, कभी छोटा गहना) देता है।"],
+    ["બધાને ગોળ-ધાણા અને મીઠાઈ વહેંચો.", "Distribute gol-dhana and sweets to everyone.", "सबको गोळ-धाणा और मिठाई बांटें।"],
+    ["સગાં-વહાલાંને ફોન કરી ખુશખબર આપો.", "Call relatives and share the good news.", "रिश्तेदारों को फोन कर खुशखबरी दें।"]
+  ],
+  items: [
+    ["ગોળ – ૧–૨ કિલો", "Jaggery (gol) – 1–2 kg", "गुड़ – 1–2 किलो"],
+    ["ધાણા (આખા, શેકેલા) – ૫૦૦ ગ્રામ–૧ કિલો", "Coriander seeds (dhana) – 500 g–1 kg", "धनिया (साबुत) – 500 ग्राम–1 किलो"],
+    ["નાની વાટકીઓ / કાગળનાં પડીકાં – ૫૦–૧૦૦", "Small bowls or paper packets – 50–100", "छोटी कटोरियां / कागज़ की पुड़िया – 50–100"],
+    ["પેંડા / મીઠાઈ – ૩–૫ કિલો", "Pendas / sweets – 3–5 kg", "पेड़ा / मिठाई – 3–5 किलो"],
+    ["કંકુ, ચોખા, દીવો, અગરબત્તી", "Kanku, rice, diya, incense", "कंकु, चावल, दीया, अगरबत्ती"],
+    ["શ્રીફળ – ૨", "Coconut – 2", "श्रीफल – 2"],
+    ["દીકરી માટે સાડી / ડ્રેસ", "Saree or dress for the bride", "कन्या के लिए साड़ी / ड्रेस", "g"],
+    ["દીકરી માટે શુકનનું કવર", "Shagun envelope for the bride", "कन्या के लिए शगुन का लिफाफा", "g"],
+    ["દીકરા માટે શુકનનું કવર / ભેટ", "Shagun envelope or gift for the groom", "वर के लिए शगुन का लिफाफा / भेंट", "b"],
+    ["મહેમાનો માટે ચા-નાસ્તો / જમણ", "Tea, snacks or meal for guests", "मेहमानों के लिए चाय-नाश्ता / भोजन", "b"]
+  ],
+  todos: [
+    ["બંને કુટુંબ સાથે દિવસ અને સમય નક્કી કરો", "Fix the day and time with the other family", "दूसरे परिवार के साथ दिन और समय तय करें"],
+    ["કેટલા લોકો આવશે તે ગણી લો", "Count how many people will come", "कितने लोग आएंगे, गिन लें"],
+    ["ગોળ-ધાણાનાં પડીકાં એક દિવસ પહેલાં બનાવી લો", "Pack the gol-dhana a day in advance", "गोळ-धाणा की पुड़िया एक दिन पहले बना लें"],
+    ["મીઠાઈનો ઓર્ડર આપો", "Order sweets", "मिठाई का ऑर्डर दें"],
+    ["દીકરી માટે ભેટ ખરીદો", "Buy a gift for the bride", "कन्या के लिए भेंट खरीदें", "g"],
+    ["જમણ કે નાસ્તાની વ્યવસ્થા કરો", "Arrange the meal or snacks", "भोजन या नाश्ते की व्यवस्था करें", "b"],
+    ["નજીકનાં સગાંને ફોન કરી બોલાવો", "Call and invite close relatives", "नज़दीकी रिश्तेदारों को फोन कर बुलाएं"],
+    ["ફોટા પાડવા માટે કોઈને જવાબદારી આપો", "Ask someone to take photos", "फोटो खींचने की ज़िम्मेदारी किसी को दें"]
+  ],
+  tip: ["ગોળ-ધાણા વધારે બનાવજો — પાડોશીઓ અને ગામમાં પણ વહેંચવાનો રિવાજ ઘણાં કુટુંબોમાં છે. પહેલો ભાગ કુળદેવી (જેમ કે ખોડિયાર માં) ને ધરાવવાનું ભૂલશો નહીં.", "Make extra gol-dhana — many families also share it with neighbours and the village. Don't forget to offer the first portion to your kuldevi (for example Khodiyar Maa).", "गोळ-धाणा ज़्यादा बनाएं — कई परिवारों में पड़ोसियों और गांव में भी बांटने का रिवाज है। पहला भाग कुलदेवी (जैसे खोडियार मां) को चढ़ाना न भूलें।"]
+});
+
+RITUALS.push({
+  id: "sagai",
+  icon: "ring",
+  host: "b",
+  when: ["લગ્નના ૧–૬ મહિના પહેલાં", "1–6 months before the wedding", "शादी से 1–6 महीने पहले"],
+  name: ["સગાઈ (રીંગ સેરેમની)", "Sagai (Ring Ceremony)", "सगाई (रिंग सेरेमनी)"],
+  short: ["વીંટી પહેરાવી અને ચૂંદડી ઓઢાડી સગાઈ કરવી", "Exchange of rings and covering the bride with a chundadi", "अंगूठी पहनाकर और चूंदड़ी ओढ़ाकर सगाई करना"],
+  about: ["સગાઈમાં દીકરો અને દીકરી એકબીજાને વીંટી પહેરાવે છે. દીકરાવાળા દીકરીને ચૂંદડી ઓઢાડે છે અને સાડી, ઘરેણાં, મીઠાઈ આપે છે. ઘણાં કુટુંબોમાં આ પ્રસંગ દીકરીના ઘરે કે હોલમાં થાય છે.", "At the sagai the boy and girl put rings on each other's fingers. The groom's family covers the bride with a chundadi (red tie-dye odhani) and gives her saree, jewellery and sweets. In many families it is held at the bride's home or a hall.", "सगाई में वर और कन्या एक-दूसरे को अंगूठी पहनाते हैं। वर पक्ष कन्या को चूंदड़ी ओढ़ाता है और साड़ी, गहने, मिठाई देता है। कई परिवारों में यह कन्या के घर या हॉल में होती है।"],
+  steps: [
+    ["ગોર મહારાજ ગણેશ પૂજા કરાવે.", "The gor maharaj starts with Ganesh puja.", "गोर महाराज गणेश पूजा करवाते हैं।"],
+    ["દીકરીના ઘરવાળા દીકરા અને જાનૈયાનું સ્વાગત કરે.", "The bride's family welcomes the groom and his family.", "कन्या पक्ष वर और उसके परिवार का स्वागत करता है।"],
+    ["દીકરાને ચાંદલો કરી દીકરીવાળા કપડાં / ભેટ આપે.", "The bride's side puts a tilak on the groom and gives him clothes or a gift.", "कन्या पक्ष वर को तिलक कर कपड़े / भेंट देता है।"],
+    ["દીકરાની બહેન કે મમ્મી દીકરીને ચૂંદડી ઓઢાડે અને સાડી-ઘરેણાં આપે.", "The groom's sister or mother covers the bride with the chundadi and gives saree and jewellery.", "वर की बहन या मां कन्या को चूंदड़ी ओढ़ाती है और साड़ी-गहने देती है।"],
+    ["દીકરો-દીકરી એકબીજાને વીંટી પહેરાવે.", "The boy and girl exchange rings.", "वर-कन्या एक-दूसरे को अंगूठी पहनाते हैं।"],
+    ["બંને વડીલોને પગે લાગી આશીર્વાદ લે.", "Both touch the elders' feet for blessings.", "दोनों बड़ों के पैर छूकर आशीर्वाद लेते हैं।"],
+    ["બધા મોં મીઠું કરે, ફોટા પડે અને જમણ થાય.", "Everyone has sweets, photos are taken and a meal is served.", "सब मुंह मीठा करते हैं, फोटो होती है और भोजन होता है।"]
+  ],
+  items: [
+    ["સગાઈની વીંટી – ૨ (દીકરા અને દીકરી માટે)", "Engagement rings – 2 (for boy and girl)", "सगाई की अंगूठी – 2 (वर और कन्या के लिए)"],
+    ["ચૂંદડી (લાલ બાંધણી)", "Chundadi (red bandhani odhani)", "चूंदड़ी (लाल बांधणी)", "g"],
+    ["દીકરી માટે સાડી – ૧–૫", "Sarees for the bride – 1–5", "कन्या के लिए साड़ी – 1–5", "g"],
+    ["દીકરી માટે ઘરેણાં / સોનાનો સેટ (રિવાજ મુજબ)", "Jewellery for the bride (as per custom)", "कन्या के लिए गहने (रिवाज अनुसार)", "g"],
+    ["શૃંગારની થાળી (બંગડી, ચાંદલા, સિંદૂર, મહેંદી)", "Shringar plate (bangles, bindi, cosmetics, mehendi)", "श्रृंगार थाली (चूड़ी, बिंदी, सिंदूर, मेहंदी)", "g"],
+    ["દીકરા માટે કપડાં / ભેટ", "Clothes or gift for the groom", "वर के लिए कपड़े / भेंट", "b"],
+    ["શ્રીફળ – ૫", "Coconut – 5", "श्रीफल – 5"],
+    ["કંકુ, ચોખા, નાડાછડી, દીવો", "Kanku, rice, sacred thread, diya", "कंकु, चावल, नाडाछड़ी, दीया"],
+    ["પેંડા / મીઠાઈનાં બોક્સ – ૫–૧૦ કિલો", "Sweet boxes – 5–10 kg", "मिठाई के डिब्बे – 5–10 किलो"],
+    ["સૂકો મેવો / ભેટની ટોપલી", "Dry fruit / gift baskets", "सूखे मेवे / भेंट की टोकरी"],
+    ["વીંટી મૂકવાની ડબ્બી અને સુંદર થાળી", "Ring box and decorated plate", "अंगूठी की डिब्बी और सजी थाली"],
+    ["હોલ / મંડપ, ખુરશી, સજાવટ", "Hall or tent, chairs, decoration", "हॉल / मंडप, कुर्सियां, सजावट", "b"],
+    ["મહેમાનો માટે જમણ", "Meal for guests", "मेहमानों के लिए भोजन", "b"]
+  ],
+  todos: [
+    ["ગોર મહારાજ સાથે મુહૂર્ત નક્કી કરો", "Fix the muhurat with the gor maharaj", "गोर महाराज से मुहूर्त तय करें"],
+    ["હોલ / જગ્યા બુક કરો", "Book the hall or venue", "हॉल / जगह बुक करें", "b"],
+    ["વીંટીનું માપ લઈ ખરીદી કરો", "Take ring sizes and buy the rings", "अंगूठी का नाप लेकर खरीदारी करें"],
+    ["ચૂંદડી, સાડી અને ઘરેણાંની ખરીદી કરો", "Buy chundadi, sarees and jewellery", "चूंदड़ी, साड़ी और गहनों की खरीदारी करें", "g"],
+    ["જમણ માટે રસોઈયા / કેટરરને ઓર્ડર આપો", "Book the cook or caterer", "रसोइया / कैटरर बुक करें", "b"],
+    ["ફોટોગ્રાફર બુક કરો", "Book a photographer", "फोटोग्राफर बुक करें"],
+    ["મહેમાનોની યાદી બનાવી ફોન / WhatsApp કરો", "Make a guest list and call or WhatsApp them", "मेहमानों की सूची बनाकर फोन / WhatsApp करें"],
+    ["બ્યુટી પાર્લર અને મહેંદીનો સમય બુક કરો", "Book beauty parlour and mehendi", "ब्यूटी पार्लर और मेहंदी बुक करें", "b"],
+    ["આવવા-જવા માટે ગાડીની વ્યવસ્થા કરો", "Arrange cars for travel", "आने-जाने के लिए गाड़ी की व्यवस्था करें", "g"]
+  ],
+  tip: ["ચૂંદડી ઓઢાડવી એ સગાઈનો સૌથી મહત્વનો ભાગ છે, એટલે ચૂંદડી સારી અને સમયસર ખરીદો. ભેટ-સોગાદ આપવામાં દેખાડો ન કરો — લેઉવા પટેલ સમાજ સાદાઈ અને દહેજ વગરના લગ્નને પ્રોત્સાહન આપે છે.", "Covering the bride with the chundadi is the most important part of the sagai, so buy a good one in time. Keep gifts sensible — the Leuva Patel samaj encourages simple, dowry-free weddings.", "चूंदड़ी ओढ़ाना सगाई का सबसे महत्वपूर्ण हिस्सा है, इसलिए अच्छी चूंदड़ी समय पर खरीदें। भेंट में दिखावा न करें — लेउवा पटेल समाज सादे और दहेज-मुक्त विवाह को बढ़ावा देता है।"]
+});
+
+RITUALS.push({
+  id: "lagnalakhva",
+  icon: "letter",
+  host: "both",
+  when: ["લગ્નના ૧–૨ મહિના પહેલાં", "1–2 months before the wedding", "शादी से 1–2 महीने पहले"],
+  name: ["લગ્ન લખવા અને કંકોત્રી", "Lagna Lakhva & Kankotri (Invitations)", "लग्न लिखवा और कंकोत्री"],
+  short: ["મુહૂર્ત લખાવવું અને કંકોત્રી છપાવી વહેંચવી", "Writing the wedding muhurat and sending invitation cards", "मुहूर्त लिखवाना और कंकोत्री छपवाकर बांटना"],
+  about: ["ગોર મહારાજ બંનેની કુંડળી જોઈ લગ્નનું મુહૂર્ત નક્કી કરે છે અને લગ્ન પત્રિકા લખે છે. ઘણાં કુટુંબોમાં દીકરીવાળા આ પત્રિકા ગોળ અને કંકુ સાથે દીકરાના ઘરે મોકલે છે. પહેલી કંકોત્રી ગણપતિ અને કુળદેવીને ધરાવીને પછી સગાંને આપવામાં આવે છે.", "The gor maharaj checks both horoscopes, fixes the wedding muhurat and writes the lagna patrika (wedding letter). In many families the bride's side sends this letter to the groom's home with jaggery and kanku. The first kankotri (invitation card) is offered to Ganeshji and your kuldevi, then cards go to relatives.", "गोर महाराज दोनों की कुंडली देखकर विवाह का मुहूर्त तय करते हैं और लग्न पत्रिका लिखते हैं। कई परिवारों में कन्या पक्ष यह पत्रिका गुड़ और कंकु के साथ वर के घर भेजता है। पहली कंकोत्री गणपति और कुलदेवी को चढ़ाकर फिर रिश्तेदारों को दी जाती है।"],
+  steps: [
+    ["ગોર મહારાજને બંનેની જન્મ તારીખ / કુંડળી આપી મુહૂર્ત કઢાવો.", "Give birth details / horoscopes to the gor maharaj and get the muhurat.", "गोर महाराज को दोनों की जन्म तारीख / कुंडली देकर मुहूर्त निकलवाएं।"],
+    ["શુભ દિવસે ઘરે લગ્ન પત્રિકા લખાવો, કંકુ-ચોખાથી પૂજા કરો.", "On a good day, have the lagna patrika written at home and do a small kanku-rice puja.", "शुभ दिन घर पर लग्न पत्रिका लिखवाएं, कंकु-चावल से पूजा करें।"],
+    ["પત્રિકા, ગોળ, શ્રીફળ સાથે સામા પક્ષના ઘરે મોકલો / આપવા જાઓ.", "Send or take the patrika with jaggery and a coconut to the other family's home.", "पत्रिका, गुड़, श्रीफल के साथ दूसरे पक्ष के घर भेजें / देने जाएं।"],
+    ["કંકોત્રીની ડિઝાઇન અને લખાણ નક્કી કરી છપાવો.", "Finalise the kankotri design and text, then print.", "कंकोत्री का डिज़ाइन और लिखावट तय कर छपवाएं।"],
+    ["પહેલી કંકોત્રી પર કંકુનો સાથિયો કરી ગણપતિને ધરાવો.", "Draw a kanku swastik on the first card and offer it to Ganeshji.", "पहली कंकोत्री पर कंकु का साथिया बनाकर गणपति को चढ़ाएं।"],
+    ["બીજી કંકોત્રી કુળદેવી (જેમ કે ખોડિયાર માં) અને સુરાપુરા દાદાને ધરાવો.", "Offer the next card to your kuldevi (e.g. Khodiyar Maa) and surapura dada.", "दूसरी कंकोत्री कुलदेवी (जैसे खोडियार मां) और सूरापुरा दादा को चढ़ाएं।"],
+    ["પછી મામા, ફઈ, સગાં-વહાલાંને રૂબરૂ કંકોત્રી આપો.", "Then hand cards in person to mama, phoi (aunt) and other relatives.", "फिर मामा, फई और रिश्तेदारों को खुद जाकर कंकोत्री दें।"],
+    ["દૂરનાં સગાંને WhatsApp પર ઈ-કંકોત્રી મોકલો.", "Send an e-invite on WhatsApp to relatives far away.", "दूर के रिश्तेदारों को WhatsApp पर ई-कंकोत्री भेजें।"]
+  ],
+  items: [
+    ["લગ્ન પત્રિકા માટે કાગળ / ગોર મહારાજની દક્ષિણા", "Paper for lagna patrika / dakshina for priest", "लग्न पत्रिका का कागज़ / गोर महाराज की दक्षिणा"],
+    ["કંકુ, ચોખા, હળદર, નાડાછડી", "Kanku, rice, turmeric, sacred thread", "कंकु, चावल, हल्दी, नाडाछड़ी"],
+    ["ગોળ – ૧ કિલો અને શ્રીફળ – ૨", "Jaggery – 1 kg and coconut – 2", "गुड़ – 1 किलो और श्रीफल – 2"],
+    ["કંકોત્રી – મહેમાનો પ્રમાણે (૨૦૦–૫૦૦)", "Kankotri cards – as per guests (200–500)", "कंकोत्री – मेहमानों अनुसार (200–500)"],
+    ["કંકોત્રીનાં કવર અને નામ લખવા પેન", "Envelopes and pen for writing names", "कंकोत्री के लिफाफे और नाम लिखने का पेन"],
+    ["કંકોત્રી સાથે આપવા મીઠાઈ / ડ્રાયફ્રૂટ બોક્સ (ઈચ્છા મુજબ)", "Sweet or dry-fruit box with cards (optional)", "कंकोत्री के साथ मिठाई / ड्राईफ्रूट डिब्बा (इच्छा अनुसार)"],
+    ["ઈ-કંકોત્રી (ફોટો / વીડિયો)", "E-invite (image or video)", "ई-कंकोत्री (फोटो / वीडियो)"],
+    ["મહેમાનોની યાદીની નોટબુક", "Notebook for the guest list", "मेहमानों की सूची की नोटबुक"]
+  ],
+  todos: [
+    ["ગોર મહારાજ પાસે મુહૂર્ત કઢાવો", "Get the muhurat from the gor maharaj", "गोर महाराज से मुहूर्त निकलवाएं"],
+    ["વાડી / હોલ / પાર્ટી પ્લોટ મુહૂર્ત પ્રમાણે બુક કરો", "Book the wadi / hall / party plot for that date", "वाडी / हॉल / पार्टी प्लॉट उस तारीख के लिए बुक करें"],
+    ["બંને પક્ષ મળીને મહેમાનોની યાદી બનાવો", "Make the guest list (both sides)", "दोनों पक्ष मिलकर मेहमानों की सूची बनाएं"],
+    ["કંકોત્રીનું લખાણ તપાસો — નામ, તારીખ, સ્થળ, સમય", "Check card text: names, dates, venue, times", "कंकोत्री की लिखावट जांचें — नाम, तारीख, जगह, समय"],
+    ["કંકોત્રી છપાવવાનો ઓર્ડર આપો", "Place the printing order", "कंकोत्री छपवाने का ऑर्डर दें"],
+    ["પહેલી કંકોત્રી ગણપતિ અને કુળદેવીને ધરાવો", "Offer the first card to Ganeshji and kuldevi", "पहली कंकोत्री गणपति और कुलदेवी को चढ़ाएं"],
+    ["ગામ / વિસ્તાર પ્રમાણે કંકોત્રી વહેંચવાનું આયોજન કરો", "Plan card distribution area-wise / village-wise", "गांव / इलाके के अनुसार कंकोत्री बांटने की योजना बनाएं"],
+    ["ઈ-કંકોત્રી બનાવી WhatsApp પર મોકલો", "Make the e-invite and send on WhatsApp", "ई-कंकोत्री बनाकर WhatsApp पर भेजें"],
+    ["કોને કંકોત્રી આપી તેની યાદીમાં નિશાની કરો", "Tick off who has received a card", "किसे कंकोत्री दी, सूची में निशान लगाएं"]
+  ],
+  tip: ["મામા, ફઈ અને ઘરના વડીલોને કંકોત્રી રૂબરૂ જઈને આપવી — ફોન કે WhatsApp પર મોકલવાથી ઘણા વડીલોને ખોટું લાગે છે. કંકોત્રી છપાવતાં પહેલાં બે વ્યક્તિ પાસે નામની જોડણી તપાસાવો.", "Give cards to mama, phoi and elders in person — many elders feel hurt if invited only by phone or WhatsApp. Ask two people to check name spellings before printing.", "मामा, फई और बड़ों को कंकोत्री खुद जाकर दें — कई बड़ों को फोन या WhatsApp से बुलाना बुरा लगता है। छपवाने से पहले दो लोगों से नाम की वर्तनी जंचवाएं।"]
+});
+
+RITUALS.push({
+  id: "ganesh",
+  icon: "ganesh",
+  host: "both",
+  when: ["લગ્નના ૧–૫ દિવસ પહેલાં", "1–5 days before the wedding", "शादी से 1–5 दिन पहले"],
+  name: ["ગણેશ સ્થાપના, માણેક સ્તંભ અને મંડપ મુહૂર્ત", "Ganesh Sthapana, Manek Stambh & Mandap Muhurat", "गणेश स्थापना, माणेक स्तंभ और मंडप मुहूर्त"],
+  short: ["ગણપતિ બેસાડી, માણેક સ્તંભ રોપી લગ્નની શરૂઆત", "Installing Ganeshji and the mandap pillar to begin the wedding", "गणपति बिठाकर, माणेक स्तंभ रोपकर विवाह की शुरुआत"],
+  about: ["લગ્નનાં બધાં કામ નિર્વિઘ્ને પાર પડે તે માટે ઘરે ગણપતિની સ્થાપના થાય છે. મંડપ મુહૂર્તમાં માણેક સ્તંભ (મંડપનો પહેલો થાંભલો) રોપી પૂજા થાય છે અને બારણે આસોપાલવનું તોરણ બંધાય છે. આ દિવસથી ઘરમાં લગ્નનો માહોલ શરૂ થાય છે.", "Ganeshji is installed at home so that all wedding work goes smoothly. At the mandap muhurat, the manek stambh (the first, sacred pillar of the mandap) is planted and worshipped, and a toran of ashopalav leaves is tied at the door. From this day the wedding officially begins at home.", "विवाह के सारे काम निर्विघ्न हों, इसलिए घर में गणपति की स्थापना होती है। मंडप मुहूर्त में माणेक स्तंभ (मंडप का पहला खंभा) रोपकर पूजा होती है और दरवाज़े पर आसोपालव का तोरण बांधा जाता है। इस दिन से घर में विवाह का माहौल शुरू होता है।"],
+  steps: [
+    ["ગોર મહારાજ જે સમય આપે તે સમયે ઘરના સભ્યો તૈયાર રહે.", "The family gets ready at the time given by the gor maharaj.", "गोर महाराज के दिए समय पर परिवार तैयार रहे।"],
+    ["બાજઠ પર લાલ કપડું પાથરી ગણપતિની મૂર્તિ કે સોપારી-ગણેશ બેસાડો.", "Spread red cloth on a bajath and install a Ganesh idol or a betel-nut Ganesh.", "बाजठ पर लाल कपड़ा बिछाकर गणपति की मूर्ति या सुपारी-गणेश बिठाएं।"],
+    ["માતા-પિતા (અથવા જેના લગ્ન છે તે) ગણેશ પૂજા અને કળશ સ્થાપના કરે.", "Parents (or the bride/groom) do Ganesh puja and set up the kalash.", "माता-पिता (या वर/कन्या) गणेश पूजा और कलश स्थापना करें।"],
+    ["આંગણામાં ખાડો કરી માણેક સ્તંભ (લાકડાનો થાંભલો) રોપો અને નાડાછડી બાંધો.", "Dig a small pit in the courtyard, plant the manek stambh (wooden pole) and tie sacred thread.", "आंगन में गड्ढा कर माणेक स्तंभ (लकड़ी का खंभा) रोपें और नाडाछड़ी बांधें।"],
+    ["સ્તંભની પૂજા કરી તેમાં સોપારી, સિક્કો, હળદર મૂકો.", "Worship the pillar and place betel nut, coin and turmeric in the pit.", "स्तंभ की पूजा कर गड्ढे में सुपारी, सिक्का, हल्दी रखें।"],
+    ["મુખ્ય બારણે આસોપાલવનું તોરણ બાંધો.", "Tie the ashopalav-leaf toran on the main door.", "मुख्य दरवाज़े पर आसोपालव का तोरण बांधें।"],
+    ["બહેનો ગીત ગાય, બધા મોં મીઠું કરે.", "Women sing traditional songs and everyone shares sweets.", "महिलाएं गीत गाती हैं, सब मुंह मीठा करते हैं।"]
+  ],
+  items: [
+    ["ગણપતિની મૂર્તિ / ફોટો", "Ganesh idol or photo", "गणपति की मूर्ति / फोटो"],
+    ["બાજઠ અને લાલ કપડું", "Bajath (low stool) and red cloth", "बाजठ और लाल कपड़ा"],
+    ["તાંબાનો કળશ, શ્રીફળ – ૫", "Copper kalash, coconut – 5", "तांबे का कलश, श्रीफल – 5"],
+    ["કંકુ, ચોખા, હળદર, અબીલ-ગુલાલ, નાડાછડી", "Kanku, rice, turmeric, abil-gulal, sacred thread", "कंकु, चावल, हल्दी, अबीर-गुलाल, नाडाछड़ी"],
+    ["સોપારી – ૨૧, સિક્કા, લવિંગ-એલચી", "Betel nuts – 21, coins, cloves, cardamom", "सुपारी – 21, सिक्के, लौंग-इलायची"],
+    ["ફૂલ, હાર – ૫, દુર્વા (ધરો)", "Flowers, garlands – 5, durva grass", "फूल, हार – 5, दूर्वा"],
+    ["માણેક સ્તંભ (લાકડાનો થાંભલો) – ૧", "Manek stambh (wooden pole) – 1", "माणेक स्तंभ (लकड़ी का खंभा) – 1"],
+    ["આસોપાલવનાં પાનનું તોરણ", "Ashopalav leaves toran", "आसोपालव के पत्तों का तोरण"],
+    ["ઘી, દીવો, રૂની વાટ, અગરબત્તી, કપૂર", "Ghee, diya, cotton wicks, incense, camphor", "घी, दीया, रूई की बाती, अगरबत्ती, कपूर"],
+    ["લાડુ / ગોળ (પ્રસાદ)", "Laddoo or jaggery (prasad)", "लड्डू / गुड़ (प्रसाद)"],
+    ["પંચામૃત માટે દૂધ, દહીં, ઘી, મધ, સાકર", "Milk, curd, ghee, honey, sugar for panchamrut", "पंचामृत के लिए दूध, दही, घी, शहद, शक्कर"],
+    ["ગોર મહારાજની દક્ષિણા", "Dakshina for the gor maharaj", "गोर महाराज की दक्षिणा"]
+  ],
+  todos: [
+    ["ગોર મહારાજનો સમય પાકો કરો", "Confirm the gor maharaj's time", "गोर महाराज का समय पक्का करें"],
+    ["પૂજાનો સામાન આગલા દિવસે ભેગો કરો", "Collect all puja items a day before", "पूजा का सामान एक दिन पहले इकट्ठा करें"],
+    ["માણેક સ્તંભ માટે લાકડું / થાંભલો મંગાવો", "Arrange the wooden pole for manek stambh", "माणेक स्तंभ के लिए लकड़ी / खंभा मंगवाएं"],
+    ["મંડપવાળાને મંડપ બાંધવાનો સમય આપો", "Tell the mandap decorator when to set up", "मंडप वाले को मंडप बांधने का समय बताएं"],
+    ["આસોપાલવનું તોરણ બંધાવો", "Get the ashopalav toran made and tied", "आसोपालव का तोरण बनवाकर बांधें"],
+    ["ઘર અને આંગણાની સફાઈ કરાવો", "Clean the house and courtyard", "घर और आंगन की सफाई करवाएं"],
+    ["નજીકનાં સગાં અને પાડોશીઓને બોલાવો", "Invite close relatives and neighbours", "नज़दीकी रिश्तेदारों और पड़ोसियों को बुलाएं"],
+    ["ગીત ગાવા માટે ઘરની બહેનોને કહો", "Ask the women of the family to sing lagna geet", "लग्न गीत गाने के लिए घर की महिलाओं को कहें"]
+  ],
+  tip: ["ગણપતિ સ્થાપના પછી લગ્ન પૂરા થાય ત્યાં સુધી ઘણાં કુટુંબોમાં સવાર-સાંજ દીવો કરવાનો રિવાજ છે. ઘરમાં કોઈ એક વ્યક્તિને દીવાની જવાબદારી આપો.", "After Ganesh sthapana, many families light a diya morning and evening until the wedding is over. Give one family member this responsibility.", "गणपति स्थापना के बाद, कई परिवारों में विवाह पूरा होने तक सुबह-शाम दीया जलाने का रिवाज है। घर के एक सदस्य को यह ज़िम्मेदारी दें।"]
+});
+
+RITUALS.push({
+  id: "grahshanti",
+  icon: "fire",
+  host: "both",
+  when: ["લગ્નના ૧–૨ દિવસ પહેલાં", "1–2 days before the wedding", "शादी से 1–2 दिन पहले"],
+  name: ["ગ્રહશાંતિ", "Grah Shanti", "ग्रहशांति"],
+  short: ["નવ ગ્રહની પૂજા અને હવન, શુભ શરૂઆત માટે", "Puja and havan for the nine planets, for a good start", "नौ ग्रहों की पूजा और हवन, शुभ शुरुआत के लिए"],
+  about: [
+    "ગ્રહશાંતિમાં ગોર મહારાજ ગણપતિ, કુળદેવી અને નવ ગ્રહની પૂજા કરાવે છે અને હવન થાય છે. વર કે કન્યા માતા-પિતા સાથે પૂજામાં બેસે છે. ઘણા સૌરાષ્ટ્રના કુટુંબમાં આ સાથે રાંદલ તેડવાની વિધિ પણ થાય છે, પણ તે દરેક કુટુંબમાં નથી થતી.",
+    "In Grah Shanti the family priest does puja of Ganpati, your kuldevi and the nine planets, followed by a havan. The bride or groom sits for the puja with their parents. Many Saurashtra families also invite Randal Maa (Randal tedva) at this time, but that is optional and depends on your family.",
+    "ग्रहशांति में गोर महाराज गणपति, कुलदेवी और नौ ग्रहों की पूजा करवाते हैं और हवन होता है। वर या कन्या माता-पिता के साथ पूजा में बैठते हैं। सौराष्ट्र के कई परिवारों में इसके साथ रांदल तेडवा की विधि भी होती है, पर यह हर परिवार में नहीं होती।"
+  ],
+  steps: [
+    ["ગોર મહારાજ મુહૂર્ત પ્રમાણે પાટલા, કળશ અને પૂજાની જગ્યા તૈયાર કરાવે છે.", "The priest sets up the low stools (patla), kalash and puja area at the fixed muhurat.", "गोर महाराज मुहूर्त के अनुसार पाटला, कलश और पूजा की जगह तैयार करवाते हैं।"],
+    ["વર કે કન્યા અને માતા-પિતા નવાં કપડાં પહેરી પૂજામાં બેસે છે.", "The bride or groom and parents sit for the puja in new clothes.", "वर या कन्या और माता-पिता नए कपड़े पहनकर पूजा में बैठते हैं।"],
+    ["પહેલાં ગણપતિ પૂજા અને કુળદેવીનું સ્મરણ થાય છે.", "First comes Ganpati puja and remembering your kuldevi.", "पहले गणपति पूजा और कुलदेवी का स्मरण होता है।"],
+    ["નવ ગ્રહની સ્થાપના કરી દરેક ગ્રહની પૂજા થાય છે.", "The nine planets are installed and each one is worshipped.", "नौ ग्रहों की स्थापना करके हर ग्रह की पूजा होती है।"],
+    ["હવનમાં ઘી, તલ, જવ અને સમિધની આહુતિ અપાય છે.", "Ghee, sesame, barley and samidh wood are offered into the havan fire.", "हवन में घी, तिल, जौ और समिधा की आहुति दी जाती है।"],
+    ["શ્રીફળ હોમીને પૂર્ણાહુતિ અને આરતી થાય છે.", "A coconut is offered for the final offering (purnahuti), then aarti.", "श्रीफल होमकर पूर्णाहुति और आरती होती है।"],
+    ["જે કુટુંબમાં રિવાજ હોય ત્યાં રાંદલ તેડી, લોટા પધરાવી, બહેનો ગરબા ગાય છે.", "In families that follow it, Randal Maa is invited with decorated lotas and the women sing garba.", "जिन परिवारों में रिवाज हो वहाँ रांदल तेडकर, लोटे पधराकर, बहनें गरबा गाती हैं।"],
+    ["ગોર મહારાજને દક્ષિણા આપી, સૌને પ્રસાદ અને જમણ થાય છે.", "The priest is given dakshina, and everyone gets prasad and a meal.", "गोर महाराज को दक्षिणा देकर, सबको प्रसाद और भोजन होता है।"]
+  ],
+  items: [
+    ["ગ્રહશાંતિ પૂજાનો સામાન (ગોર મહારાજની યાદી પ્રમાણે)", "Grah Shanti puja kit (as per the priest's list)", "ग्रहशांति पूजा सामग्री (गोर महाराज की सूची अनुसार)"],
+    ["હવન કુંડ, સમિધ (લાકડાં), છાણાં", "Havan kund, samidh wood, cow-dung cakes", "हवन कुंड, समिधा (लकड़ी), कंडे"],
+    ["ઘી – ૧ કિલો, તલ, જવ, ચોખા", "Ghee – 1 kg, sesame, barley, rice", "घी – 1 किलो, तिल, जौ, चावल"],
+    ["નવ ગ્રહનાં નવ ધાન્ય", "Nine grains for the nine planets", "नौ ग्रहों के नौ धान्य"],
+    ["કંકુ, ચોખા, નાડાછડી, સોપારી, અબીલ-ગુલાલ", "Kanku, rice, sacred thread (nadachhadi), betel nuts, abil-gulal", "कंकु, चावल, नाडाछडी, सुपारी, अबील-गुलाल"],
+    ["શ્રીફળ (નાળિયેર) – ૫", "Coconuts – 5", "श्रीफल (नारियल) – 5"],
+    ["ત્રાંબાનો કળશ, દીવો, અગરબત્તી, કપૂર", "Copper kalash, diya, incense sticks, camphor", "तांबे का कलश, दीया, अगरबत्ती, कपूर"],
+    ["ફૂલ, હાર, તુલસી, આંબાનાં પાન", "Flowers, garlands, tulsi, mango leaves", "फूल, हार, तुलसी, आम के पत्ते"],
+    ["પાટલા / બાજઠ – ૩–૪", "Low stools (patla / bajoth) – 3–4", "पाटला / बाजठ – 3–4"],
+    ["ફળ અને પ્રસાદ માટે મીઠાઈ", "Fruits and sweets for prasad", "फल और प्रसाद के लिए मिठाई"],
+    ["ગોર મહારાજની દક્ષિણા અને કપડાં", "Dakshina and clothes for the priest", "गोर महाराज की दक्षिणा और कपड़े"],
+    ["રાંદલ માટે: બે લોટા, ચૂંદડી, શણગાર, શ્રીફળ (જો રિવાજ હોય તો)", "For Randal (if your family does it): two lotas, chundadi, decoration, coconut", "रांदल के लिए: दो लोटे, चूंदडी, श्रृंगार, श्रीफल (यदि रिवाज हो)"]
+  ],
+  todos: [
+    ["ગોર મહારાજને બોલાવી ગ્રહશાંતિનો દિવસ અને સમય નક્કી કરો.", "Call the family priest and fix the day and time.", "गोर महाराज को बुलाकर ग्रहशांति का दिन और समय तय करें।"],
+    ["ગોર મહારાજ પાસેથી પૂજાના સામાનની પૂરી યાદી લઈ લો.", "Get the full puja samagri list from the priest.", "गोर महाराज से पूजा सामग्री की पूरी सूची ले लें।"],
+    ["નજીકનાં સગાંને સમય સાથે જાણ કરો.", "Tell close relatives the date and time.", "नज़दीकी रिश्तेदारों को समय के साथ सूचना दें।"],
+    ["હવન માટે હવાવાળી જગ્યા અને ધુમાડા માટે પંખો ગોઠવો.", "Pick an airy spot for the havan and keep a fan for the smoke.", "हवन के लिए हवादार जगह और धुएँ के लिए पंखा रखें।"],
+    ["રાંદલ તેડવાના છો કે નહીં તે વડીલોને પૂછી નક્કી કરો.", "Ask the elders whether your family does Randal tedva.", "रांदल तेडना है या नहीं, बड़ों से पूछकर तय करें।"],
+    ["રાંદલ હોય તો ગરબા ગાનાર બહેનોને આમંત્રણ આપો.", "If doing Randal, invite the women who will sing garba.", "रांदल हो तो गरबा गाने वाली बहनों को निमंत्रण दें।"],
+    ["પ્રસાદ અને જમણનું આયોજન કરો.", "Plan the prasad and the meal.", "प्रसाद और भोजन की व्यवस्था करें।"],
+    ["દક્ષિણાનું કવર અગાઉથી તૈયાર રાખો.", "Keep the dakshina envelope ready in advance.", "दक्षिणा का लिफ़ाफ़ा पहले से तैयार रखें।"]
+  ],
+  tip: [
+    "પૂજા પહેલાં કુળદેવી (ઘણા લેઉવા પટેલ કુટુંબમાં ખોડિયાર માં) અને સુરાપુરા દાદાને યાદ કરવાનું ભૂલશો નહીં.",
+    "Before the puja, remember your kuldevi (Khodiyar Maa in many Leuva Patel families) and your surapura dada.",
+    "पूजा से पहले कुलदेवी (कई लेउवा पटेल परिवारों में खोडियार माँ) और सुरापुरा दादा को याद करना न भूलें।"
+  ]
+});
+
+RITUALS.push({
+  id: "pithi",
+  icon: "haldi",
+  host: "both",
+  when: ["લગ્નના ૧–૩ દિવસ પહેલાં", "1–3 days before the wedding", "शादी से 1–3 दिन पहले"],
+  name: ["પીઠી", "Pithi (Haldi)", "पीठी"],
+  short: ["હળદર-ચંદનની પીઠી ચોળવાની વિધિ", "Applying the turmeric-sandalwood paste", "हल्दी-चंदन की पीठी लगाने की विधि"],
+  about: [
+    "પીઠી એટલે હળદર, ચંદન અને ચણાના લોટનો લેપ, જે વર કે કન્યાને ચોળવામાં આવે છે. કુટુંબની બહેનો લગ્નગીત ગાતાં ગાતાં પીઠી ચોળે છે. ઘણા કુટુંબમાં પીઠી ચોળ્યા પછી વર કે કન્યા લગ્ન સુધી ઘરની બહાર જતાં નથી.",
+    "Pithi is a paste of turmeric, sandalwood and gram flour applied to the bride or groom. The women of the family apply it while singing wedding songs (lagna geet). In many families, after pithi the bride or groom does not leave the house until the wedding.",
+    "पीठी यानी हल्दी, चंदन और बेसन का लेप, जो वर या कन्या को लगाया जाता है। परिवार की बहनें लग्नगीत गाते हुए पीठी लगाती हैं। कई परिवारों में पीठी के बाद वर या कन्या शादी तक घर से बाहर नहीं जाते।"
+  ],
+  steps: [
+    ["હળદર, ચંદન, ચણાનો લોટ અને ગુલાબજળ મેળવી પીઠી તૈયાર કરો.", "Mix turmeric, sandalwood, gram flour and rose water to make the pithi.", "हल्दी, चंदन, बेसन और गुलाबजल मिलाकर पीठी तैयार करें।"],
+    ["વર કે કન્યાને પાટલા પર બેસાડો, જૂનાં કે પીળાં કપડાં પહેરાવો.", "Seat the bride or groom on a patla in old or yellow clothes.", "वर या कन्या को पाटले पर बिठाएँ, पुराने या पीले कपड़े पहनाएँ।"],
+    ["પહેલાં ગણપતિ અને કુળદેવીને પીઠી ધરાવો.", "First offer a little pithi to Ganpati and your kuldevi.", "पहले गणपति और कुलदेवी को पीठी अर्पित करें।"],
+    ["માતા, ભાભી, કાકી, ફઈ વગેરે બહેનો વારાફરતી પીઠી ચોળે છે.", "Mother, bhabhi, aunts and other women take turns applying pithi.", "माँ, भाभी, काकी, फ़ई आदि बहनें बारी-बारी से पीठी लगाती हैं।"],
+    ["આ સમયે બહેનો પીઠીનાં લગ્નગીત ગાય છે.", "The women sing pithi wedding songs meanwhile.", "इस समय बहनें पीठी के लग्नगीत गाती हैं।"],
+    ["પીઠી પછી ઘણા કુટુંબમાં સગાં એકબીજાને પણ હળદર લગાડી આનંદ કરે છે.", "In many families relatives then playfully put haldi on each other.", "पीठी के बाद कई परिवारों में रिश्तेदार एक-दूसरे को भी हल्दी लगाकर आनंद करते हैं।"],
+    ["થોડી વાર પછી સ્નાન કરાવો.", "After a while, the bride or groom has a bath.", "थोड़ी देर बाद स्नान करवाएँ।"],
+    ["ઘણા કુટુંબમાં પીઠી પછી વર-કન્યા ઘર બહાર જતાં નથી.", "In many families the bride or groom stays home after pithi.", "कई परिवारों में पीठी के बाद वर-कन्या घर से बाहर नहीं जाते।"]
+  ],
+  items: [
+    ["હળદર પાઉડર – ૨૫૦ ગ્રામ", "Turmeric powder – 250 g", "हल्दी पाउडर – 250 ग्राम"],
+    ["ચંદન પાઉડર – ૫૦ ગ્રામ", "Sandalwood powder – 50 g", "चंदन पाउडर – 50 ग्राम"],
+    ["ચણાનો લોટ (બેસન) – ૫૦૦ ગ્રામ", "Gram flour (besan) – 500 g", "बेसन – 500 ग्राम"],
+    ["ગુલાબજળ / દૂધ, થોડું તેલ", "Rose water or milk, a little oil", "गुलाबजल / दूध, थोड़ा तेल"],
+    ["પીઠી માટે વાટકા / કથરોટ – ૨–૩", "Bowls or a brass dish for the pithi – 2–3", "पीठी के लिए कटोरे / कथरोट – 2–3"],
+    ["પાટલો / બાજઠ, નીચે પાથરવા પ્લાસ્ટિક કે જૂની ચાદર", "Patla stool, plastic sheet or old bedsheet for the floor", "पाटला / बाजठ, नीचे बिछाने के लिए प्लास्टिक या पुरानी चादर"],
+    ["વર કે કન્યા માટે પીળાં / જૂનાં કપડાં", "Yellow or old clothes for the bride or groom", "वर या कन्या के लिए पीले / पुराने कपड़े"],
+    ["કંકુ, ચોખા, ફૂલની પાંદડીઓ", "Kanku, rice, flower petals", "कंकु, चावल, फूलों की पंखुड़ियाँ"],
+    ["જૂના ટુવાલ – ૩–૪", "Old towels – 3–4", "पुराने तौलिये – 3–4"],
+    ["મીઠાઈ / નાસ્તો સગાં માટે", "Sweets or snacks for relatives", "मिठाई / नाश्ता रिश्तेदारों के लिए"],
+    ["લગ્નગીત માટે સ્પીકર (ગાનારાં ન હોય તો)", "Speaker for wedding songs (if no singers)", "लग्नगीत के लिए स्पीकर (गाने वाले न हों तो)"],
+    ["હાથ ધોવા માટે સાબુ અને પાણીની ડોલ", "Soap and a bucket of water for washing hands", "हाथ धोने के लिए साबुन और पानी की बाल्टी"]
+  ],
+  todos: [
+    ["ગોર મહારાજ પાસે પીઠીનો દિવસ અને સમય નક્કી કરાવો.", "Fix the pithi day and time with the priest.", "गोर महाराज से पीठी का दिन और समय तय करवाएँ।"],
+    ["કુટુંબની બહેનોને પીઠીનો સમય જણાવો.", "Tell the women of the family the pithi time.", "परिवार की बहनों को पीठी का समय बताएँ।"],
+    ["સૌ માટે પીળો ડ્રેસ કોડ રાખવો હોય તો અગાઉથી કહો.", "If you want a yellow dress code, tell everyone in advance.", "सबके लिए पीला ड्रेस कोड रखना हो तो पहले से बताएँ।"],
+    ["ડાઘ ન પડે એ માટે જગ્યા પર પ્લાસ્ટિક પાથરો.", "Cover the floor with plastic so it doesn't stain.", "दाग न लगे इसलिए जगह पर प्लास्टिक बिछाएँ।"],
+    ["પીઠી પછી તરત નહાવાની વ્યવસ્થા રાખો.", "Arrange a bath right after the pithi.", "पीठी के तुरंत बाद नहाने की व्यवस्था रखें।"],
+    ["લગ્નગીત ગાનારાં બહેનો કે ગીતોની યાદી તૈયાર રાખો.", "Line up singers or a playlist of lagna geet.", "लग्नगीत गाने वाली बहनें या गीतों की सूची तैयार रखें।"],
+    ["ફોટોગ્રાફરને પીઠીનો સમય જણાવો.", "Tell the photographer the pithi time.", "फ़ोटोग्राफ़र को पीठी का समय बताएँ।"],
+    ["ત્વચાની એલર્જી હોય તો પહેલાં થોડી પીઠી હાથ પર લગાડી તપાસો.", "If the skin is sensitive, test a little pithi on the arm first.", "त्वचा की एलर्जी हो तो पहले थोड़ी पीठी हाथ पर लगाकर जाँचें।"]
+  ],
+  tip: [
+    "પીઠી અને મંડપ મુહૂર્ત ઘણીવાર એક જ દિવસે રાખાય છે, એટલે ગોર મહારાજ સાથે બંનેનો સમય સાથે નક્કી કરો.",
+    "Pithi and mandap muhurat are often on the same day, so fix both timings together with the priest.",
+    "पीठी और मंडप मुहूर्त अक्सर एक ही दिन रखे जाते हैं, इसलिए गोर महाराज से दोनों का समय साथ तय करें।"
+  ]
+});
+
+RITUALS.push({
+  id: "mameru",
+  icon: "gift",
+  host: "both",
+  when: ["લગ્નના ૧–૨ દિવસ પહેલાં", "1–2 days before the wedding", "शादी से 1–2 दिन पहले"],
+  name: ["મામેરું", "Mameru", "मामेरुं"],
+  short: ["મોસાળ (મામા પક્ષ) તરફથી ભેટ લાવવાની વિધિ", "Gifts brought by the maternal uncle's family", "मोसाळ (मामा पक्ष) की ओर से भेंट लाने की विधि"],
+  about: [
+    "મામેરું એટલે મોસાળ – મામા, મામી, નાના-નાની – તરફથી ભાણેજ માટે લવાતી ભેટ. કન્યા માટે પાનેતર, ચૂડો, ઘરેણાં અને કપડાં આવે છે; વર માટે કપડાં અને ભેટ આવે છે. ઘણા કુટુંબમાં મામેરું વર અને કન્યા બંનેના ઘરે થાય છે, અને મોસાળનું ગીતો ગાઈ સ્વાગત થાય છે.",
+    "Mameru is the set of gifts brought by the mosaal – the mother's side: mama, mami and grandparents. For the bride it usually includes the panetar saree, chudo bangles, jewellery and clothes; for the groom, clothes and gifts. In many families mameru happens at both the bride's and the groom's home, and the mosaal is welcomed with songs.",
+    "मामेरुं यानी मोसाळ – मामा, मामी, नाना-नानी – की ओर से भांजे-भांजी के लिए लाई गई भेंट। कन्या के लिए पानेतर, चूडो, गहने और कपड़े आते हैं; वर के लिए कपड़े और भेंट आती है। कई परिवारों में मामेरुं वर और कन्या दोनों के घर होता है, और मोसाळ का गीत गाकर स्वागत होता है।"
+  ],
+  steps: [
+    ["મોસાળ પક્ષ ઢોલ-શરણાઈ સાથે મામેરું લઈને આવે છે.", "The mosaal arrives with the mameru, often with dhol and shehnai.", "मोसाळ पक्ष ढोल-शहनाई के साथ मामेरुं लेकर आता है।"],
+    ["ઘરની બહેનો મોસાળનું કંકુ-ચોખા અને ગીતો સાથે સ્વાગત કરે છે.", "The women of the house welcome them with kanku-rice tilak and songs.", "घर की बहनें मोसाळ का कंकु-चावल और गीतों के साथ स्वागत करती हैं।"],
+    ["મામા ભાણેજને તિલક કરી ભેટ આપે છે.", "The mama puts tilak on the bride or groom and gives the gifts.", "मामा भांजे-भांजी को तिलक करके भेंट देते हैं।"],
+    ["કન્યાને પાનેતર અને ચૂડો મામા તરફથી આપવામાં આવે છે.", "For the bride, the panetar and chudo usually come from the mama.", "कन्या को पानेतर और चूडो मामा की ओर से दिए जाते हैं।"],
+    ["મામેરું પાથરીને સગાંને બતાવવામાં આવે છે.", "The mameru gifts are laid out for relatives to see.", "मामेरुं बिछाकर रिश्तेदारों को दिखाया जाता है।"],
+    ["બહેનો મામેરાનાં ગીત ગાય છે.", "The women sing mameru songs.", "बहनें मामेरे के गीत गाती हैं।"],
+    ["મોસાળને પહેરામણી / ભેટ આપી, જમાડીને વિદાય આપવામાં આવે છે.", "The mosaal is given return gifts (paheramani), a meal and a warm send-off.", "मोसाळ को पहरामणी / भेंट देकर, भोजन कराकर विदा किया जाता है।"]
+  ],
+  items: [
+    ["સ્વાગત માટે આરતીની થાળી, કંકુ, ચોખા", "Aarti thali with kanku and rice for the welcome", "स्वागत के लिए आरती की थाली, कंकु, चावल"],
+    ["મોસાળ તરફથી: પાનેતર (કન્યા માટે)", "From the mosaal: panetar saree (for the bride)", "मोसाळ की ओर से: पानेतर (कन्या के लिए)", "b"],
+    ["મોસાળ તરફથી: ચૂડો (કન્યાના હાથનું માપ લઈને)", "From the mosaal: chudo bangles (as per the bride's size)", "मोसाळ की ओर से: चूडो (कन्या के हाथ का माप लेकर)", "b"],
+    ["મોસાળ તરફથી: વર માટે કપડાં / સાફો / ભેટ", "From the mosaal: clothes, safo or gifts for the groom", "मोसाळ की ओर से: वर के लिए कपड़े / साफ़ा / भेंट", "g"],
+    ["મોસાળ તરફથી: ઘરેણાં અને કુટુંબનાં સભ્યો માટે કપડાં", "From the mosaal: jewellery and clothes for family members", "मोसाळ की ओर से: गहने और परिवार के सदस्यों के लिए कपड़े"],
+    ["શ્રીફળ – ૨, મીઠાઈનાં બોક્સ", "Coconuts – 2, sweet boxes", "श्रीफल – 2, मिठाई के डिब्बे"],
+    ["મામેરું પાથરવા ટેબલ અને સુંદર કપડું", "Table and a nice cloth to display the mameru", "मामेरुं बिछाने के लिए टेबल और सुंदर कपड़ा"],
+    ["મોસાળ માટે પહેરામણી (કપડાં / કવર)", "Return gifts for the mosaal (clothes or envelopes)", "मोसाळ के लिए पहरामणी (कपड़े / लिफ़ाफ़े)"],
+    ["મોસાળ માટે નાસ્તો / જમણ", "Snacks or a meal for the mosaal", "मोसाळ के लिए नाश्ता / भोजन"],
+    ["ભેટ લખવા માટે ચોપડો / નોટ", "A notebook to record gifts", "भेंट लिखने के लिए बही / नोटबुक"],
+    ["ઢોલ / શરણાઈ (કુટુંબ પ્રમાણે)", "Dhol or shehnai (as per family custom)", "ढोल / शहनाई (परिवार के अनुसार)"]
+  ],
+  todos: [
+    ["મોસાળ સાથે ફોન કરી મામેરાનો દિવસ અને સમય નક્કી કરો.", "Call the mosaal and fix the mameru day and time.", "मोसाळ को फ़ोन करके मामेरे का दिन और समय तय करें।"],
+    ["કન્યાના ચૂડાનું માપ અને બ્લાઉઝનું માપ મોસાળને મોકલો.", "Send the bride's chudo size and blouse measurements to the mosaal.", "कन्या के चूडे का माप और ब्लाउज़ का माप मोसाळ को भेजें।", "b"],
+    ["વરના કપડાંનું માપ મોસાળને મોકલો.", "Send the groom's clothing sizes to the mosaal.", "वर के कपड़ों का माप मोसाळ को भेजें।", "g"],
+    ["મોસાળ માટે પહેરામણીની યાદી અને ખરીદી કરો.", "Make the list and buy the return gifts for the mosaal.", "मोसाळ के लिए पहरामणी की सूची और ख़रीदारी करें।"],
+    ["મોસાળનાં સગાંને સ્ટેશન / બસ પરથી લાવવા વાહન ગોઠવો.", "Arrange a vehicle to pick up mosaal relatives from the station or bus stand.", "मोसाळ के रिश्तेदारों को स्टेशन / बस से लाने के लिए वाहन तय करें।"],
+    ["સ્વાગત ગીત ગાનારાં બહેનોને જણાવો.", "Tell the women who will sing the welcome songs.", "स्वागत गीत गाने वाली बहनों को बताएँ।"],
+    ["મામેરું પાથરવાની જગ્યા નક્કી કરો.", "Decide where the mameru will be displayed.", "मामेरुं बिछाने की जगह तय करें।"],
+    ["કોણે શું આપ્યું તે નોટમાં લખી લેવા એક વ્યક્તિને જવાબદારી સોંપો.", "Ask one person to note down who gave what.", "किसने क्या दिया, नोटबुक में लिखने की ज़िम्मेदारी एक व्यक्ति को दें।"],
+    ["ફોટોગ્રાફરને મામેરાનો સમય જણાવો.", "Tell the photographer the mameru time.", "फ़ोटोग्राफ़र को मामेरे का समय बताएँ।"]
+  ],
+  tip: [
+    "મામેરું મોસાળના પ્રેમની ભેટ છે; સમાજ સાદાઈની વાત કરે છે, એટલે મોસાળ પર વધુ ખર્ચનો ભાર ન આવે તેનું ધ્યાન રાખો.",
+    "Mameru is a gift of love from the mosaal. The samaj encourages simplicity, so don't put pressure on the mosaal to spend a lot.",
+    "मामेरुं मोसाळ के प्रेम की भेंट है; समाज सादगी की बात करता है, इसलिए मोसाळ पर ज़्यादा ख़र्च का बोझ न आए इसका ध्यान रखें।"
+  ]
+});
+
+RITUALS.push({
+  id: "raas",
+  icon: "dhol",
+  host: "both",
+  when: ["લગ્નના ૧–૩ દિવસ પહેલાંની સાંજ", "Evening, 1–3 days before the wedding", "शादी से 1–3 दिन पहले की शाम"],
+  name: ["રાસ-ગરબા, મહેંદી, ડાયરો", "Raas-Garba, Mehndi, Dayro", "रास-गरबा, मेहंदी, डायरो"],
+  short: ["મહેંદી, રાસ-ગરબા, સંગીત કે લોક ડાયરાની સાંજ", "Evening of mehndi, raas-garba, music or folk dayro", "मेहंदी, रास-गरबा, संगीत या लोक डायरो की शाम"],
+  about: [
+    "લગ્ન પહેલાં આનંદની સાંજ રાખવામાં આવે છે. કન્યાને મહેંદી મુકાય છે, અને રાત્રે સૌ સગાં રાસ-ગરબા કે દાંડિયા રમે છે. સૌરાષ્ટ્રમાં ઘણા કુટુંબ લોક ડાયરો પણ રાખે છે, જેમાં લોકગીત, ભજન અને વાર્તા થાય છે.",
+    "Before the wedding there is an evening of celebration. The bride gets mehndi on her hands, and at night relatives play raas-garba or dandiya. In Saurashtra many families also hold a lok dayro – an evening of folk songs, bhajans and stories.",
+    "शादी से पहले आनंद की शाम रखी जाती है। कन्या को मेहंदी लगाई जाती है, और रात को सब रिश्तेदार रास-गरबा या डांडिया खेलते हैं। सौराष्ट्र में कई परिवार लोक डायरो भी रखते हैं, जिसमें लोकगीत, भजन और कथाएँ होती हैं।"
+  ],
+  steps: [
+    ["બપોરે કે સાંજે કન્યા અને બહેનોને મહેંદી મુકાય છે.", "In the afternoon or evening, mehndi is applied to the bride and the women.", "दोपहर या शाम को कन्या और बहनों को मेहंदी लगाई जाती है।"],
+    ["સાંજે મહેમાનો આવે, નાસ્તો કે જમણ થાય.", "In the evening guests arrive for snacks or dinner.", "शाम को मेहमान आते हैं, नाश्ता या भोजन होता है।"],
+    ["માતાજી / કુળદેવીના ગરબાથી શરૂઆત કરો.", "Begin with a garba for Mataji or your kuldevi.", "माताजी / कुलदेवी के गरबे से शुरुआत करें।"],
+    ["વર કે કન્યા અને કુટુંબ સાથે રાસ-ગરબા અને દાંડિયા રમે.", "The bride or groom and family play raas-garba and dandiya together.", "वर या कन्या और परिवार साथ में रास-गरबा और डांडिया खेलते हैं।"],
+    ["ડાયરો હોય તો કલાકાર લોકગીત, ભજન અને વાર્તા રજૂ કરે.", "If there is a dayro, the artist performs folk songs, bhajans and stories.", "डायरो हो तो कलाकार लोकगीत, भजन और कथाएँ प्रस्तुत करते हैं।"],
+    ["સમયસર કાર્યક્રમ પૂરો કરો, કારણ કે બીજા દિવસે વિધિઓ હોય છે.", "Finish on time, as there are rituals the next day.", "समय पर कार्यक्रम पूरा करें, क्योंकि अगले दिन विधियाँ होती हैं।"]
+  ],
+  items: [
+    ["જગ્યા: પાર્ટી પ્લોટ / શેરી / હોલ", "Venue: party plot, street or hall", "जगह: पार्टी प्लॉट / गली / हॉल"],
+    ["સાઉન્ડ સિસ્ટમ / DJ અથવા ઢોલી", "Sound system / DJ or dhol player", "साउंड सिस्टम / DJ या ढोली"],
+    ["ગાયક કલાકાર કે ડાયરાના કલાકાર", "Singer or dayro artist", "गायक कलाकार या डायरो के कलाकार"],
+    ["લાઇટિંગ અને સ્ટેજ ડેકોરેશન", "Lighting and stage decoration", "लाइटिंग और स्टेज डेकोरेशन"],
+    ["મહેંદી કલાકાર અને મહેંદીના કોન", "Mehndi artist and mehndi cones", "मेहंदी कलाकार और मेहंदी के कोन", "b"],
+    ["દાંડિયા – મહેમાનોની સંખ્યા પ્રમાણે", "Dandiya sticks – as per number of guests", "डांडिया – मेहमानों की संख्या के अनुसार"],
+    ["વડીલો માટે ખુરશીઓ, બેસવા માટે ગાદલાં", "Chairs for elders, mattresses for sitting", "बुज़ुर्गों के लिए कुर्सियाँ, बैठने के लिए गद्दे"],
+    ["નાસ્તો / જમણ અને પાણીની બોટલ", "Snacks or dinner and water bottles", "नाश्ता / भोजन और पानी की बोतलें"],
+    ["ચણિયાચોળી / કેડિયું અને સાફો", "Chaniya choli, kediyu and safo outfits", "चणियाचोली / केडियुं और साफ़ा"],
+    ["ફોટોગ્રાફર / વિડીયોગ્રાફર", "Photographer or videographer", "फ़ोटोग्राफ़र / वीडियोग्राफ़र"],
+    ["જનરેટર / વધારાની લાઇટ (બહાર કાર્યક્રમ હોય તો)", "Generator or backup lights (for outdoor events)", "जनरेटर / अतिरिक्त लाइट (बाहर कार्यक्रम हो तो)"]
+  ],
+  todos: [
+    ["ઢોલી, DJ કે ડાયરા કલાકારને વહેલા બુક કરો – લગ્નગાળામાં જલદી બુક થઈ જાય છે.", "Book the dhol player, DJ or dayro artist early – they get booked fast in wedding season.", "ढोली, DJ या डायरो कलाकार को जल्दी बुक करें – शादी के मौसम में जल्दी बुक हो जाते हैं।"],
+    ["મહેંદી કલાકારને બુક કરો અને કેટલી બહેનોને મહેંદી મૂકવી તે જણાવો.", "Book the mehndi artist and tell them how many women need mehndi.", "मेहंदी कलाकार को बुक करें और कितनी बहनों को मेहंदी लगानी है, बताएँ।", "b"],
+    ["મોડી રાત સુધી લાઉડસ્પીકર માટે જરૂરી પરવાનગી લો.", "Get the required permission for loudspeakers late at night.", "देर रात तक लाउडस्पीकर के लिए ज़रूरी अनुमति लें।"],
+    ["જગ્યા, ખુરશી અને લાઇટનો મંડપવાળા સાથે ઓર્ડર આપો.", "Order the venue setup, chairs and lights with the mandap decorator.", "जगह, कुर्सी और लाइट का मंडपवाले के साथ ऑर्डर दें।"],
+    ["નાસ્તા / જમણ માટે કેટરર સાથે મેનુ અને સંખ્યા નક્કી કરો.", "Fix the menu and head count with the caterer.", "नाश्ते / भोजन के लिए कैटरर के साथ मेनू और संख्या तय करें।"],
+    ["મહેમાનોને સમય અને સ્થળ સાથે WhatsApp પર આમંત્રણ મોકલો.", "Send guests the time and place on WhatsApp.", "मेहमानों को समय और स्थान के साथ WhatsApp पर निमंत्रण भेजें।"],
+    ["ગરબાનાં ગીતોની યાદી DJ / ઢોલીને આપો.", "Give your garba song list to the DJ or dhol player.", "गरबे के गीतों की सूची DJ / ढोली को दें।"],
+    ["વડીલો માટે અલગ બેસવાની જગ્યા રાખો.", "Keep a separate seating area for elders.", "बुज़ुर्गों के लिए अलग बैठने की जगह रखें।"]
+  ],
+  tip: [
+    "સૌરાષ્ટ્રનો લોક ડાયરો આખા કુટુંબને જોડે છે; પહેલો ગરબો માતાજી કે કુળદેવીનો ગાવાનો રિવાજ ઘણા કુટુંબમાં છે.",
+    "A Saurashtra lok dayro brings the whole family together; in many families the first garba is sung for Mataji or the kuldevi.",
+    "सौराष्ट्र का लोक डायरो पूरे परिवार को जोड़ता है; कई परिवारों में पहला गरबा माताजी या कुलदेवी का गाने का रिवाज है।"
+  ]
+});
+
+RITUALS.push({
+  id: "fulekoo",
+  icon: "horse",
+  host: "both",
+  when: ["લગ્નની આગલી સાંજ", "The evening before the wedding", "शादी की पिछली शाम"],
+  name: ["ફૂલેકું", "Fulekoo", "फूलेकुं"],
+  short: ["વરને (અને ઘણા કુટુંબમાં કન્યાને) ગામમાં ફેરવવાની શોભાયાત્રા", "Procession of the groom (and often the bride) around the village", "वर को (और कई परिवारों में कन्या को) गाँव में घुमाने की शोभायात्रा"],
+  about: [
+    "લગ્નની આગલી સાંજે વરને શણગારેલા ઘોડા, બગી કે ગાડીમાં બેસાડીને વાજતે-ગાજતે શેરી કે ગામમાં ફેરવવામાં આવે છે. ઘણા કુટુંબમાં કન્યાનું પણ ફૂલેકું નીકળે છે. રસ્તામાં મંદિરે દર્શન થાય છે અને કુટુંબ નાચતું-ગાતું સાથે ચાલે છે.",
+    "On the evening before the wedding, the groom rides a decorated horse, carriage or car through the street or village with a band. In many families the bride also has a fulekoo. The family dances along and the procession stops at the temple for darshan.",
+    "शादी की पिछली शाम वर को सजे हुए घोड़े, बग्घी या गाड़ी में बिठाकर बाजे-गाजे के साथ गली या गाँव में घुमाया जाता है। कई परिवारों में कन्या का भी फूलेकुं निकलता है। रास्ते में मंदिर में दर्शन होते हैं और परिवार नाचते-गाते साथ चलता है।"
+  ],
+  steps: [
+    ["ઘરે વર કે કન્યાને તૈયાર કરી, માતા કંકુ-તિલક કરે છે.", "At home the groom or bride gets ready and the mother puts a kanku tilak.", "घर पर वर या कन्या को तैयार करके, माँ कंकु-तिलक करती है।"],
+    ["વરને શણગારેલા ઘોડા, બગી કે ગાડીમાં બેસાડવામાં આવે છે.", "The groom sits on the decorated horse, carriage or car.", "वर को सजे हुए घोड़े, बग्घी या गाड़ी में बिठाया जाता है।"],
+    ["બેન્ડ / ઢોલ સાથે ફૂલેકું ઘરેથી નીકળે છે.", "The fulekoo leaves home with the band or dhol.", "बैंड / ढोल के साथ फूलेकुं घर से निकलता है।"],
+    ["કુટુંબ અને મિત્રો રસ્તામાં નાચતાં-ગાતાં સાથે ચાલે છે.", "Family and friends dance and sing along the way.", "परिवार और मित्र रास्ते में नाचते-गाते साथ चलते हैं।"],
+    ["ગામના મંદિરે (રામજી મંદિર, હનુમાનજી કે માતાજી) દર્શન કરી શ્રીફળ ધરાવે છે.", "The procession stops at the village temple (Ramji, Hanumanji or Mataji) to offer a coconut.", "गाँव के मंदिर (रामजी मंदिर, हनुमानजी या माताजी) में दर्शन करके श्रीफल चढ़ाते हैं।"],
+    ["રસ્તામાં સગાં વરનાં ઓવારણાં લે છે.", "Relatives do ovarna (wave money over the groom) along the way.", "रास्ते में रिश्तेदार वर के ओवारणां (न्योछावर) करते हैं।"],
+    ["ઘરે પાછા આવતાં માતા કે બહેન આરતી ઉતારીને અંદર લે છે.", "On return, the mother or sister does aarti and welcomes them inside.", "घर लौटने पर माँ या बहन आरती उतारकर अंदर लेती है।"]
+  ],
+  items: [
+    ["શણગારેલો ઘોડો / બગી / ગાડી", "Decorated horse, carriage or car", "सजा हुआ घोड़ा / बग्घी / गाड़ी"],
+    ["બેન્ડ-વાજા કે ઢોલ-શરણાઈ", "Band or dhol-shehnai", "बैंड-बाजा या ढोल-शहनाई"],
+    ["વર માટે સાફો, શેરવાની / કેડિયું", "Safo and sherwani or kediyu for the groom", "वर के लिए साफ़ा, शेरवानी / केडियुं", "g"],
+    ["કન્યા માટે ફૂલેકાનાં કપડાં (રિવાજ હોય તો)", "Fulekoo outfit for the bride (if your family does it)", "कन्या के लिए फूलेके के कपड़े (रिवाज हो तो)", "b"],
+    ["આરતીની થાળી, કંકુ, ચોખા, દીવો", "Aarti thali, kanku, rice, diya", "आरती की थाली, कंकु, चावल, दीया"],
+    ["મંદિર માટે શ્રીફળ – ૨ અને પ્રસાદ", "Coconuts – 2 and prasad for the temple", "मंदिर के लिए श्रीफल – 2 और प्रसाद"],
+    ["ઓવારણાં માટે છૂટા પૈસા", "Loose cash for ovarna", "न्योछावर के लिए खुले पैसे"],
+    ["લાઇટવાળા (રોશનીની લાઇટ)", "Light bearers / procession lights", "रोशनी वाले (प्रकाश की लाइटें)"],
+    ["પાણીની બોટલ સાથે ચાલનારા માટે", "Water bottles for those walking", "पैदल चलने वालों के लिए पानी की बोतलें"],
+    ["ફટાકડા (સલામત જગ્યાએ જ)", "Fireworks (only in a safe open spot)", "पटाखे (सिर्फ़ सुरक्षित जगह पर)"],
+    ["વડીલો માટે સાથે ગાડી", "A car alongside for elders", "बुज़ुर्गों के लिए साथ में गाड़ी"]
+  ],
+  todos: [
+    ["ઘોડો / બગી / ગાડી અને બેન્ડ સમય સાથે બુક કરો.", "Book the horse, carriage or car and the band with exact timing.", "घोड़ा / बग्घी / गाड़ी और बैंड समय के साथ बुक करें।"],
+    ["ફૂલેકાનો રસ્તો નક્કી કરી પડોશીઓને જાણ કરો.", "Decide the route and inform the neighbours.", "फूलेके का रास्ता तय करके पड़ोसियों को सूचना दें।"],
+    ["મુખ્ય રસ્તા પરથી જવાનું હોય તો પોલીસ પરવાનગી લો.", "Get police permission if the route uses a main road.", "मुख्य सड़क से जाना हो तो पुलिस अनुमति लें।"],
+    ["મંદિરના પૂજારીને સમય જણાવી દો.", "Tell the temple priest your timing.", "मंदिर के पुजारी को समय बता दें।"],
+    ["વરના કપડાં અને સાફાનું ટ્રાયલ અગાઉથી કરી લો.", "Do a trial of the groom's outfit and safo in advance.", "वर के कपड़ों और साफ़े का ट्रायल पहले से कर लें।", "g"],
+    ["રસ્તા અને સલામતીની જવાબદારી એક વ્યક્તિને સોંપો.", "Put one person in charge of the route and safety.", "रास्ते और सुरक्षा की ज़िम्मेदारी एक व्यक्ति को दें।"],
+    ["ફોટોગ્રાફરને ફૂલેકાનો સમય અને રસ્તો જણાવો.", "Tell the photographer the fulekoo time and route.", "फ़ोटोग्राफ़र को फूलेके का समय और रास्ता बताएँ।"],
+    ["ફૂલેકું મોડું ન થાય તેનું ધ્યાન રાખો, બીજા દિવસે વહેલી જાન છે.", "Keep it on time – the jaan leaves early the next day.", "फूलेकुं देर तक न चले इसका ध्यान रखें, अगले दिन जल्दी बारात है।"]
+  ],
+  tip: [
+    "ઘણા સૌરાષ્ટ્રના ગામમાં ફૂલેકું ગામના મંદિર અને સુરાપુરા દાદાના સ્થાનકે દર્શન કરીને જ પાછું ફરે છે – વડીલોને રસ્તો પૂછી લો.",
+    "In many Saurashtra villages the fulekoo returns only after darshan at the village temple and the surapura dada's shrine – ask the elders about the route.",
+    "सौराष्ट्र के कई गाँवों में फूलेकुं गाँव के मंदिर और सुरापुरा दादा के स्थानक पर दर्शन करके ही लौटता है – बड़ों से रास्ता पूछ लें।"
+  ]
+});
+
+RITUALS.push({
+  id: "jaan",
+  icon: "palki",
+  host: "b",
+  when: ["લગ્નના દિવસે, હસ્તમેળાપ પહેલાં", "Wedding day, before the hastmelap", "शादी के दिन, हस्तमेळाप से पहले"],
+  name: ["જાન, સામૈયું અને પોંખણું", "Jaan, Samaiyu and Ponkhanu", "जान, सामैयुं और पोंखणुं"],
+  short: ["વરરાજાની જાન આવે અને કન્યા પક્ષ સ્વાગત કરે", "The groom's party arrives and is welcomed", "वर की बारात आती है और कन्या पक्ष स्वागत करता है"],
+  about: [
+    "વરરાજા કુળદેવીના દર્શન કરીને જાન લઈને નીકળે છે. કન્યા પક્ષ ઢોલ-શરણાઈ સાથે જાનનું સામૈયું કરે છે. માંડવાના બારણે કન્યાની માતા વરરાજાનું પોંખણું કરે છે.",
+    "The groom takes blessings of the kuldevi and leaves with his wedding party (jaan). The bride's family welcomes the jaan with music (samaiyu). At the mandap door, the bride's mother performs ponkhanu to welcome the groom.",
+    "वर कुलदेवी के दर्शन करके जान लेकर निकलता है। कन्या पक्ष ढोल-शहनाई के साथ जान का सामैयुं करता है। मंडप के द्वार पर कन्या की माता वर का पोंखणुं करती हैं।"
+  ],
+  steps: [
+    ["વરરાજા ઘરે કુળદેવી અને સુરાપુરા દાદાના દર્શન કરે, માતા તિલક કરે.", "At home, the groom bows to the kuldevi and surapura dada; his mother applies tilak.", "घर पर वर कुलदेवी और सुरापुरा दादा के दर्शन करता है, माता तिलक करती हैं।"],
+    ["જાન ઢોલ-શરણાઈ સાથે કન્યાના ગામ / વાડી તરફ નીકળે.", "The jaan leaves for the bride's village or hall with dhol and shehnai.", "जान ढोल-शहनाई के साथ कन्या के गांव / वाड़ी की ओर निकलती है।"],
+    ["કન્યા પક્ષ જાનને ઉતારે (જાનીવાસ) લઈ જાય, ચા-નાસ્તો કરાવે.", "The bride's side takes the jaan to its rest place (janivaas) and serves tea and snacks.", "कन्या पक्ष जान को उतारे (जानीवास) ले जाता है, चाय-नाश्ता कराता है।"],
+    ["મુહૂર્ત પ્રમાણે કન્યા પક્ષ વાજતે-ગાજતે સામૈયું કરે, વેવાઈ એકબીજાને મળે.", "At the set time the bride's side welcomes the jaan with music (samaiyu); both fathers greet each other.", "मुहूर्त के अनुसार कन्या पक्ष बाजे-गाजे से सामैयुं करता है, समधी एक-दूसरे से मिलते हैं।"],
+    ["માંડવાના બારણે કન્યાની માતા ધૂંસરું, મુસળ, રવૈયો, ત્રાક અને તીરથી પોંખણું કરે.", "At the mandap door, the bride's mother does ponkhanu with dhoosru (yoke), musal (pestle), ravaiyo (churner), trak (spindle) and arrow.", "मंडप के द्वार पर कन्या की माता धूंसरुं, मूसल, रवैयो, त्राक और तीर से पोंखणुं करती हैं।"],
+    ["વરરાજા પગથી માટીનો સંપુટ (કોડિયું) ફોડીને માંડવામાં પ્રવેશે.", "The groom breaks the clay sampot (kodiyu) with his foot and enters the mandap.", "वर पैर से मिट्टी का संपुट (कोडियुं) फोड़कर मंडप में प्रवेश करता है।"],
+    ["વરરાજાને માંડવામાં બાજોઠ પર બેસાડી વિધિ શરૂ થાય.", "The groom is seated on the bajoth in the mandap and the rituals begin.", "वर को मंडप में बाजोठ पर बैठाकर विधि शुरू होती है।"]
+  ],
+  items: [
+    ["વરરાજાનો સાફો / પાઘડી, શેરવાની, મોજડી", "Groom's safo (turban), sherwani, mojdi", "वर का साफा / पगड़ी, शेरवानी, मोजड़ी", "g"],
+    ["કટાર / તલવાર અને શ્રીફળ (વરરાજા માટે)", "Katar or sword and a coconut for the groom", "कटार / तलवार और श्रीफल (वर के लिए)", "g"],
+    ["જાન માટે ગાડી / બસ, ઘોડી કે બગી", "Car or bus for the jaan, mare or buggy", "जान के लिए गाड़ी / बस, घोड़ी या बग्गी", "g"],
+    ["ઢોલ, શરણાઈ / બેન્ડ", "Dhol, shehnai or band", "ढोल, शहनाई / बैंड"],
+    ["પોંખણાની થાળી: ધૂંસરું, મુસળ, રવૈયો, ત્રાક, તીર", "Ponkhanu plate: dhoosru, musal, ravaiyo, trak, arrow", "पोंखणुं की थाली: धूंसरुं, मूसल, रवैयो, त्राक, तीर", "b"],
+    ["માટીના સંપુટ / કોડિયાં – ૨", "Clay sampot / kodiya – 2", "मिट्टी के संपुट / कोडिया – 2", "b"],
+    ["આરતીની થાળી: દીવો, કંકુ, ચોખા, ફૂલ", "Arti plate: diya, kanku, rice, flowers", "आरती की थाली: दीया, कंकु, चावल, फूल"],
+    ["ફૂલના હાર – ૧૦ થી ૧૫ (વેવાઈ-વેવાણ માટે)", "Flower garlands – 10 to 15 (for the in-laws)", "फूलों के हार – 10 से 15 (समधी-समधन के लिए)", "b"],
+    ["જાનીવાસમાં ચા-નાસ્તો, પાણીની બોટલ", "Tea, snacks and water bottles at the janivaas", "जानीवास में चाय-नाश्ता, पानी की बोतलें", "b"],
+    ["જાનીવાસ / ઉતારા માટે રૂમ, ગાદલાં, પંખા", "Rooms, mattresses and fans for the janivaas", "जानीवास / उतारे के लिए कमरे, गद्दे, पंखे", "b"],
+    ["વરરાજાના બૂટ સાચવવા થેલી (જૂતા છુપાઈ માટે)", "A bag to keep the groom's shoes (for joota chupai)", "वर के जूते रखने के लिए थैली (जूता छुपाई के लिए)", "g"],
+    ["જાનૈયાઓના નામની યાદી અને ગાડી નંબર", "List of jaan guests and vehicle numbers", "जानैयों के नाम की सूची और गाड़ी नंबर", "g"]
+  ],
+  todos: [
+    ["જાનમાં કેટલા લોકો આવશે તે કન્યા પક્ષને ૧૦ દિવસ પહેલાં કહો.", "Tell the bride's side the jaan head-count 10 days before.", "जान में कितने लोग आएंगे, यह कन्या पक्ष को 10 दिन पहले बताएं।", "g"],
+    ["બસ / ગાડી અને ઘોડી બુક કરો, સમય નક્કી કરો.", "Book the bus, cars and mare; fix timings.", "बस / गाड़ी और घोड़ी बुक करें, समय तय करें।", "g"],
+    ["ઢોલી / બેન્ડવાળાને સમય અને સ્થળ ફરી કન્ફર્મ કરો.", "Reconfirm time and place with the dhol / band.", "ढोली / बैंडवाले से समय और जगह फिर से कन्फर्म करें।"],
+    ["જાનીવાસ / ઉતારો તૈયાર રાખો, ત્યાં એક જવાબદાર માણસ રાખો.", "Keep the janivaas ready with one person in charge there.", "जानीवास / उतारा तैयार रखें, वहां एक जिम्मेदार व्यक्ति रखें।", "b"],
+    ["પોંખણાની થાળી આગલા દિવસે તૈયાર કરો.", "Prepare the ponkhanu plate a day before.", "पोंखणुं की थाली एक दिन पहले तैयार करें।", "b"],
+    ["જાનના રસ્તામાં કોને ફોન કરવો તે નંબર બંને પક્ષમાં વહેંચો.", "Share contact numbers of one coordinator from each side for the journey.", "रास्ते के लिए दोनों पक्षों के एक-एक संयोजक का नंबर बांटें।"],
+    ["વેવાઈ-વેવાણના હાર અને સ્વાગતની જગ્યા નક્કી કરો.", "Fix garlands and the welcome spot for the in-laws.", "समधी-समधन के हार और स्वागत की जगह तय करें।", "b"],
+    ["જાન નીકળવાનો સમય મુહૂર્ત પ્રમાણે ગોરમહારાજ સાથે નક્કી કરો.", "Fix the jaan departure time with the priest as per the muhurat.", "जान निकलने का समय मुहूर्त के अनुसार पंडितजी से तय करें।", "g"]
+  ],
+  tip: [
+    "જાન સમયસર પહોંચે તે સૌથી મહત્વનું છે — મુહૂર્ત સાચવવા રસ્તાનો સમય વધારે ગણીને જ નીકળો.",
+    "Reaching on time matters most. To keep the muhurat, leave with extra travel time in hand.",
+    "जान समय पर पहुंचे, यही सबसे जरूरी है — मुहूर्त संभालने के लिए रास्ते का समय ज्यादा गिनकर ही निकलें।"
+  ]
+});
+
+RITUALS.push({
+  id: "lagna",
+  icon: "mandap",
+  host: "b",
+  when: ["લગ્નનો દિવસ, મુહૂર્ત પ્રમાણે", "Wedding day, at the muhurat", "शादी का दिन, मुहूर्त के अनुसार"],
+  name: ["લગ્ન વિધિ", "Wedding Ceremony", "लग्न विधि"],
+  short: ["હસ્તમેળાપ, કન્યાદાન અને મંગળ ફેરા", "Hastmelap, kanyadaan and mangal fera", "हस्तमेळाप, कन्यादान और मंगल फेरे"],
+  about: [
+    "માંડવામાં ગોરમહારાજ વિધિ કરાવે છે. મામા કન્યાને માંડવામાં લાવે, હસ્તમેળાપ અને કન્યાદાન થાય. ચોરીમાં અગ્નિની સાક્ષીએ ચાર મંગળ ફેરા અને સપ્તપદી થાય છે.",
+    "The priest conducts the wedding in the mandap. The bride's maternal uncle (mama) brings her in, then hastmelap (joining of hands) and kanyadaan take place. In the chori, the couple takes four mangal fera around the sacred fire, followed by saptapadi.",
+    "मंडप में पंडितजी विधि कराते हैं। मामा कन्या को मंडप में लाते हैं, हस्तमेळाप और कन्यादान होता है। चोरी में अग्नि की साक्षी में चार मंगल फेरे और सप्तपदी होती है।"
+  ],
+  steps: [
+    ["મધુપર્ક: કન્યાના માતા-પિતા વરરાજાના પગ ધોઈ મધુપર્ક આપે.", "Madhuparka: the bride's parents wash the groom's feet and offer madhuparka.", "मधुपर्क: कन्या के माता-पिता वर के पैर धोकर मधुपर्क देते हैं।"],
+    ["અંતરપટ રાખી મામા કન્યાને માંડવામાં લાવે.", "With a cloth screen (antarpat) held up, the mama brings the bride to the mandap.", "अंतरपट रखकर मामा कन्या को मंडप में लाते हैं।"],
+    ["અંતરપટ હટે, વરમાળા અને હસ્તમેળાપ થાય.", "The antarpat is removed; garlands are exchanged and hands are joined (hastmelap).", "अंतरपट हटता है, वरमाला और हस्तमेळाप होता है।"],
+    ["કન્યાના માતા-પિતા કન્યાદાન કરે.", "The bride's parents perform kanyadaan.", "कन्या के माता-पिता कन्यादान करते हैं।"],
+    ["ચોરીમાં અગ્નિ ફરતે ચાર મંગળ ફેરા અને સપ્તપદી થાય.", "In the chori, the couple takes four mangal fera around the fire and the saptapadi.", "चोरी में अग्नि के चारों ओर चार मंगल फेरे और सप्तपदी होती है।"],
+    ["વરરાજા મંગળસૂત્ર પહેરાવે અને સેંથામાં સિંદૂર પૂરે.", "The groom ties the mangalsutra and applies sindoor.", "वर मंगलसूत्र पहनाता है और मांग में सिंदूर भरता है।"],
+    ["વર-કન્યા એકબીજાને કંસાર ખવડાવે.", "Bride and groom feed each other kansar (sweet wheat dish).", "वर-कन्या एक-दूसरे को कंसार खिलाते हैं।"],
+    ["વડીલોના આશીર્વાદ લે; સાળીઓ જૂતા છુપાઈની રમત કરે.", "The couple takes elders' blessings; the bride's sisters play joota chupai.", "बड़ों का आशीर्वाद लेते हैं; सालियां जूता छुपाई का खेल करती हैं।"]
+  ],
+  items: [
+    ["ચોરી: ૪ થાંભલા અને માટલાંની હાર", "Chori: 4 pillars with stacked clay pots", "चोरी: 4 खंभे और मटकियों की कतार", "b"],
+    ["હવન સામગ્રી, ઘી, સમિધ (લાકડાં)", "Havan samagri, ghee, samidh (wood)", "हवन सामग्री, घी, समिध (लकड़ी)", "b"],
+    ["મધુપર્ક: દહીં, મધ, ઘી, ખાંડ", "Madhuparka: curd, honey, ghee, sugar", "मधुपर्क: दही, शहद, घी, शक्कर", "b"],
+    ["અંતરપટ (સફેદ / લાલ કાપડ)", "Antarpat cloth (white or red)", "अंतरपट (सफेद / लाल कपड़ा)", "b"],
+    ["વરમાળા – ૨", "Wedding garlands – 2", "वरमाला – 2"],
+    ["કન્યાનું પાનેતર અને ઘરચોળું", "Bride's panetar and gharchola sarees", "कन्या का पानेतर और घरचोळा"],
+    ["મંગળસૂત્ર અને સિંદૂર", "Mangalsutra and sindoor", "मंगलसूत्र और सिंदूर", "g"],
+    ["છેડાછેડી (ગાંઠ બાંધવાનું વસ્ત્ર)", "Chhedachhedi cloth (for tying the knot)", "छेडाछेडी (गांठ बांधने का वस्त्र)"],
+    ["કંસાર (ઘઉંનો લોટ, ઘી, ગોળ / ખાંડ)", "Kansar (wheat flour, ghee, jaggery or sugar)", "कंसार (गेहूं का आटा, घी, गुड़ / शक्कर)", "b"],
+    ["કંકુ, ચોખા, નાડાછડી, સોપારી, શ્રીફળ – ૫", "Kanku, rice, nadachhadi, betel nuts, coconuts – 5", "कंकु, चावल, नाडाछडी, सुपारी, श्रीफल – 5"],
+    ["બાજોઠ – ૪, તાંબાનો કળશ, દીવો", "Bajoth stools – 4, copper kalash, diya", "बाजोठ – 4, तांबे का कलश, दीया", "b"],
+    ["ગોરમહારાજની દક્ષિણા", "Dakshina for the priest", "पंडितजी की दक्षिणा"],
+    ["જૂતા છુપાઈ માટે સાળીઓને આપવાની ભેટ / રોકડ", "Gift or cash for the bride's sisters (joota chupai)", "जूता छुपाई के लिए सालियों को देने का उपहार / नकद", "g"]
+  ],
+  todos: [
+    ["ગોરમહારાજ સાથે મુહૂર્ત અને વિધિનો સમય ફરી કન્ફર્મ કરો.", "Reconfirm the muhurat and ceremony timing with the priest.", "पंडितजी से मुहूर्त और विधि का समय फिर से कन्फर्म करें।"],
+    ["ચોરી અને માંડવાની સજાવટ ડેકોરેટર પાસે તપાસો.", "Check the chori and mandap decoration with the decorator.", "चोरी और मंडप की सजावट डेकोरेटर से जांचें।", "b"],
+    ["મામાને કન્યા લાવવાની વિધિ વિશે જાણ કરો.", "Remind the mama about bringing the bride in.", "मामा को कन्या लाने की विधि के बारे में बताएं।", "b"],
+    ["કન્યાદાન માટે માતા-પિતાનો ઉપવાસ / તૈયારી અંગે વડીલોને પૂછો.", "Ask elders about the parents' fast or preparation for kanyadaan.", "कन्यादान के लिए माता-पिता के उपवास / तैयारी के बारे में बड़ों से पूछें।", "b"],
+    ["કંસાર સમયસર બનાવવાની જવાબદારી કોઈને સોંપો.", "Assign someone to make the kansar on time.", "कंसार समय पर बनाने की जिम्मेदारी किसी को सौंपें।", "b"],
+    ["મંગળસૂત્ર અને દાગીના એક જવાબદાર વ્યક્તિ પાસે રાખો.", "Keep the mangalsutra and jewellery with one trusted person.", "मंगलसूत्र और गहने एक जिम्मेदार व्यक्ति के पास रखें।"],
+    ["ફોટોગ્રાફરને મુખ્ય ક્ષણોની યાદી આપો.", "Give the photographer a list of key moments.", "फोटोग्राफर को मुख्य पलों की सूची दें।"],
+    ["જમણવારનો સમય અને મહેમાનોની સંખ્યા કેટરર સાથે કન્ફર્મ કરો.", "Confirm meal time and guest count with the caterer.", "भोजन का समय और मेहमानों की संख्या कैटरर से कन्फर्म करें।", "b"]
+  ],
+  tip: [
+    "વિધિ લાંબી ચાલે છે — વર-કન્યા માટે પાણી અને થોડો નાસ્તો માંડવા પાસે જ રાખો.",
+    "The ceremony runs long. Keep water and a light snack near the mandap for the couple.",
+    "विधि लंबी चलती है — वर-कन्या के लिए पानी और थोड़ा नाश्ता मंडप के पास ही रखें।"
+  ]
+});
+
+RITUALS.push({
+  id: "vidai",
+  icon: "kalash",
+  host: "b",
+  when: ["લગ્ન વિધિ પૂરી થયા પછી", "Right after the wedding ceremony", "लग्न विधि पूरी होने के बाद"],
+  name: ["વિદાય", "Vidaai", "विदाई"],
+  short: ["દીકરીને સાસરે વળાવવાની ભાવુક ક્ષણ", "The emotional send-off of the bride", "बेटी को ससुराल विदा करने का भावुक पल"],
+  about: [
+    "લગ્ન પછી કન્યા પિયરથી સાસરે જાય છે. ઘણા પરિવારોમાં કન્યા પાછળ ચોખા ઉછાળે અથવા દીવાલ પર કંકુના હાથ મૂકે છે. સમાજ દહેજ વગરના સાદા લગ્નને પ્રોત્સાહન આપે છે.",
+    "After the wedding, the bride leaves her parents' home for her new home. In many families she throws rice back over her shoulder or leaves kanku handprints on the wall. The samaj encourages simple weddings without dahej (dowry).",
+    "शादी के बाद कन्या मायके से ससुराल जाती है। कई परिवारों में कन्या पीछे चावल उछालती है या दीवार पर कंकु के हाथ लगाती है। समाज दहेज के बिना सादे विवाह को प्रोत्साहन देता है।"
+  ],
+  steps: [
+    ["કન્યા ઘરના કુળદેવી / દેવસ્થાને પગે લાગે.", "The bride bows at the family kuldevi shrine.", "कन्या घर की कुलदेवी / देवस्थान पर प्रणाम करती है।"],
+    ["ઘણા પરિવારોમાં કન્યા દીવાલ પર કંકુના હાથના થાપા મૂકે.", "In many families, the bride leaves kanku handprints on the wall.", "कई परिवारों में कन्या दीवार पर कंकु के हाथ के छापे लगाती है।"],
+    ["કન્યા પાછળ ખોબો ભરીને ચોખા ઉછાળે.", "The bride throws handfuls of rice back over her head.", "कन्या पीछे की ओर मुट्ठी भर चावल उछालती है।"],
+    ["માતા-પિતા, ભાઈ-બહેન અને વડીલોને ભેટીને આશીર્વાદ લે.", "She hugs parents, siblings and elders and takes their blessings.", "माता-पिता, भाई-बहन और बड़ों से गले मिलकर आशीर्वाद लेती है।"],
+    ["ભાઈ / મામા કન્યાને ગાડી સુધી વળાવે.", "Her brother or mama walks her to the car.", "भाई / मामा कन्या को गाड़ी तक छोड़ते हैं।"],
+    ["ગાડીના પૈડા નીચે શ્રીફળ વધેરીને વિદાય આપે.", "A coconut is broken in front of the car's wheel and the car leaves.", "गाड़ी के पहिए के आगे श्रीफल फोड़कर विदा करते हैं।"]
+  ],
+  items: [
+    ["શણગારેલી ગાડી (ફૂલ સજાવટ)", "Decorated car (flowers)", "सजी हुई गाड़ी (फूलों की सजावट)", "g"],
+    ["ચોખા – ૧ કિલો, કંકુ", "Rice – 1 kg, kanku", "चावल – 1 किलो, कंकु", "b"],
+    ["શ્રીફળ – ૨", "Coconuts – 2", "श्रीफल – 2"],
+    ["કન્યાની બેગ: કપડાં, રોજની વસ્તુ, દવા", "Bride's bag: clothes, daily needs, medicines", "कन्या का बैग: कपड़े, रोज़ की चीज़ें, दवाई", "b"],
+    ["કન્યાના દસ્તાવેજ: આધાર, પાન, ફોટા, માર્કશીટ", "Bride's documents: Aadhaar, PAN, photos, mark sheets", "कन्या के दस्तावेज़: आधार, पैन, फोटो, मार्कशीट", "b"],
+    ["કરિયાવર (કુટુંબની ઇચ્છા મુજબ, દેખાડા વગર)", "Kariyavar gifts (as the family wishes, no show-off)", "करियावर (परिवार की इच्छा अनुसार, दिखावे के बिना)", "b"],
+    ["દાગીનાની યાદી અને સુરક્ષિત બોક્સ", "Jewellery list and a secure box", "गहनों की सूची और सुरक्षित बॉक्स", "b"],
+    ["પાણીની બોટલ અને રૂમાલ", "Water bottles and handkerchiefs", "पानी की बोतलें और रूमाल"],
+    ["ગાડી માટે ડ્રાઇવર અને સામાન લઈ જવા બીજી ગાડી", "Driver and a second car for luggage", "गाड़ी के लिए ड्राइवर और सामान ले जाने के लिए दूसरी गाड़ी", "g"]
+  ],
+  todos: [
+    ["કન્યાની બેગ અને દસ્તાવેજ આગલા દિવસે પેક કરો.", "Pack the bride's bag and documents a day before.", "कन्या का बैग और दस्तावेज़ एक दिन पहले पैक करें।", "b"],
+    ["કરિયાવરના સામાનની યાદી બનાવી બંને પક્ષ પાસે રાખો.", "Make a list of kariyavar items and keep a copy with both sides.", "करियावर के सामान की सूची बनाकर दोनों पक्षों के पास रखें।", "b"],
+    ["ગાડી સજાવટ અને ડ્રાઇવર બુક કરો.", "Book car decoration and the driver.", "गाड़ी सजावट और ड्राइवर बुक करें।", "g"],
+    ["વિદાયનો સમય ગોરમહારાજ પાસેથી જાણી લો.", "Ask the priest for the vidaai time.", "विदाई का समय पंडितजी से जान लें।"],
+    ["કન્યા સાથે કોણ જશે (અણવર / બહેન) તે નક્કી કરો.", "Decide who will accompany the bride (sister or cousin).", "तय करें कि कन्या के साथ कौन जाएगा (बहन / अणवर)।", "b"],
+    ["સાસરે પહોંચ્યાનો ફોન કરવાનું કોઈને સોંપો.", "Ask someone to call when the bride reaches her new home.", "ससुराल पहुंचने पर फोन करने का काम किसी को सौंपें।"],
+    ["વાડી / હૉલનો સામાન સમેટવાની જવાબદારી નક્કી કરો.", "Assign people to pack up the hall after vidaai.", "वाड़ी / हॉल का सामान समेटने की जिम्मेदारी तय करें।", "b"]
+  ],
+  tip: [
+    "લેઉવા પટેલ સમાજ દહેજ વગરના સાદા લગ્ન પર ભાર મૂકે છે — કરિયાવર દીકરીની જરૂર મુજબ આપો, દેખાડા માટે નહીં.",
+    "The Leuva Patel samaj stresses simple weddings without dowry. Give kariyavar for your daughter's real needs, not for show.",
+    "लेउवा पटेल समाज दहेज के बिना सादे विवाह पर ज़ोर देता है — करियावर बेटी की ज़रूरत के अनुसार दें, दिखावे के लिए नहीं।"
+  ]
+});
+
+RITUALS.push({
+  id: "kankupagla",
+  icon: "feet",
+  host: "g",
+  when: ["વિદાય પછી, વરના ઘરે પહોંચીને", "After vidaai, on arriving at the groom's home", "विदाई के बाद, वर के घर पहुंचकर"],
+  name: ["કંકુ પગલાં (ગૃહપ્રવેશ)", "Kanku Pagla (Griha Pravesh)", "कंकु पगलां (गृहप्रवेश)"],
+  short: ["નવવધૂ કંકુના પગલાં પાડીને ઘરમાં પ્રવેશે", "The new bride enters home with kanku footprints", "नववधू कंकु के पगलां छोड़ते हुए घर में प्रवेश करती है"],
+  about: [
+    "વરના ઘરે નવવધૂનું સ્વાગત થાય છે. સાસુ આરતી અને પોંખણું કરે. વહુ કંકુ-દૂધની થાળીમાં પગ મૂકી ઘરમાં લાલ પગલાં પાડે — એટલે ઘરમાં લક્ષ્મીજી પધાર્યા.",
+    "The new bride is welcomed at the groom's home. The mother-in-law does arti and ponkhanu. The bride steps into a plate of kanku and milk and walks in leaving red footprints, a sign that Lakshmi has entered the home.",
+    "वर के घर नववधू का स्वागत होता है। सास आरती और पोंखणुं करती हैं। बहू कंकु-दूध की थाली में पैर रखकर घर में लाल पगलां छोड़ती है — यानी घर में लक्ष्मीजी पधारीं।"
+  ],
+  steps: [
+    ["બારણે સાસુ વર-વધૂની આરતી ઉતારે અને પોંખણું કરે.", "At the door, the mother-in-law does arti and ponkhanu of the couple.", "द्वार पर सास वर-वधू की आरती उतारती हैं और पोंखणुं करती हैं।"],
+    ["નણંદ બારણું રોકે અને ભાઈ પાસે ભેટ માંગે.", "The groom's sister (nanand) blocks the door and asks her brother for a gift.", "ननद दरवाज़ा रोकती है और भाई से उपहार मांगती है।"],
+    ["ઘણા પરિવારોમાં વહુ ઉંબરે ચોખા ભરેલો કળશ પગથી ઢોળે.", "In many families, the bride tips over a rice-filled kalash at the threshold with her foot.", "कई परिवारों में बहू देहरी पर चावल भरा कलश पैर से गिराती है।"],
+    ["વહુ કંકુ-દૂધની થાળીમાં પગ મૂકી ઘરમાં પગલાં પાડતી જાય.", "The bride steps into the kanku-milk plate and walks in, leaving footprints.", "बहू कंकु-दूध की थाली में पैर रखकर घर में पगलां छोड़ती चलती है।"],
+    ["વર-વધૂ ઘરના કુળદેવી / દેવસ્થાને દર્શન કરે.", "The couple bows at the family kuldevi shrine.", "वर-वधू घर की कुलदेवी / देवस्थान के दर्शन करते हैं।"],
+    ["દૂધ-પાણીના વાસણમાં વીંટી / સિક્કો શોધવાની રમત રમાય.", "The ring-finding game: the couple searches for a ring or coin in a vessel of milky water.", "दूध-पानी के बर्तन में अंगूठी / सिक्का ढूंढने का खेल खेला जाता है।"],
+    ["વડીલો વહુને આશીર્વાદ અને ભેટ (મોં જોવાનું) આપે.", "Elders bless the bride and give gifts (mo jovanu).", "बड़े बहू को आशीर्वाद और उपहार (मुंह दिखाई) देते हैं।"]
+  ],
+  items: [
+    ["આરતીની થાળી: દીવો, કંકુ, ચોખા", "Arti plate: diya, kanku, rice", "आरती की थाली: दीया, कंकु, चावल"],
+    ["મોટી થાળી – ૨ (કંકુ-દૂધ માટે)", "Large plates – 2 (for kanku and milk)", "बड़ी थाली – 2 (कंकु-दूध के लिए)"],
+    ["કંકુ – ૧૦૦ ગ્રામ અને દૂધ – ૧ લિટર", "Kanku – 100 g and milk – 1 litre", "कंकु – 100 ग्राम और दूध – 1 लीटर"],
+    ["ચોખા ભરેલો નાનો કળશ", "Small kalash filled with rice", "चावल भरा छोटा कलश"],
+    ["સફેદ કાપડ / ચાદર પગલાં માટે (યાદગીરી માટે)", "White cloth or sheet for the footprints (as a keepsake)", "पगलां के लिए सफेद कपड़ा / चादर (यादगार के लिए)"],
+    ["વીંટી શોધવા પહોળું વાસણ, વીંટી / સિક્કા", "Wide vessel and a ring or coins for the game", "अंगूठी ढूंढने के लिए चौड़ा बर्तन, अंगूठी / सिक्के"],
+    ["નણંદ માટે ભેટ / રોકડ", "Gift or cash for the nanand", "ननद के लिए उपहार / नकद"],
+    ["વહુ માટે મોં જોવાની ભેટ", "Mo jovanu gifts for the bride", "बहू के लिए मुंह दिखाई का उपहार"],
+    ["તોરણ અને ફૂલની સજાવટ બારણે", "Toran and flower decoration at the door", "दरवाज़े पर तोरण और फूलों की सजावट"],
+    ["મીઠાઈ – ૨ કિલો (મોં મીઠું કરાવવા)", "Sweets – 2 kg (to sweeten everyone's mouth)", "मिठाई – 2 किलो (मुंह मीठा कराने के लिए)"]
+  ],
+  todos: [
+    ["જાન પાછી ફરે તે પહેલાં ઘરનું બારણું સજાવી દો.", "Decorate the front door before the jaan returns.", "जान लौटने से पहले घर का दरवाज़ा सजा दें।"],
+    ["કંકુ-દૂધની થાળી અને કળશ તૈયાર રાખવાની જવાબદારી સોંપો.", "Assign someone to keep the kanku-milk plate and kalash ready.", "कंकु-दूध की थाली और कलश तैयार रखने की जिम्मेदारी सौंपें।"],
+    ["ગોરમહારાજ પાસેથી ગૃહપ્રવેશનું મુહૂર્ત જાણો.", "Ask the priest for the griha pravesh time.", "पंडितजी से गृहप्रवेश का मुहूर्त जानें।"],
+    ["નણંદની ભેટ અગાઉથી ખરીદી રાખો.", "Buy the nanand's gift in advance.", "ननद का उपहार पहले से खरीद कर रखें।"],
+    ["વહુનો રૂમ સાફ અને તૈયાર રાખો.", "Keep the bride's room clean and ready.", "बहू का कमरा साफ और तैयार रखें।"],
+    ["આવનાર મહેમાનો માટે ચા-નાસ્તાની વ્યવસ્થા કરો.", "Arrange tea and snacks for guests arriving with the couple.", "साथ आने वाले मेहमानों के लिए चाय-नाश्ते की व्यवस्था करें।"],
+    ["ફોટોગ્રાફરને ગૃહપ્રવેશ સુધી રોકાવા કહો.", "Ask the photographer to stay until the griha pravesh.", "फोटोग्राफर को गृहप्रवेश तक रुकने के लिए कहें।"]
+  ],
+  tip: [
+    "કંકુ પગલાં સફેદ કાપડ પર પડાવો — વર્ષો સુધી યાદગીરી તરીકે ફ્રેમ કરીને રાખી શકાય.",
+    "Let the kanku footprints fall on a white cloth. It can be framed and kept as a keepsake for years.",
+    "कंकु पगलां सफेद कपड़े पर छपवाएं — सालों तक यादगार के रूप में फ्रेम करके रख सकते हैं।"
+  ]
+});
+
+RITUALS.push({
+  id: "pagfero",
+  icon: "lamp",
+  host: "both",
+  when: ["લગ્ન પછીના ૧–૩૦ દિવસ", "1–30 days after the wedding", "शादी के बाद 1–30 दिन"],
+  name: ["લગ્ન પછી: પગફેરો, કથા અને આભાર", "After the Wedding: Pagfero, Katha and Thanks", "शादी के बाद: पगफेरो, कथा और आभार"],
+  short: ["પિયર પહેલી મુલાકાત, કથા અને બાકી કામ", "First visit home, katha and wrap-up tasks", "मायके की पहली मुलाकात, कथा और बचे काम"],
+  about: [
+    "લગ્ન પછી વહુ પહેલી વાર પિયર જાય તેને પગફેરો કહે છે; કેટલાક પરિવારોમાં આણાનો રિવાજ પણ હોય છે. ઘણા પરિવારો સત્યનારાયણની કથા કરાવે અને દંપતી કુળદેવીના દર્શને જાય છે.",
+    "The bride's first visit back to her parents' home after the wedding is called pagfero; some families follow the aanu custom. Many families hold a Satyanarayan katha, and the couple visits the kuldevi temple together.",
+    "शादी के बाद बहू पहली बार मायके जाती है, उसे पगफेरो कहते हैं; कुछ परिवारों में आणा का रिवाज़ भी होता है। कई परिवार सत्यनारायण की कथा कराते हैं और दंपती कुलदेवी के दर्शन को जाते हैं।"
+  ],
+  steps: [
+    ["લગ્નના બીજા કે નક્કી કરેલા દિવસે કન્યાના ભાઈ તેડવા આવે (પગફેરો).", "On the next day or a fixed day, the bride's brother comes to take her home (pagfero).", "शादी के अगले दिन या तय दिन कन्या का भाई उसे लेने आता है (पगफेरो)।"],
+    ["વર-વધૂ થોડા સમય પિયર રહી પાછા ફરે.", "The couple stays a short while at her parents' home and returns.", "वर-वधू कुछ समय मायके रहकर लौटते हैं।"],
+    ["ઘરે સત્યનારાયણની કથા કરાવો.", "Hold a Satyanarayan katha at home.", "घर पर सत्यनारायण की कथा कराएं।"],
+    ["દંપતી કુળદેવીના દર્શને જાય (ઉદા. ખોડિયાર માતાજી, ખોડલધામ).", "The couple visits the kuldevi temple (for example Khodiyar Maa at Khodaldham).", "दंपती कुलदेवी के दर्शन को जाते हैं (जैसे खोडियार माताजी, खोडलधाम)।"],
+    ["રિસેપ્શન હોય તો તે કરો, અને ભાડાનો સામાન પાછો આપો.", "Hold the reception if planned, and return rented items.", "रिसेप्शन हो तो करें, और किराए का सामान वापस करें।"],
+    ["બધા વેપારીઓનો હિસાબ ચૂકવો અને સંબંધીઓનો આભાર માનો.", "Settle all vendor payments and thank relatives.", "सभी व्यापारियों का हिसाब चुकाएं और रिश्तेदारों का आभार मानें।"],
+    ["લગ્નની નોંધણી કરાવો અને દસ્તાવેજમાં નામ બદલો.", "Register the marriage and update names on documents.", "विवाह का पंजीकरण कराएं और दस्तावेज़ों में नाम बदलें।"]
+  ],
+  items: [
+    ["કથાનો સામાન: કેળ, પંચામૃત, શીરો (પ્રસાદ)", "Katha items: banana leaves, panchamrit, shiro (prasad)", "कथा का सामान: केले के पत्ते, पंचामृत, शीरा (प्रसाद)"],
+    ["ગોરમહારાજની દક્ષિણા", "Dakshina for the priest", "पंडितजी की दक्षिणा"],
+    ["પગફેરા માટે મીઠાઈ અને ભેટ", "Sweets and gifts for the pagfero visit", "पगफेरो के लिए मिठाई और उपहार"],
+    ["કુળદેવીના દર્શન માટે શ્રીફળ, ચૂંદડી, પ્રસાદ", "Coconut, chundadi and prasad for the kuldevi visit", "कुलदेवी दर्शन के लिए श्रीफल, चूंदड़ी, प्रसाद"],
+    ["ભાડાના સામાનની યાદી અને રસીદો", "List and receipts of rented items", "किराए के सामान की सूची और रसीदें"],
+    ["વેપારીઓના બિલ અને ચુકવણીની ફાઇલ", "Vendor bills and a payment file", "व्यापारियों के बिल और भुगतान की फाइल"],
+    ["લગ્ન નોંધણી માટે: કંકોત્રી, ફોટા, આધાર, સાક્ષીઓ", "For marriage registration: invitation card, photos, Aadhaar, witnesses", "विवाह पंजीकरण के लिए: कंकोत्री, फोटो, आधार, गवाह"],
+    ["ચાંલ્લાની નોંધ / ભેટની ડાયરી", "Chandla (gift money) record diary", "चांल्ला / उपहार की डायरी"]
+  ],
+  todos: [
+    ["પગફેરાનો દિવસ બંને પરિવાર સાથે નક્કી કરો.", "Fix the pagfero day with both families.", "पगफेरो का दिन दोनों परिवारों के साथ तय करें।"],
+    ["સત્યનારાયણ કથા માટે ગોરમહારાજને બોલાવો.", "Book the priest for the Satyanarayan katha.", "सत्यनारायण कथा के लिए पंडितजी को बुलाएं।"],
+    ["ભાડાનો સામાન (વાસણ, ખુરશી, કપડાં) સમયસર પાછો આપો.", "Return rented items (utensils, chairs, outfits) on time.", "किराए का सामान (बर्तन, कुर्सियां, कपड़े) समय पर लौटाएं।"],
+    ["કેટરર, ડેકોરેટર, ફોટોગ્રાફરનું બાકી પેમેન્ટ ચૂકવો.", "Clear remaining payments to the caterer, decorator and photographer.", "कैटरर, डेकोरेटर, फोटोग्राफर का बाकी भुगतान करें।"],
+    ["મદદ કરનાર સંબંધીઓને ફોન કરીને આભાર માનો.", "Call relatives who helped and thank them.", "मदद करने वाले रिश्तेदारों को फोन करके धन्यवाद करें।"],
+    ["ચાંલ્લાની નોંધ સાચવીને રાખો.", "Keep the chandla (gift money) record safely.", "चांल्ला की रिकॉर्ड संभाल कर रखें।"],
+    ["૩૦ દિવસમાં લગ્નની નોંધણી કરાવો.", "Register the marriage within 30 days.", "30 दिनों में विवाह का पंजीकरण कराएं।"],
+    ["વહુના આધાર, પાન, બેંક ખાતામાં નામ-સરનામું બદલાવો.", "Update the bride's name and address on Aadhaar, PAN and bank accounts.", "बहू के आधार, पैन, बैंक खाते में नाम-पता बदलवाएं।", "g"],
+    ["ફોટો આલ્બમ અને વિડિયો ક્યારે મળશે તે ફોટોગ્રાફર પાસે નક્કી કરો.", "Fix the album and video delivery date with the photographer.", "फोटो एल्बम और वीडियो कब मिलेगा, फोटोग्राफर से तय करें।"]
+  ],
+  tip: [
+    "ચાંલ્લાની નોંધ સાચવજો — સગાંના પ્રસંગે વહેવાર પાછો કરવામાં આ જ કામ લાગે છે.",
+    "Keep the chandla record safe. It helps you return the gesture at relatives' functions later.",
+    "चांल्ले की रिकॉर्ड संभाल कर रखें — रिश्तेदारों के प्रसंग पर व्यवहार लौटाने में यही काम आती है।"
+  ]
+});
+
+</script>
+<script>
+(function(){
+"use strict";
+/* ---------- UI strings: [gu, en, hi] ---------- */
+const T = {
+  brand:["લેઉવા પટેલ લગ્ન માર્ગદર્શિકા","Leuva Patel Wedding Guide","लेउवा पटेल विवाह मार्गदर्शिका"],
+  brandSub:["સૌરાષ્ટ્રના રીત-રિવાજ","Saurashtra customs","सौराष्ट्र के रीति-रिवाज"],
+  hello:["શુભ પ્રસંગની તૈયારી સરળ બનાવો","Plan every ritual, step by step","हर रस्म की तैयारी, आसान तरीके से"],
+  helloP:["ચાંદલાથી કંકુ પગલાં સુધી — દરેક વિધિ શું છે, કયો સામાન જોઈએ અને કયું કામ બાકી છે, બધું એક જગ્યાએ.","From Chandlo to Kanku Pagla — what each ritual means, what to buy and what is left to do, all in one place.","चांदला से कंकु पगलां तक — हर रस्म का मतलब, कौन सा सामान चाहिए और क्या काम बाकी है, सब एक जगह।"],
+  how1:["વિધિ પર દબાવો","Tap a ritual","रस्म पर दबाएँ"],
+  how2:["સામાન / કામ પર ✓ કરો","Tick items & tasks","सामान / काम पर ✓ करें"],
+  how3:["WhatsApp પર મોકલો","Send on WhatsApp","WhatsApp पर भेजें"],
+  whose:["કોના લગ્ન છે?","Whose wedding is it?","किसकी शादी है?"],
+  whoseHint:["પસંદ કરવાથી ફક્ત તમારા પક્ષની યાદી દેખાશે.","Choosing this shows only your side's lists.","चुनने से सिर्फ आपके पक्ष की सूची दिखेगी।"],
+  sideB:["દીકરીના લગ્ન","Daughter's wedding","बेटी की शादी"],
+  sideG:["દીકરાના લગ્ન","Son's wedding","बेटे की शादी"],
+  sideAll:["બધું બતાવો","Show all","सब दिखाएँ"],
+  date:["લગ્નની તારીખ","Wedding date","शादी की तारीख"],
+  dateHint:["તારીખ નાખો એટલે બાકી દિવસ દેખાશે.","Add the date to see the countdown.","तारीख डालें तो बाकी दिन दिखेंगे।"],
+  daysLeft:["લગ્નને {n} દિવસ બાકી","{n} days to the wedding","शादी में {n} दिन बाकी"],
+  today:["આજે લગ્ન છે — શુભ લગ્ન!","The wedding is today — best wishes!","आज शादी है — शुभ विवाह!"],
+  past:["લગ્ન થઈ ગયા — અભિનંદન!","The wedding is done — congratulations!","शादी हो गई — बधाई हो!"],
+  progress:["કુલ તૈયારી","Overall progress","कुल तैयारी"],
+  rituals:["વિધિઓ — ક્રમ પ્રમાણે","Rituals — in order","रस्में — क्रम से"],
+  ritualsCount:["{n} વિધિ","{n} rituals","{n} रस्में"],
+  hostB:["કન્યા પક્ષના ઘરે","At bride's home","कन्या पक्ष के घर"],
+  hostG:["વર પક્ષના ઘરે","At groom's home","वर पक्ष के घर"],
+  hostBoth:["બંને ઘરે","At both homes","दोनों घर"],
+  tagB:["કન્યા પક્ષ","Bride side","कन्या पक्ष"],
+  tagG:["વર પક્ષ","Groom side","वर पक्ष"],
+  doneChip:["તૈયાર","Ready","तैयार"],
+  back:["પાછા","Back","वापस"],
+  tabSteps:["વિધિ","Ritual","विधि"],
+  tabItems:["સામાન","Items","सामान"],
+  tabTodos:["કામ","To-do","काम"],
+  whatIs:["આ વિધિ શું છે?","What is this ritual?","यह रस्म क्या है?"],
+  howDone:["કેવી રીતે થાય છે?","How it is done","कैसे होती है?"],
+  tip:["વડીલોની સલાહ","Elders' tip","बड़ों की सलाह"],
+  vary:["દરેક ગામ અને કુટુંબના રિવાજ થોડા અલગ હોય છે. ગોર મહારાજ અને ઘરના વડીલોને પૂછીને નક્કી કરો.","Customs differ a little by village and family. Confirm with your family priest (gor maharaj) and elders.","हर गाँव और परिवार के रिवाज थोड़े अलग होते हैं। गोर महाराज और घर के बड़ों से पूछकर तय करें।"],
+  itemsTitle:["સામાનની યાદી","Items to arrange","सामान की सूची"],
+  todosTitle:["કરવાના કામ","Things to do","करने के काम"],
+  addItem:["તમારો સામાન ઉમેરો…","Add your own item…","अपना सामान जोड़ें…"],
+  addTodo:["તમારું કામ ઉમેરો…","Add your own task…","अपना काम जोड़ें…"],
+  add:["ઉમેરો","Add","जोड़ें"],
+  added:["ઉમેરાયું","Added","जुड़ गया"],
+  remove:["કાઢી નાખો","Remove","हटाएँ"],
+  wa:["WhatsApp પર મોકલો","Send on WhatsApp","WhatsApp पर भेजें"],
+  copy:["યાદી કૉપી કરો","Copy list","सूची कॉपी करें"],
+  copied:["યાદી કૉપી થઈ ગઈ","List copied","सूची कॉपी हो गई"],
+  copyFail:["કૉપી ન થયું — નીચેનું લખાણ દબાવી રાખી કૉપી કરો","Couldn't copy — press and hold the text below to copy","कॉपी नहीं हुआ — नीचे का टेक्स्ट दबाकर कॉपी करें"],
+  reset:["આ યાદીના બધા ✓ કાઢી નાખો","Clear all ticks in this list","इस सूची के सभी ✓ हटाएँ"],
+  resetQ:["ખરેખર બધા ✓ કાઢી નાખવા છે?","Clear all ticks in this list?","क्या सच में सभी ✓ हटाने हैं?"],
+  yes:["હા, કાઢી નાખો","Yes, clear","हाँ, हटाएँ"],
+  no:["ના","No","नहीं"],
+  navHome:["વિધિઓ","Rituals","रस्में"],
+  navPending:["બાકી કામ","Pending","बाकी काम"],
+  navSetup:["સેટિંગ","Settings","सेटिंग"],
+  pendingTitle:["હજુ બાકી છે","Still to do","अभी बाकी है"],
+  pendingHint:["બધી વિધિનો બાકી સામાન અને કામ એક જગ્યાએ. ✓ કરતા જાવ.","Everything left across all rituals. Tick as you go.","सभी रस्मों का बाकी सामान और काम एक जगह। ✓ करते जाएँ।"],
+  fAll:["બધું","All","सब"],
+  allDone:["વાહ! બધું તૈયાર છે.","Wonderful — everything is ready.","वाह! सब तैयार है।"],
+  open:["ખોલો","Open","खोलें"],
+  setupTitle:["સેટિંગ","Settings","सेटिंग"],
+  lang:["ભાષા","Language","भाषा"],
+  size:["અક્ષરનું માપ","Text size","अक्षर का आकार"],
+  sizeS:["નાના","Small","छोटा"],sizeM:["મધ્યમ","Medium","मध्यम"],sizeL:["મોટા","Large","बड़ा"],
+  saved:["તમારા ✓ આ ફોનમાં સચવાય છે.","Your ticks are saved on this phone.","आपके ✓ इस फ़ोन में सेव रहते हैं।"],
+  savedCloud:["તમારા ✓ તમારા Claude ખાતામાં સચવાય છે — બીજા ફોનમાં પણ દેખાશે.","Your ticks are saved to your Claude account — they show on your other devices too.","आपके ✓ आपके Claude खाते में सेव हैं — दूसरे डिवाइस पर भी दिखेंगे।"],
+  resetAll:["બધું ફરીથી શરૂ કરો","Start everything again","सब फिर से शुरू करें"],
+  resetAllQ:["બધા ✓ અને તમે ઉમેરેલી વસ્તુઓ કાઢી નાખવી છે?","Remove all ticks and everything you added?","सभी ✓ और आपकी जोड़ी चीज़ें हटानी हैं?"],
+  aboutTitle:["આ માર્ગદર્શિકા વિશે","About this guide","इस मार्गदर्शिका के बारे में"],
+  aboutP:["સૌરાષ્ટ્રના લેઉવા પટેલ પરિવારો માટે બનાવેલી સરળ માર્ગદર્શિકા. સમાજ સાદાઈથી લગ્ન અને દહેજ વગરના લગ્નને પ્રોત્સાહન આપે છે. યાદીઓ ફક્ત સૂચન છે — તમારા કુટુંબ પ્રમાણે ઉમેરો કે ઘટાડો.","A simple guide made for Saurashtra Leuva Patel families. The samaj encourages simple, dowry-free weddings. The lists are suggestions — add or skip things to suit your family.","सौराष्ट्र के लेउवा पटेल परिवारों के लिए सरल मार्गदर्शिका। समाज सादगी से और बिना दहेज की शादी को बढ़ावा देता है। सूचियाँ सिर्फ सुझाव हैं — अपने परिवार के हिसाब से जोड़ें या घटाएँ।"],
+  shareItems:["સામાનની યાદી","Item list","सामान की सूची"],
+  shareTodos:["કામની યાદી","To-do list","काम की सूची"],
+  sharePending:["લગ્નની બાકી તૈયારી","Wedding – still to do","शादी – बाकी तैयारी"],
+  shareFoot:["— લેઉવા પટેલ લગ્ન માર્ગદર્શિકા","— Leuva Patel Wedding Guide","— लेउवा पटेल विवाह मार्गदर्शिका"],
+  of:["{a} / {b}","{a} / {b}","{a} / {b}"],
+  removed:["કાઢી નાખ્યું","Removed","हटा दिया"],
+  cleared:["✓ કાઢી નાખ્યા","Ticks cleared","✓ हटा दिए"]
+};
+const LANGS=["gu","en","hi"];
+
+/* ---------- Icons ---------- */
+const P = {
+  ring:'<circle cx="12" cy="15" r="6"/><path d="M12 3l3 3-3 3-3-3z"/>',
+  coconut:'<path d="M12 7c4.4 0 7 3.3 7 7s-3 6-7 6-7-2.3-7-6 2.6-7 7-7z"/><path d="M12 7c-.6-2-2.4-3.4-5-3.6M12 7c.6-2 2.4-3.4 5-3.6"/><circle cx="10" cy="12" r=".9" fill="currentColor"/><circle cx="14" cy="12" r=".9" fill="currentColor"/><circle cx="12" cy="15" r=".9" fill="currentColor"/>',
+  pot:'<path d="M8.5 4h7M9.5 4v2.2C6.6 7.4 4.5 10 4.5 13.5c0 4 3.4 6.5 7.5 6.5s7.5-2.5 7.5-6.5c0-3.5-2.1-6.1-5-7.3V4"/><path d="M5 12.5h14M6 15.5h12"/>',
+  letter:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>',
+  ganesh:'<path d="M12 4v16M4 12h16M12 4h5M20 12v5M12 20H7M4 12V7"/><circle cx="8" cy="8" r="1" fill="currentColor"/><circle cx="16" cy="8" r="1" fill="currentColor"/><circle cx="8" cy="16" r="1" fill="currentColor"/><circle cx="16" cy="16" r="1" fill="currentColor"/>',
+  haldi:'<path d="M3 12h18a9 8 0 0 1-18 0z"/><path d="M7 12c.4-1.8 2.4-3 5-3s4.6 1.2 5 3"/><path d="M15 9l4-5"/>',
+  gift:'<rect x="4" y="10" width="16" height="10" rx="1"/><rect x="3" y="7" width="18" height="3" rx="1"/><path d="M12 7v13M12 7c-1-3-5-4-5-1.5S10 7 12 7zm0 0c1-3 5-4 5-1.5S14 7 12 7z"/>',
+  lamp:'<path d="M3 13c2 4 5 6 9 6s7-2 9-6z"/><path d="M12 4c2.2 2.6 2.2 5 0 6.5-2.2-1.5-2.2-3.9 0-6.5z"/>',
+  dhol:'<path d="M5 7h14v10H5z"/><ellipse cx="5" cy="12" rx="2" ry="5"/><ellipse cx="19" cy="12" rx="2" ry="5"/><path d="M7 7l3 10 4-10 3 10"/>',
+  horse:'<path d="M8 20l1-6-3.5-2L8 6l3 1.5L13 4l1.2 3C17.5 8 19 11 19 14.5V20"/><circle cx="10.5" cy="9.5" r=".9" fill="currentColor"/>',
+  mandap:'<path d="M3 9l9-5 9 5M5 9v11M19 9v11M3 20h18M9 20v-6h6v6"/><path d="M5 11.5h14" stroke-dasharray="1.5 2"/>',
+  fire:'<path d="M5 15h14l-2 5H7z"/><path d="M12 4c3 3 3 6.5 0 9-3-2.5-3-6 0-9zM8 9c1.4 1.6 1.4 3.6 0 5M16 9c-1.4 1.6-1.4 3.6 0 5"/>',
+  palki:'<path d="M5 11h14v6H5zM6.5 11c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5M2 13h20M8 17v3M16 17v3"/>',
+  feet:'<path d="M8 20c-2 0-3-2-2.6-5S6.8 9 8.5 9s2 2.4 1.7 5.2S10 20 8 20zM16 16c-2 0-2.4-2.5-2.2-5S15 5 16.5 5s2.4 2.6 2 5.6S18 16 16 16z"/><circle cx="7" cy="6.6" r=".8" fill="currentColor"/><circle cx="9.3" cy="6.4" r=".8" fill="currentColor"/><circle cx="15" cy="2.8" r=".8" fill="currentColor"/><circle cx="17.4" cy="2.8" r=".8" fill="currentColor"/>',
+  kalash:'<path d="M8 9h8M9 9c-2.8 1-4 3.6-4 6 0 3 3 5 7 5s7-2 7-5c0-2.4-1.2-5-4-6"/><path d="M12 9c-1-2.2-3-3.2-5-3M12 9c1-2.2 3-3.2 5-3"/><circle cx="12" cy="5" r="2"/><path d="M7 14h10"/>',
+  home:'<path d="M4 11l8-7 8 7v9h-5v-6h-6v6H4z"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5L7.5 11M4 18h2.5"/>',
+  gear:'<path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5" stroke-width="3"/>',
+  wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z" fill="currentColor" stroke="none"/>',
+  copy:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+  back:'<path d="M15 5l-7 7 7 7"/>'
+};
+const ic = (n)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(P[n]||P.lamp)+'</svg>';
+
+/* ---------- State ---------- */
+const KEY="lp-lagna-v1";
+const DEF={lang:0,side:"all",date:"",fs:19,ck:{},custom:{},upd:0};
+let S=load();
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||"null");if(v&&typeof v==="object")return Object.assign({},DEF,v);}catch(e){}return Object.assign({},DEF);}
+let cloudRef=null,cloudOn=false,cloudTimer=null;
+function save(){
+  S.upd=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
+  if(cloudRef){clearTimeout(cloudTimer);cloudTimer=setTimeout(pushCloud,900);}
+}
+function pushCloud(){if(!cloudRef)return;cloudRef.set({state:JSON.stringify(S),upd:S.upd}).catch(()=>{});}
+async function initCloud(){
+  try{
+    if(!window.claude||typeof window.claude.use!=="function")return;
+    const [db,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+    if(!db||!user)return;
+    const id=await user.id(); if(!id)return;
+    cloudRef=db.doc("data/users/"+id+"/plan");
+    const snap=await cloudRef.get();
+    const d=snap.exists?snap.data():null;
+    let remote=null; try{remote=d&&typeof d.state==="string"?JSON.parse(d.state):null;}catch(e){}
+    if(remote&&(remote.upd||0)>(S.upd||0)){S=Object.assign({},DEF,remote);try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+    else if(S.upd)pushCloud();
+    cloudOn=true;render();
+  }catch(e){cloudRef=null;}
+}
+
+/* ---------- Helpers ---------- */
+const L=()=>S.lang;
+const t=(k,vars)=>{let s=(T[k]||[k])[L()]||T[k][0];if(vars)for(const v in vars)s=s.split("{"+v+"}").join(vars[v]);return s;};
+const tx=(arr)=>arr?(arr[L()]||arr[0]):"";
+const GU="૦૧૨૩૪૫૬૭૮૯";
+const n=(x)=>L()===0?String(x).replace(/[0-9]/g,d=>GU[d]):String(x);
+const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $=(s,r=document)=>r.querySelector(s);
+function sideOk(tag){return !tag||S.side==="all"||tag===S.side;}
+function entries(r,kind){ // kind: "i" items, "t" todos
+  const base=(kind==="i"?r.items:r.todos)||[];
+  const out=[];
+  base.forEach((e,i)=>{if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+i,text:tx(e),tag:e[3]||"",custom:false});});
+  const c=((S.custom[r.id]||{})[kind])||[];
+  c.forEach(e=>out.push({key:r.id+"|c"+kind+"|"+e.id,text:e.t,tag:"",custom:true,cid:e.id}));
+  return out;
+}
+function stat(r,kind){const e=kind?entries(r,kind):entries(r,"i").concat(entries(r,"t"));const d=e.filter(x=>S.ck[x.key]).length;return{d,all:e.length};}
+function totals(){let d=0,a=0;RITUALS.forEach(r=>{const s=stat(r);d+=s.d;a+=s.all;});return{d,a};}
+function hostChip(h){return h==="b"?'<span class="chip b">'+esc(t("hostB"))+'</span>':h==="g"?'<span class="chip g">'+esc(t("hostG"))+'</span>':'<span class="chip">'+esc(t("hostBoth"))+'</span>';}
+function tagChip(tag){return tag==="b"?'<span class="chip b">'+esc(t("tagB"))+'</span>':tag==="g"?'<span class="chip g">'+esc(t("tagG"))+'</span>':"";}
+let toastT;function toast(m){const el=$("#toast");el.textContent=m;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,2200);}
+function daysTo(){if(!S.date)return null;const d=new Date(S.date+"T00:00:00");if(isNaN(d))return null;const now=new Date();now.setHours(0,0,0,0);return Math.round((d-now)/86400000);}
+function countText(){const d=daysTo();if(d===null)return"";if(d>0)return t("daysLeft",{n:n(d)});if(d===0)return t("today");return t("past");}
+
+/* ---------- Routing ---------- */
+let route="home",tab="steps",confirmFor=null,pendFilter="all";
+function readHash(){const h=(location.hash||"").slice(1);if(h.startsWith("r-")&&RITUALS.some(r=>"r-"+r.id===h))return h;if(h==="pending"||h==="setup")return h;return"home";}
+function go(r){if(location.hash.slice(1)!==r){location.hash=r;}else{route=r;render();}}
+window.addEventListener("hashchange",()=>{const r=readHash();if(r!==route){if(r.startsWith("r-"))tab="steps";confirmFor=null;}route=r;render();window.scrollTo(0,0);});
+
+/* ---------- Views ---------- */
+function checkRow(e,opts){
+  const on=!!S.ck[e.key];
+  return '<li><label class="ck'+(on?" on":"")+'"><input type="checkbox" data-ck="'+esc(e.key)+'"'+(on?" checked":"")+'><span class="box">'+ic("check")+'</span><span class="t">'+esc(e.text)+'</span>'+tagChip(e.tag)+
+    (e.custom&&!opts?'<button type="button" class="del" data-del="'+esc(e.key)+'" aria-label="'+esc(t("remove"))+'">×</button>':"")+'</label></li>';
+}
+function viewHome(){
+  const tt=totals();const pct=tt.a?Math.round(tt.d*100/tt.a):0;
+  const ct=countText();
+  let h='<section class="hello"><h1>'+esc(t("hello"))+'</h1><p>'+esc(t("helloP"))+'</p><ol class="how"><li><b>'+n(1)+'</b>'+esc(t("how1"))+'</li><li><b>'+n(2)+'</b>'+esc(t("how2"))+'</li><li><b>'+n(3)+'</b>'+esc(t("how3"))+'</li></ol></section>';
+  if(ct||tt.d)h+='<section class="card">'+(ct?'<p class="count">'+esc(ct)+'</p>':'')+'<div class="label">'+esc(t("progress"))+'</div><div class="overall"><div class="bar"><i style="width:'+pct+'%"></i></div><span class="pct">'+n(pct)+'%</span></div></section>';
+  h+='<h2 class="sec-title">'+esc(t("rituals"))+'<span>'+esc(t("ritualsCount",{n:n(RITUALS.length)}))+'</span></h2><ol class="timeline">';
+  RITUALS.forEach((r,i)=>{const s=stat(r);const done=s.all&&s.d===s.all;
+    h+='<li><button type="button" class="rit'+(done?" done":"")+'" data-open="'+r.id+'"><span class="num">'+n(i+1)+'</span><span class="ic">'+ic(r.icon)+'</span><span class="tx"><span class="nm">'+esc(tx(r.name))+'</span><span class="sh">'+esc(tx(r.short))+'</span><span class="meta"><span class="chip">'+esc(tx(r.when))+'</span>'+(done?'<span class="chip ok">✓ '+esc(t("doneChip"))+'</span>':'<span class="chip">'+n(s.d)+' / '+n(s.all)+'</span>')+'</span></span><span class="chev" aria-hidden="true">›</span></button></li>';});
+  h+='</ol>';
+  h+='<section class="card" id="mine"><div class="label" id="whose-l">'+esc(t("whose"))+'</div>'+sideButtons()+'<p class="hint">'+esc(t("whoseHint"))+'</p>';
+  h+='<label class="label" for="date-home">'+esc(t("date"))+'</label><div class="date-row"><input type="date" id="date-home" value="'+esc(S.date)+'"></div>'+(ct?'<p class="count">'+esc(ct)+'</p>':'<p class="hint">'+esc(t("dateHint"))+'</p>');
+  h+='</section>';
+  h+='<p class="note">'+esc(t("vary"))+'</p>';
+  return h;
+}
+function sideButtons(){
+  const o=[["b","sideB"],["g","sideG"],["all","sideAll"]];
+  return '<div class="choice" role="group" aria-labelledby="whose-l">'+o.map(x=>'<button type="button" data-side="'+x[0]+'" aria-pressed="'+(S.side===x[0])+'">'+esc(t(x[1]))+'</button>').join("")+'</div>';
+}
+function shareText(title,groups){
+  let s="*"+title+"*\n";
+  groups.forEach(g=>{if(g.head)s+="\n_"+g.head+"_\n";g.rows.forEach(e=>{s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
+  return s+"\n"+t("shareFoot");
+}
+function shareBlock(text,resetKind){
+  let h='<div class="actions"><a class="btn wa full" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(text)+'">'+ic("wa")+esc(t("wa"))+'</a><button type="button" class="btn ghost full" data-copy>'+ic("copy")+esc(t("copy"))+'</button></div>';
+  h+='<textarea id="copy-src" class="sr" readonly tabindex="-1" aria-hidden="true">'+esc(text)+'</textarea><div id="copy-fallback" hidden></div>';
+  if(resetKind){
+    if(confirmFor===resetKind)h+='<div class="confirm"><b>'+esc(t("resetQ"))+'</b><div class="row"><button type="button" class="btn" data-reset-yes="'+resetKind+'">'+esc(t("yes"))+'</button><button type="button" class="btn ghost" data-reset-no>'+esc(t("no"))+'</button></div></div>';
+    else h+='<button type="button" class="danger" data-reset="'+resetKind+'">'+esc(t("reset"))+'</button>';
+  }
+  return h;
+}
+function viewRitual(id){
+  const r=RITUALS.find(x=>x.id===id);
+  const si=stat(r,"i"),st=stat(r,"t");
+  let h='<button type="button" class="back" data-go="home">'+ic("back").replace('aria-hidden','style="width:20px;height:20px" aria-hidden')+esc(t("back"))+'</button>';
+  h+='<div class="rhead"><span class="ic">'+ic(r.icon)+'</span><div><h1>'+esc(tx(r.name))+'</h1><p>'+esc(tx(r.when))+'</p><div class="meta" style="margin-top:6px">'+hostChip(r.host)+'</div></div></div>';
+  const tabs=[["steps","tabSteps",""],["items","tabItems",n(si.d)+" / "+n(si.all)],["todos","tabTodos",n(st.d)+" / "+n(st.all)]];
+  h+='<div class="tabs" role="tablist">'+tabs.map(x=>'<button type="button" role="tab" id="tab-'+x[0]+'" data-tab="'+x[0]+'" aria-selected="'+(tab===x[0])+'" aria-controls="panel">'+esc(t(x[1]))+(x[2]?'<small>'+x[2]+'</small>':'')+'</button>').join("")+'</div>';
+  h+='<div id="panel" role="tabpanel" aria-labelledby="tab-'+tab+'" class="view">';
+  if(tab==="steps"){
+    h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("whatIs"))+'</h2><p class="about">'+esc(tx(r.about))+'</p></section>';
+    h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("howDone"))+'</h2><ol class="steps">'+r.steps.map(s=>'<li><span>'+esc(tx(s))+'</span></li>').join("")+'</ol></section>';
+    if(r.tip)h+='<aside class="tip"><b>'+esc(t("tip"))+'</b><span>'+esc(tx(r.tip))+'</span></aside>';
+    h+='<div class="actions"><button type="button" class="btn" data-tab="items">'+esc(t("tabItems"))+' ('+n(si.all)+')</button><button type="button" class="btn" data-tab="todos">'+esc(t("tabTodos"))+' ('+n(st.all)+')</button></div>';
+    h+='<p class="note">'+esc(t("vary"))+'</p>';
+  }else{
+    const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind);
+    const pct=s.all?Math.round(s.d*100/s.all):0;
+    h+='<div class="listhead"><h2 style="font-size:1.15rem;flex:1">'+esc(t(kind==="i"?"itemsTitle":"todosTitle"))+'</h2><span class="pct">'+n(s.d)+' / '+n(s.all)+'</span></div>';
+    h+='<div class="bar"><i style="width:'+pct+'%"></i></div>';
+    h+='<ul class="checks">'+rows.map(e=>checkRow(e)).join("")+'</ul>';
+    h+='<form class="add" data-add="'+kind+'"><label class="sr" for="add-'+kind+'">'+esc(t(kind==="i"?"addItem":"addTodo"))+'</label><input id="add-'+kind+'" maxlength="120" placeholder="'+esc(t(kind==="i"?"addItem":"addTodo"))+'" autocomplete="off"><button class="btn" type="submit">'+esc(t("add"))+'</button></form>';
+    h+=shareBlock(shareText(tx(r.name)+" – "+t(kind==="i"?"shareItems":"shareTodos"),[{rows}]),kind);
+  }
+  h+='</div>';
+  return h;
+}
+function viewPending(){
+  let h='<section class="hello"><h1>'+esc(t("pendingTitle"))+'</h1><p>'+esc(t("pendingHint"))+'</p>'+(countText()?'<p class="count">'+esc(countText())+'</p>':'')+'</section>';
+  const f=[["all","fAll"],["i","tabItems"],["t","tabTodos"]];
+  h+='<div class="filters" role="group">'+f.map(x=>'<button type="button" data-pf="'+x[0]+'" aria-pressed="'+(pendFilter===x[0])+'">'+esc(t(x[1]))+'</button>').join("")+'</div>';
+  const groups=[];
+  RITUALS.forEach(r=>{let rows=[];if(pendFilter!=="t")rows=rows.concat(entries(r,"i"));if(pendFilter!=="i")rows=rows.concat(entries(r,"t"));rows=rows.filter(e=>!S.ck[e.key]);if(rows.length)groups.push({r,rows});});
+  if(!groups.length)h+='<p class="empty">'+esc(t("allDone"))+'</p>';
+  groups.forEach(g=>{h+='<section class="group"><h3><span class="ic" style="width:28px;height:28px;color:var(--kanku);display:inline-grid">'+ic(g.r.icon)+'</span><button type="button" data-open="'+g.r.id+'">'+esc(tx(g.r.name))+'</button><span class="chip">'+n(g.rows.length)+'</span></h3><ul class="checks">'+g.rows.map(e=>checkRow(e,true)).join("")+'</ul></section>';});
+  if(groups.length)h+=shareBlock(shareText(t("sharePending")+(countText()?" ("+countText()+")":""),groups.map(g=>({head:tx(g.r.name),rows:g.rows}))),null);
+  return h;
+}
+function viewSetup(){
+  let h='<h1 style="font-size:1.5rem;color:var(--kanku)">'+esc(t("setupTitle"))+'</h1>';
+  h+='<section class="card"><div class="label" id="lang-l">'+esc(t("lang"))+'</div><div class="choice" role="group" aria-labelledby="lang-l">'+[["ગુજરાતી","gu"],["English","en"],["हिन्दी","hi"]].map((x,i)=>'<button type="button" data-lang="'+i+'" lang="'+x[1]+'" aria-pressed="'+(S.lang===i)+'">'+x[0]+'</button>').join("")+'</div></section>';
+  h+='<section class="card"><div class="label" id="size-l">'+esc(t("size"))+'</div><div class="sizes" role="group" aria-labelledby="size-l">'+[[16,"sizeS",".9rem"],[19,"sizeM","1.05rem"],[22,"sizeL","1.25rem"]].map(x=>'<button type="button" data-fs="'+x[0]+'" aria-pressed="'+(S.fs===x[0])+'" style="font-size:'+x[2]+'">'+esc(t(x[1]))+'</button>').join("")+'</div></section>';
+  h+='<section class="card"><div class="label" id="whose-l">'+esc(t("whose"))+'</div>'+sideButtons()+'<label class="label" for="date-set">'+esc(t("date"))+'</label><div class="date-row"><input type="date" id="date-set" value="'+esc(S.date)+'"></div>'+(countText()?'<p class="count">'+esc(countText())+'</p>':'')+'</section>';
+  h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("aboutTitle"))+'</h2><p style="margin:0">'+esc(t("aboutP"))+'</p><p class="sync">'+esc(t(cloudOn?"savedCloud":"saved"))+'</p>';
+  if(confirmFor==="all")h+='<div class="confirm"><b>'+esc(t("resetAllQ"))+'</b><div class="row"><button type="button" class="btn" data-resetall-yes>'+esc(t("yes"))+'</button><button type="button" class="btn ghost" data-reset-no>'+esc(t("no"))+'</button></div></div>';
+  else h+='<button type="button" class="danger" data-resetall>'+esc(t("resetAll"))+'</button>';
+  h+='</section>';
+  return h;
+}
+
+/* ---------- Render ---------- */
+function render(){
+  document.documentElement.lang=LANGS[S.lang];
+  document.documentElement.style.setProperty("--fs",S.fs+"px");
+  $("#brand").innerHTML=esc(t("brand"))+'<small>'+esc(t("brandSub"))+'</small>';
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.lang===S.lang)));
+  const m=$("#main");
+  const focusId=document.activeElement&&document.activeElement.id;
+  m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():viewHome())+'</div>';
+  if(focusId){const f=document.getElementById(focusId);if(f&&f.tagName==="INPUT"&&f.type!=="checkbox")f.focus();}
+  const tt=totals();const left=tt.a-tt.d;
+  const navs=[["home","home","navHome"],["pending","list","navPending"],["setup","gear","navSetup"]];
+  navs.forEach(x=>{const b=$("#nav-"+x[0]);const cur=x[0]===route||(x[0]==="home"&&route.startsWith("r-"));
+    b.innerHTML=ic(x[1])+'<span>'+esc(t(x[2]))+'</span>'+(x[0]==="pending"&&left>0?'<span class="badge">'+n(left>999?"999+":left)+'</span>':"");
+    if(cur)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  document.title=t("brand");
+  const hd=document.querySelector(".top");if(hd)document.documentElement.style.setProperty("--hh",hd.offsetHeight+"px");
+}
+
+/* ---------- Events ---------- */
+document.addEventListener("click",e=>{
+  const el=e.target.closest("button,[data-open]");if(!el)return;
+  const d=el.dataset;
+  if(d.lang!==undefined){S.lang=+d.lang;save();render();return;}
+  if(el.id==="brand"){go("home");return;}
+  if(d.go){go(d.go);return;}
+  if(d.open){tab="steps";go("r-"+d.open);return;}
+  if(d.tab){tab=d.tab;confirmFor=null;render();const tb=$(".tabs");if(tb&&tb.getBoundingClientRect().top<0||d.tab!==undefined&&el.classList.contains("btn"))$("#panel").scrollIntoView({block:"start"});return;}
+  if(d.side){S.side=d.side;save();render();return;}
+  if(d.fs){S.fs=+d.fs;save();render();return;}
+  if(d.pf){pendFilter=d.pf;render();return;}
+  if(d.del){e.preventDefault();const [rid,kc,cid]=d.del.split("|");const kind=kc.slice(1);const c=S.custom[rid];if(c&&c[kind])c[kind]=c[kind].filter(x=>x.id!==cid);delete S.ck[d.del];save();render();toast(t("removed"));return;}
+  if(d.reset){confirmFor=d.reset;render();return;}
+  if(d.resetNo!==undefined){confirmFor=null;render();return;}
+  if(d.resetYes){const rid=route.slice(2);Object.keys(S.ck).forEach(k=>{const p=k.split("|");if(p[0]===rid&&(p[1]===d.resetYes||p[1]==="c"+d.resetYes))delete S.ck[k];});confirmFor=null;save();render();toast(t("cleared"));return;}
+  if(d.resetall!==undefined){confirmFor="all";render();return;}
+  if(d.resetallYes!==undefined){S.ck={};S.custom={};confirmFor=null;save();render();toast(t("cleared"));return;}
+  if(d.copy!==undefined){const txt=$("#copy-src").value;
+    const fb=()=>{const f=$("#copy-fallback");f.hidden=false;f.innerHTML='<p class="hint">'+esc(t("copyFail"))+'</p><textarea readonly style="width:100%;min-height:160px;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface)">'+esc(txt)+'</textarea>';const ta=f.querySelector("textarea");ta.focus();ta.select();};
+    try{navigator.clipboard.writeText(txt).then(()=>toast(t("copied")),fb);}catch(err){fb();}return;}
+});
+document.addEventListener("change",e=>{
+  const el=e.target;
+  if(el.dataset&&el.dataset.ck){if(el.checked)S.ck[el.dataset.ck]=1;else delete S.ck[el.dataset.ck];save();
+    // update in place to keep scroll position, then refresh counts
+    const y=window.scrollY;render();window.scrollTo(0,y);return;}
+  if(el.type==="date"){S.date=el.value||"";save();const y=window.scrollY;render();window.scrollTo(0,y);}
+});
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-add]");if(!f)return;e.preventDefault();
+  const inp=f.querySelector("input");const v=(inp.value||"").trim();if(!v)return;
+  const rid=route.slice(2),kind=f.dataset.add;
+  S.custom[rid]=S.custom[rid]||{};S.custom[rid][kind]=S.custom[rid][kind]||[];
+  S.custom[rid][kind].push({id:Date.now().toString(36),t:v.slice(0,120)});
+  save();render();toast(t("added"));const ni=document.getElementById("add-"+kind);if(ni)ni.focus();
+});
+
+route=readHash();render();
+initCloud();
+})();
+
+</script>
+
+</body></html>

@@ -1,0 +1,10 @@
+const fs=require('fs');const p=__dirname+'/src/';
+const shell=fs.readFileSync(p+'shell.html','utf8');
+const data=[1,2,3].map(i=>fs.readFileSync(p+`data-${i}.js`,'utf8')).join('\n');
+const app=fs.readFileSync(p+'app.js','utf8');
+const out=shell.replace('<!--DATA-->','<script>\n'+data+'\n</script>').replace('/*APP*/',()=>app);
+fs.mkdirSync(__dirname+'/artifact',{recursive:true});
+fs.writeFileSync(__dirname+'/artifact/page.html',out);
+console.log('bytes',out.length);
+fs.mkdirSync(__dirname+'/docs',{recursive:true});
+fs.writeFileSync(__dirname+'/docs/index.html','<!doctype html><html lang="gu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#7A0A1F"><style>:root{padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>\n'+out+'\n</body></html>\n');
