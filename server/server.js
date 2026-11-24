@@ -196,7 +196,8 @@ function state(g, who) {
     sections: S.sections.all(g.id).map(pick),
     entries: S.entries.all(g.id).map(pick),
     steps: S.steps.all(g.id).map(pick),
-    activity: S.activity.all(g.id),
+    // the activity log is for the admin (and an open-mode group owner) only
+    activity: who.admin || who.owner ? S.activity.all(g.id) : [],
   };
 }
 

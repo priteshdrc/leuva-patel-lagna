@@ -78,6 +78,9 @@ test("full group flow: create, join, edit, soft delete, purge", async () => {
   // the soft-deleted entry is still there, marked deleted
   let s2 = (await api("GET", `/api/g/${gid}`, undefined, M)).body;
   const e = s2.entries.find((x) => x.id === add.body.id);
+  // activity log goes to the admin only
+  assert.deepEqual(s2.activity, []);
+  assert.ok((await api("GET", `/api/g/${gid}`, undefined, A)).body.activity.length > 0);
   assert.ok(e.deleted_at && e.done_by === j.body.memberId);
 
   // admin purges

@@ -40,7 +40,7 @@ const T = {
   todosTitle:["કરવાના કામ","Things to do","करने के काम"],
   addItem:["તમારો સામાન ઉમેરો…","Add your own item…","अपना सामान जोड़ें…"],
   addTodo:["તમારું કામ ઉમેરો…","Add your own task…","अपना काम जोड़ें…"],
-  add:["ઉમેરો","Add","जोड़ें"],
+  add:["Add","Add","Add"], // kept in English in every language, as asked
   added:["ઉમેરાયું","Added","जुड़ गया"],
   remove:["કાઢી નાખો","Remove","हटाएँ"],
   wa:["WhatsApp પર મોકલો","Send on WhatsApp","WhatsApp पर भेजें"],

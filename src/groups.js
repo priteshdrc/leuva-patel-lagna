@@ -34,12 +34,12 @@ Object.assign(T,{
   gAddSec:["+ નવો વિભાગ","+ New type","+ नया विभाग"],
   gAddSecPh:["નવા વિભાગનું નામ","Name of the new type","नए विभाग का नाम"],
   gAddStepPh:["નવી વિધિ લખો…","Add a step…","नई विधि लिखें…"],
-  gEdit:["બદલો","Edit","बदलें"],gDelete:["કાઢી નાખો","Delete","हटाएँ"],gRestore:["પાછું લાવો","Restore","वापस लाएँ"],
+  gEdit:["બદલો","Edit","बदलें"],gDelete:["Delete","Delete","Delete"],gRestore:["પાછું લાવો","Restore","वापस लाएँ"],
   gPurge:["કાયમ માટે કાઢો","Delete forever","हमेशा के लिए हटाएँ"],
   gPurgeQ:["કાયમ માટે કાઢી નાખવું છે? આ પાછું નહીં આવે.","Delete forever? This can't be undone.","हमेशा के लिए हटाना है? यह वापस नहीं आएगा।"],
   gDeletedBy:["{name}એ કાઢ્યું","deleted by {name}","{name} ने हटाया"],
   gDoneBy:["✓ {name}","✓ {name}","✓ {name}"],
-  gSave:["સાચવો","Save","सहेजें"],gCancel:["રદ કરો","Cancel","रद्द करें"],
+  gSave:["સાચવો","Save","सहेजें"],gCancel:["Cancel","Cancel","Cancel"],
   gText:["શું?","What?","क्या?"],gAssign:["કોણ લાવશે / કરશે?","Who will bring / do it?","कौन लाएगा / करेगा?"],gNobody:["હજુ નક્કી નથી","Not decided","अभी तय नहीं"],
   gAmount:["ખર્ચ ₹ (જરૂર હોય તો)","Cost ₹ (optional)","खर्च ₹ (ज़रूरत हो तो)"],
   gSecName:["વિભાગનું નામ","Type name","विभाग का नाम"],
@@ -347,9 +347,12 @@ function viewSteps(){
 }
 function viewGroupInfo(){
   const d=G.cur.data,g=d.group;
-  let h='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gActivity"))+'</h2>';
+  let h='';
+  if(canPurge()){ // admin / owner only; the server doesn't send it to members
+  h+='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gActivity"))+'</h2>';
   h+=d.activity.length?'<ul class="acts">'+d.activity.slice(0,40).map(a=>'<li><b>'+esc(a.via||memberName(a.member_id))+'</b> '+esc(ACT[a.action]?tx(ACT[a.action]):a.action)+(a.detail&&a.action!=="purgeAll"?' <span class="q">“'+esc(a.detail)+'”</span>':'')+'<time>'+esc(ago(a.at))+'</time></li>').join("")+'</ul>':'<p class="hint">'+esc(t("gNoActivity"))+'</p>';
   h+='</section>';
+  }
   h+='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gMembers"))+'</h2><ul class="mems">'+d.members.filter(m=>!m.removed).map(m=>'<li><span class="av'+(m.id===d.me.memberId?" me":"")+'">'+esc(Array.from(m.name)[0]||"?")+'</span><span class="nm">'+esc(m.name)+'</span>'+
     (canPurge()&&m.id!==d.me.memberId?(G.confirm==="mem:"+m.id?confirmBox("mem:"+m.id,t("gRemove")+"?",'data-gremove-yes="'+esc(m.id)+'"'):'<button type="button" class="mini danger2" data-gremove="'+esc(m.id)+'">'+esc(t("gRemove"))+'</button>'):'')+'</li>').join("")+'</ul>'+
     '<form class="add" data-gaddmem><label class="sr" for="gm-new">'+esc(t("gAddMemPh"))+'</label><input id="gm-new" maxlength="60" placeholder="'+esc(t("gAddMemPh"))+'" autocomplete="off"><button class="btn ghost" type="submit">'+esc(t("gAddMem"))+'</button></form><p class="hint">'+esc(t("gAddMemHint"))+'</p></section>';
