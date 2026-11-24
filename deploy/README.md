@@ -11,8 +11,8 @@ Same pattern as Nifty Arena and Everything Life:
 
 ## 1. Domain
 
-On [duckdns.org](https://www.duckdns.org) add a subdomain, e.g. `pritesh-lagna`, with the Pi's
-IP **103.209.67.111** (same as the other two). Check: `dig +short pritesh-lagna.duckdns.org`.
+On [duckdns.org](https://www.duckdns.org) add a subdomain, `leuva-lagna`, with the Pi's
+IP **103.209.67.111** (same as the other two). Check: `dig +short leuva-lagna.duckdns.org`.
 
 ## 2. Install
 
@@ -47,12 +47,12 @@ which is the master copy):
 Then:
 
 ```bash
-echo 'LAGNA_DOMAIN=pritesh-lagna.duckdns.org' | sudo tee -a /opt/edge/.env
+echo 'LAGNA_DOMAIN=leuva-lagna.duckdns.org' | sudo tee -a /opt/edge/.env
 cd /opt/edge
 sudo docker compose exec caddy caddy validate --config /etc/caddy/Caddyfile
 sudo docker compose up -d     # re-reads .env
 sudo docker compose exec caddy caddy reload --config /etc/caddy/Caddyfile
-curl -s https://pritesh-lagna.duckdns.org/api/health
+curl -s https://leuva-lagna.duckdns.org/api/health
 ```
 
 ## 4. First use
