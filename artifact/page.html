@@ -274,6 +274,13 @@ button.loading>*{visibility:hidden}
 button.loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid currentColor;border-color:var(--line);border-top-color:var(--kanku);border-radius:50%;animation:spin .8s linear infinite}
 .btn.loading::after{border-color:rgba(255,255,255,.35);border-top-color:#fff}
 .btn.ghost.loading::after,.mini.loading::after,.danger.loading::after{border-color:var(--line);border-top-color:var(--kanku)}
+/* read-only guide lists */
+.rolist .ro{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;line-height:1.45}
+.rolist .ro .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.rolist .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--haldi);margin-top:.6em}
+.ronote{flex-direction:column;gap:10px}
+.ronote .btn{align-self:flex-start;min-height:46px}
+.hello .btn{align-self:flex-start}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media (max-width:370px){.langs button{padding:6px 7px;font-size:.76rem}.how li{font-size:.76rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.spin,button.loading::after{animation-duration:2s}.busybar::before{animation:none;left:0;width:100%;opacity:.6}.rit:active{transform:none}}
@@ -1097,6 +1104,11 @@ RITUALS.push({
 "use strict";
 /* ---------- UI strings: [gu, en, hi] ---------- */
 const T = {
+  roHello:["વિધિઓની માર્ગદર્શિકા","Ritual guide","रस्मों की मार्गदर्शिका"],
+  roHelloP:["દરેક વિધિ શું છે, કેવી રીતે થાય છે અને કયો સામાન તથા કામ જોઈએ તે અહીં વાંચો. તૈયારી અને ✓ ગ્રુપમાં કરો.","Read what each ritual means, how it's done and what's needed. Plan and tick things in your group.","हर रस्म क्या है, कैसे होती है और क्या सामान-काम चाहिए, यहाँ पढ़ें। तैयारी और ✓ ग्रुप में करें।"],
+  roOpen:["ગ્રુપ ખોલો","Open groups","ग्रुप खोलें"],
+  roNote:["આ યાદી ફક્ત માર્ગદર્શન માટે છે. સામાન ઉમેરવા અને ✓ કરવા તમારું ગ્રુપ ખોલો.","This list is a guide. To add and tick things, open your group.","यह सूची सिर्फ़ मार्गदर्शन के लिए है। जोड़ने और ✓ करने के लिए अपना ग्रुप खोलें।"],
+  roCount:["{i} સામાન · {t} કામ","{i} items · {t} to-dos","{i} सामान · {t} काम"],
   brand:["લેઉવા પટેલ લગ્ન માર્ગદર્શિકા","Leuva Patel Wedding Guide","लेउवा पटेल विवाह मार्गदर्शिका"],
   brandSub:["સૌરાષ્ટ્રના રીત-રિવાજ","Saurashtra customs","सौराष्ट्र के रीति-रिवाज"],
   hello:["શુભ પ્રસંગની તૈયારી સરળ બનાવો","Plan every ritual, step by step","हर रस्म की तैयारी, आसान तरीके से"],
@@ -1238,7 +1250,9 @@ const GU="૦૧૨૩૪૫૬૭૮૯";
 const n=(x)=>L()===0?String(x).replace(/[0-9]/g,d=>GU[d]):String(x);
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $=(s,r=document)=>r.querySelector(s);
-function sideOk(tag){return !tag||S.side==="all"||tag===S.side;}
+// On the home server the ritual pages are a read-only guide: planning happens in groups.
+const RO=()=>typeof G!=="undefined"&&G.on;
+function sideOk(tag){return RO()||!tag||S.side==="all"||tag===S.side;}
 function hk(str){let h=5381;for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))|0;return (h>>>0).toString(36);}
 function entries(r,kind,withHeads){ // kind: "i" items, "t" todos
   const base=(kind==="i"?r.items:r.todos)||[];
@@ -1248,7 +1262,7 @@ function entries(r,kind,withHeads){ // kind: "i" items, "t" todos
     if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+hk(e[1]||e[0]),text:tx(e),tag:e[3]||"",custom:false});
   });
   out=out.filter((e,i)=>!e.head||(out[i+1]&&!out[i+1].head));
-  const c=((S.custom[r.id]||{})[kind])||[];
+  const c=RO()?[]:((S.custom[r.id]||{})[kind])||[];
   if(c.length&&out.some(e=>e.head))out.push({head:t("yours")});
   c.forEach(e=>out.push({key:r.id+"|c"+kind+"|"+e.id,text:e.t,tag:"",custom:true,cid:e.id}));
   return withHeads?out:out.filter(e=>!e.head);
@@ -1276,6 +1290,7 @@ function checkRow(e,opts){
     (e.custom&&!opts?'<button type="button" class="del" data-del="'+esc(e.key)+'" aria-label="'+esc(t("remove"))+'">×</button>':"")+'</label></li>';
 }
 function viewHome(){
+  if(RO())return viewHomeRO();
   const tt=totals();const pct=tt.a?Math.round(tt.d*100/tt.a):0;
   const ct=countText();
   let h='<section class="hello"><h1>'+esc(t("hello"))+'</h1><p>'+esc(t("helloP"))+'</p><ol class="how"><li><b>'+n(1)+'</b>'+esc(t("how1"))+'</li><li><b>'+n(2)+'</b>'+esc(t("how2"))+'</li><li><b>'+n(3)+'</b>'+esc(t("how3"))+'</li></ol></section>';
@@ -1290,13 +1305,21 @@ function viewHome(){
   h+='<p class="note">'+esc(t("vary"))+'</p>';
   return h;
 }
+function viewHomeRO(){
+  let h='<section class="hello"><h1>'+esc(t("roHello"))+'</h1><p>'+esc(t("roHelloP"))+'</p><button type="button" class="btn" data-go="groups">'+ic("people")+esc(t("roOpen"))+'</button></section>';
+  h+='<h2 class="sec-title">'+esc(t("rituals"))+'<span>'+esc(t("ritualsCount",{n:n(RITUALS.length)}))+'</span></h2><ol class="timeline">';
+  RITUALS.forEach((r,i)=>{const ni=entries(r,"i").length,nt=entries(r,"t").length;
+    h+='<li><button type="button" class="rit" data-open="'+r.id+'"><span class="num">'+n(i+1)+'</span><span class="ic">'+ic(r.icon)+'</span><span class="tx"><span class="nm">'+esc(tx(r.name))+'</span><span class="sh">'+esc(tx(r.short))+'</span><span class="meta"><span class="chip">'+esc(tx(r.when))+'</span><span class="chip">'+esc(t("roCount",{i:n(ni),t:n(nt)}))+'</span></span></span><span class="chev" aria-hidden="true">›</span></button></li>';});
+  return h+'</ol><p class="note">'+esc(t("vary"))+'</p>';
+}
+function roRow(e){return e.head?'<li class="grp">'+esc(e.head)+'</li>':'<li class="ro"><span class="dot" aria-hidden="true"></span><span class="t">'+esc(e.text)+'</span>'+tagChip(e.tag)+'</li>';}
 function sideButtons(){
   const o=[["b","sideB"],["g","sideG"],["all","sideAll"]];
   return '<div class="choice" role="group" aria-labelledby="whose-l">'+o.map(x=>'<button type="button" data-side="'+x[0]+'" aria-pressed="'+(S.side===x[0])+'">'+esc(t(x[1]))+'</button>').join("")+'</div>';
 }
 function shareText(title,groups){
   let s="*"+title+"*\n";
-  groups.forEach(g=>{if(g.head)s+="\n*"+g.head+"*\n";g.rows.forEach(e=>{if(e.head){s+="\n_"+e.head+"_\n";return;}s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
+  groups.forEach(g=>{if(g.head)s+="\n*"+g.head+"*\n";g.rows.forEach(e=>{if(e.head){s+="\n_"+e.head+"_\n";return;}s+=(RO()?"• ":S.ck[e.key]?"✅ ":"⬜ ")+e.text+(RO()&&e.tag?" ("+t(e.tag==="b"?"tagB":"tagG")+")":"")+"\n";});});
   return s+"\n"+t("shareFoot");
 }
 function shareBlock(text,resetKind){
@@ -1313,7 +1336,7 @@ function viewRitual(id){
   const si=stat(r,"i"),st=stat(r,"t");
   let h='<button type="button" class="back" data-go="home">'+ic("back").replace('aria-hidden','style="width:20px;height:20px" aria-hidden')+esc(t("back"))+'</button>';
   h+='<div class="rhead"><span class="ic">'+ic(r.icon)+'</span><div><h1>'+esc(tx(r.name))+'</h1><p>'+esc(tx(r.when))+'</p><div class="meta" style="margin-top:6px">'+hostChip(r.host)+'</div></div></div>';
-  const tabs=[["steps","tabSteps",""],["items","tabItems",n(si.d)+" / "+n(si.all)],["todos","tabTodos",n(st.d)+" / "+n(st.all)]];
+  const tabs=[["steps","tabSteps",""],["items","tabItems",RO()?n(si.all):n(si.d)+" / "+n(si.all)],["todos","tabTodos",RO()?n(st.all):n(st.d)+" / "+n(st.all)]];
   h+='<div class="tabs" role="tablist">'+tabs.map(x=>'<button type="button" role="tab" id="tab-'+x[0]+'" data-tab="'+x[0]+'" aria-selected="'+(tab===x[0])+'" aria-controls="panel">'+esc(t(x[1]))+(x[2]?'<small>'+x[2]+'</small>':'')+'</button>').join("")+'</div>';
   h+='<div id="panel" role="tabpanel" aria-labelledby="tab-'+tab+'" class="view">';
   if(tab==="steps"){
@@ -1322,6 +1345,12 @@ function viewRitual(id){
     if(r.tip)h+='<aside class="tip"><b>'+esc(t("tip"))+'</b><span>'+esc(tx(r.tip))+'</span></aside>';
     h+='<div class="actions"><button type="button" class="btn" data-tab="items">'+esc(t("tabItems"))+' ('+n(si.all)+')</button><button type="button" class="btn" data-tab="todos">'+esc(t("tabTodos"))+' ('+n(st.all)+')</button></div>';
     h+='<p class="note">'+esc(t("vary"))+'</p>';
+  }else if(RO()){
+    const kind=tab==="items"?"i":"t";const rows=entries(r,kind,true);
+    h+='<div class="listhead"><h2 style="font-size:1.15rem;flex:1">'+esc(t(kind==="i"?"itemsTitle":"todosTitle"))+'</h2><span class="pct">'+n((kind==="i"?si:st).all)+'</span></div>';
+    h+='<aside class="tip ronote"><span>'+esc(t("roNote"))+'</span><button type="button" class="btn ghost" data-go="groups">'+ic("people")+esc(t("roOpen"))+'</button></aside>';
+    h+='<ul class="checks rolist">'+rows.map(roRow).join("")+'</ul>';
+    h+=shareBlock(shareText(tx(r.name)+" – "+t(kind==="i"?"shareItems":"shareTodos"),[{rows}]),null);
   }else{
     const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind,true);
     const pct=s.all?Math.round(s.d*100/s.all):0;
@@ -1376,12 +1405,13 @@ function render(){
   const kept={};m.querySelectorAll("input[id],textarea[id],select[id]").forEach(el=>{if(el.type!=="checkbox"&&el.type!=="password"&&el.dataset.dirty)kept[el.id]=el.value;});
   const groupView=()=>!G.on?(G.failed?'<p class="empty">'+esc(t("gNeedServer"))+'</p>':loadingBlock()):route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
   if(G.landing){m.innerHTML='<div class="view">'+loadingBlock()+'</div>';}else
-  m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
+  m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?(G.on?viewHome():viewPending()):route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
   for(const id in kept){const el=document.getElementById(id);if(el){el.value=kept[id];el.dataset.dirty="1";}}
   if(focusId){const f=document.getElementById(focusId);if(f&&(f.tagName==="INPUT"||f.tagName==="TEXTAREA")&&f.type!=="checkbox"){f.focus();if(sel)try{f.setSelectionRange(sel[0],sel[1]);}catch(e){}}}
-  const tt=totals();const left=tt.a-tt.d;
+  const tt=totals();const left=G.on?0:tt.a-tt.d;
   const navs=[["home","home","navHome"],["groups","people","navGroups"],["pending","list","navPending"],["setup","gear","navSetup"]];
   $("#nav-groups").hidden=!G.on;
+  $("#nav-pending").hidden=G.on; // personal ticks don't exist when the guide is read-only
   // On the home server: Groups | Pending | Settings | Rituals. The static guide keeps Rituals first.
   const navHome=$("#nav-home");if(G.on&&navHome.nextElementSibling)navHome.parentNode.appendChild(navHome);
   navs.forEach(x=>{const b=$("#nav-"+x[0]);const cur=x[0]===route||(x[0]==="home"&&route.startsWith("r-"))||(x[0]==="groups"&&(route.startsWith("g-")||route.startsWith("j-")));

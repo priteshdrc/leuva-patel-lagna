@@ -274,6 +274,13 @@ button.loading>*{visibility:hidden}
 button.loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid currentColor;border-color:var(--line);border-top-color:var(--kanku);border-radius:50%;animation:spin .8s linear infinite}
 .btn.loading::after{border-color:rgba(255,255,255,.35);border-top-color:#fff}
 .btn.ghost.loading::after,.mini.loading::after,.danger.loading::after{border-color:var(--line);border-top-color:var(--kanku)}
+/* read-only guide lists */
+.rolist .ro{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;line-height:1.45}
+.rolist .ro .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.rolist .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--haldi);margin-top:.6em}
+.ronote{flex-direction:column;gap:10px}
+.ronote .btn{align-self:flex-start;min-height:46px}
+.hello .btn{align-self:flex-start}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media (max-width:370px){.langs button{padding:6px 7px;font-size:.76rem}.how li{font-size:.76rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.spin,button.loading::after{animation-duration:2s}.busybar::before{animation:none;left:0;width:100%;opacity:.6}.rit:active{transform:none}}
