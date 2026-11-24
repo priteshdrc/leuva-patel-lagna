@@ -274,6 +274,7 @@ function render(){
   // keep what people are typing when the page re-renders (e.g. a family member's change arrives)
   const kept={};m.querySelectorAll("input[id],textarea[id],select[id]").forEach(el=>{if(el.type!=="checkbox"&&el.type!=="password"&&el.dataset.dirty)kept[el.id]=el.value;});
   const groupView=()=>!G.on?'<p class="empty">'+esc(G.failed?t("gNeedServer"):t("gLoading"))+'</p>':route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
+  if(G.landing){m.innerHTML='<div class="view"><p class="empty">'+esc(t("gLoading"))+'</p></div>';}else
   m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
   for(const id in kept){const el=document.getElementById(id);if(el){el.value=kept[id];el.dataset.dirty="1";}}
   if(focusId){const f=document.getElementById(focusId);if(f&&(f.tagName==="INPUT"||f.tagName==="TEXTAREA")&&f.type!=="checkbox"){f.focus();if(sel)try{f.setSelectionRange(sel[0],sel[1]);}catch(e){}}}
@@ -293,7 +294,7 @@ document.addEventListener("click",e=>{
   const d=el.dataset;
   if(gClick(el,e))return;
   if(d.lang!==undefined){S.lang=+d.lang;save();render();return;}
-  if(el.id==="brand"){go("home");return;}
+  if(el.id==="brand"){go(G.on?landingRoute():"home");return;}
   if(d.go){go(d.go);return;}
   if(d.open){tab="steps";go("r-"+d.open);return;}
   if(d.tab){tab=d.tab;confirmFor=null;render();const tb=$(".tabs");if(tb&&tb.getBoundingClientRect().top<0||d.tab!==undefined&&el.classList.contains("btn"))$("#panel").scrollIntoView({block:"start"});return;}

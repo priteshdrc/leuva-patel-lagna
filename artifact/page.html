@@ -278,8 +278,8 @@ textarea.inp{resize:vertical;line-height:1.45}
 
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <button type="button" data-go="home" id="nav-home"></button>
     <button type="button" data-go="groups" id="nav-groups" hidden></button>
+    <button type="button" data-go="home" id="nav-home"></button>
     <button type="button" data-go="pending" id="nav-pending"></button>
     <button type="button" data-go="setup" id="nav-setup"></button>
   </div>
@@ -1351,6 +1351,7 @@ function render(){
   // keep what people are typing when the page re-renders (e.g. a family member's change arrives)
   const kept={};m.querySelectorAll("input[id],textarea[id],select[id]").forEach(el=>{if(el.type!=="checkbox"&&el.type!=="password"&&el.dataset.dirty)kept[el.id]=el.value;});
   const groupView=()=>!G.on?'<p class="empty">'+esc(G.failed?t("gNeedServer"):t("gLoading"))+'</p>':route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
+  if(G.landing){m.innerHTML='<div class="view"><p class="empty">'+esc(t("gLoading"))+'</p></div>';}else
   m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
   for(const id in kept){const el=document.getElementById(id);if(el){el.value=kept[id];el.dataset.dirty="1";}}
   if(focusId){const f=document.getElementById(focusId);if(f&&(f.tagName==="INPUT"||f.tagName==="TEXTAREA")&&f.type!=="checkbox"){f.focus();if(sel)try{f.setSelectionRange(sel[0],sel[1]);}catch(e){}}}
@@ -1370,7 +1371,7 @@ document.addEventListener("click",e=>{
   const d=el.dataset;
   if(gClick(el,e))return;
   if(d.lang!==undefined){S.lang=+d.lang;save();render();return;}
-  if(el.id==="brand"){go("home");return;}
+  if(el.id==="brand"){go(G.on?landingRoute():"home");return;}
   if(d.go){go(d.go);return;}
   if(d.open){tab="steps";go("r-"+d.open);return;}
   if(d.tab){tab=d.tab;confirmFor=null;render();const tb=$(".tabs");if(tb&&tb.getBoundingClientRect().top<0||d.tab!==undefined&&el.classList.contains("btn"))$("#panel").scrollIntoView({block:"start"});return;}
@@ -1513,7 +1514,7 @@ Object.assign(P,{
 });
 const icS=(n,label)=>'<span class="sr">'+esc(label)+'</span>'+ic(n);
 
-const G={on:false,failed:false,health:null,cur:null,poll:null,adminGroups:null,join:null,busy:false,confirm:null};
+const G={on:false,failed:false,landing:!location.hash,health:null,cur:null,poll:null,adminGroups:null,join:null,busy:false,confirm:null};
 const GKEY="lp-groups-v1",AKEY="lp-admin-v1";
 const ID_RE=/^[a-z2-9]{12}$/;
 function gLoad(){try{const v=JSON.parse(localStorage.getItem(GKEY)||"{}");return v&&typeof v==="object"?v:{};}catch(e){return{};}}
@@ -1545,12 +1546,16 @@ async function api(method,path,body,gid){
     const d=r.ok?await r.json():null;
     if(d&&d.app==="lagna"){G.on=true;G.health=d;
       if(ADMIN){api("GET","/api/admin/me").then(x=>{if(!x.admin)setAdmin("");render();}).catch(()=>{});}
+      G.landing=false;if(!location.hash){location.replace("#"+landingRoute());return;}
       route=readHash();render();gRoute();return;}
   }catch(e){}
-  G.failed=true;render();
+  G.failed=true;G.landing=false;render();
 })();
 
 /* ---------- routing hooks ---------- */
+// Where the app opens on the home server: straight into your group if you have
+// exactly one, otherwise the group list.
+function landingRoute(){const ids=Object.keys(MY).filter(k=>ID_RE.test(k));return ids.length===1?"g-"+ids[0]:"groups";}
 function gRoute(){
   stopPoll();G.confirm=null;
   if(!G.on)return;

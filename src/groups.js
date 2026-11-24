@@ -105,7 +105,7 @@ Object.assign(P,{
 });
 const icS=(n,label)=>'<span class="sr">'+esc(label)+'</span>'+ic(n);
 
-const G={on:false,failed:false,health:null,cur:null,poll:null,adminGroups:null,join:null,busy:false,confirm:null};
+const G={on:false,failed:false,landing:!location.hash,health:null,cur:null,poll:null,adminGroups:null,join:null,busy:false,confirm:null};
 const GKEY="lp-groups-v1",AKEY="lp-admin-v1";
 const ID_RE=/^[a-z2-9]{12}$/;
 function gLoad(){try{const v=JSON.parse(localStorage.getItem(GKEY)||"{}");return v&&typeof v==="object"?v:{};}catch(e){return{};}}
@@ -137,12 +137,16 @@ async function api(method,path,body,gid){
     const d=r.ok?await r.json():null;
     if(d&&d.app==="lagna"){G.on=true;G.health=d;
       if(ADMIN){api("GET","/api/admin/me").then(x=>{if(!x.admin)setAdmin("");render();}).catch(()=>{});}
+      G.landing=false;if(!location.hash){location.replace("#"+landingRoute());return;}
       route=readHash();render();gRoute();return;}
   }catch(e){}
-  G.failed=true;render();
+  G.failed=true;G.landing=false;render();
 })();
 
 /* ---------- routing hooks ---------- */
+// Where the app opens on the home server: straight into your group if you have
+// exactly one, otherwise the group list.
+function landingRoute(){const ids=Object.keys(MY).filter(k=>ID_RE.test(k));return ids.length===1?"g-"+ids[0]:"groups";}
 function gRoute(){
   stopPoll();G.confirm=null;
   if(!G.on)return;
