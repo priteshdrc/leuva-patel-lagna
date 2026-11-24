@@ -1511,6 +1511,10 @@ Object.assign(T,{
   mOauth:["એપ (લૉગિન)","app (sign-in)","ऐप (लॉगिन)"],mToken:["ટોકન","token","टोकन"],
   mUsed:["છેલ્લે વપરાયું","last used","आख़िरी बार"],mNever:["હજુ નહીં","not yet","अभी नहीं"],mExp:["પૂરું","expires","ख़त्म"],
   e_set_PUBLIC_URL:["સર્વરની .env માં PUBLIC_URL નાખો.","Set PUBLIC_URL in the server's .env.","सर्वर की .env में PUBLIC_URL डालें।"],
+  gAddMem:["+ સભ્ય ઉમેરો","+ Add member","+ सदस्य जोड़ें"],
+  gAddMemPh:["નામ, દા.ત. દીપ","Name, e.g. Deep","नाम, जैसे दीप"],
+  gAddMemHint:["ઉમેરેલા સભ્ય આમંત્રણ ખોલે ત્યારે પોતાનું નામ પસંદ કરી શકે.","Added people pick their name when they open the invite.","जोड़े गए सदस्य न्योता खोलकर अपना नाम चुन सकते हैं।"],
+  e_member_exists:["આ નામના સભ્ય પહેલેથી છે.","A member with this name already exists.","इस नाम का सदस्य पहले से है।"],
   e_wrong_code:["આ કોડનું કોઈ ગ્રુપ નથી. કોડ ફરી તપાસો.","No group has this code. Check the code again.","इस कोड का कोई ग्रुप नहीं है। कोड फिर से देखें।"],
   e_too_many_attempts:["ઘણા પ્રયત્ન થયા. ૧૦–૧૫ મિનિટ પછી ફરી કરો.","Too many tries. Try again in 10–15 minutes.","बहुत कोशिशें हुईं। 10–15 मिनट बाद फिर करें।"],
   e_wrong_password:["પાસવર્ડ ખોટો છે.","Wrong password.","पासवर्ड गलत है।"],
@@ -1534,7 +1538,7 @@ const ACT={create:["ગ્રુપ બનાવ્યું","created the group
   addStep:["વિધિ ઉમેરી","added a step","विधि जोड़ी"],editStep:["વિધિ બદલી","edited a step","विधि बदली"],delStep:["વિધિ કાઢી","deleted a step","विधि हटाई"],restoreStep:["વિધિ પાછી લાવ્યા","restored a step","विधि वापस लाए"],
   editGroup:["વિગત બદલી","changed the details","जानकारी बदली"],renameMe:["નામ બદલ્યું","changed their name","नाम बदला"],
   purge:["કાયમ માટે કાઢ્યું","deleted forever","हमेशा के लिए हटाया"],purgeAll:["કાઢેલું બધું કાયમ કાઢ્યું","cleared all deleted things","हटाई चीज़ें हमेशा के लिए हटाईं"],
-  removeMember:["સભ્યને કાઢ્યા","removed a member","सदस्य हटाया"],rotateCode:["નવો કોડ બનાવ્યો","made a new code","नया कोड बनाया"]};
+  addMember:["સભ્ય ઉમેર્યા","added a member","सदस्य जोड़ा"],removeMember:["સભ્યને કાઢ્યા","removed a member","सदस्य हटाया"],rotateCode:["નવો કોડ બનાવ્યો","made a new code","नया कोड बनाया"]};
 Object.assign(P,{
   people:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2c3 .2 5.5 2.6 5.5 5.8"/>',
   pencil:'<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>',
@@ -1769,7 +1773,8 @@ function viewGroupInfo(){
   h+=d.activity.length?'<ul class="acts">'+d.activity.slice(0,40).map(a=>'<li><b>'+esc(a.via||memberName(a.member_id))+'</b> '+esc(ACT[a.action]?tx(ACT[a.action]):a.action)+(a.detail&&a.action!=="purgeAll"?' <span class="q">“'+esc(a.detail)+'”</span>':'')+'<time>'+esc(ago(a.at))+'</time></li>').join("")+'</ul>':'<p class="hint">'+esc(t("gNoActivity"))+'</p>';
   h+='</section>';
   h+='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gMembers"))+'</h2><ul class="mems">'+d.members.filter(m=>!m.removed).map(m=>'<li><span class="av'+(m.id===d.me.memberId?" me":"")+'">'+esc(Array.from(m.name)[0]||"?")+'</span><span class="nm">'+esc(m.name)+'</span>'+
-    (canPurge()&&m.id!==d.me.memberId?(G.confirm==="mem:"+m.id?confirmBox("mem:"+m.id,t("gRemove")+"?",'data-gremove-yes="'+esc(m.id)+'"'):'<button type="button" class="mini danger2" data-gremove="'+esc(m.id)+'">'+esc(t("gRemove"))+'</button>'):'')+'</li>').join("")+'</ul></section>';
+    (canPurge()&&m.id!==d.me.memberId?(G.confirm==="mem:"+m.id?confirmBox("mem:"+m.id,t("gRemove")+"?",'data-gremove-yes="'+esc(m.id)+'"'):'<button type="button" class="mini danger2" data-gremove="'+esc(m.id)+'">'+esc(t("gRemove"))+'</button>'):'')+'</li>').join("")+'</ul>'+
+    '<form class="add" data-gaddmem><label class="sr" for="gm-new">'+esc(t("gAddMemPh"))+'</label><input id="gm-new" maxlength="60" placeholder="'+esc(t("gAddMemPh"))+'" autocomplete="off"><button class="btn ghost" type="submit">'+esc(t("gAddMem"))+'</button></form><p class="hint">'+esc(t("gAddMemHint"))+'</p></section>';
   h+='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gDetails"))+'</h2><form class="stack" data-ginfo>'+
     '<label class="label" for="gi-title">'+esc(t("gName"))+'</label><input class="inp" id="gi-title" maxlength="80" value="'+esc(g.title)+'">'+
     '<label class="label" for="gi-date">'+esc(t("date"))+'</label><input class="inp" type="date" id="gi-date" value="'+esc(g.date)+'">'+
@@ -1887,6 +1892,7 @@ function gSubmit(f){
     api("POST","/api/groups",body).then(r=>{MY[r.groupId]={token:r.token,memberId:r.memberId,title:body.title,ritual:body.ritual,owner:r.ownerToken||undefined};gSave(MY);go("g-"+r.groupId);}).catch(e=>toast(errText(e.code)));return true;}
   if(d.gadd){const inp=f.querySelector("input");const v=inp.value.trim();if(!v)return true;op({op:"addEntry",sectionId:d.gadd,text:v}).then(ok=>{if(ok){toast(t("added"));const i=document.getElementById(inp.id);if(i){i.value="";i.focus();}}});inp.value="";return true;}
   if(d.gaddsec){const inp=f.querySelector("input");const v=inp.value.trim();if(!v)return true;inp.value="";op({op:"addSection",kind:d.gaddsec,name:v});return true;}
+  if(d.gaddmem!==undefined){const inp=f.querySelector("input");const v=inp.value.trim();if(!v)return true;inp.value="";op({op:"addMember",name:v}).then(ok=>ok&&toast(t("added")));return true;}
   if(d.gaddstep!==undefined){const inp=f.querySelector("input");const v=inp.value.trim();if(!v)return true;inp.value="";op({op:"addStep",text:v});return true;}
   if(d.gsave){const [k,id]=d.gsave.split(":");const text=val("ge-text");
     let body;

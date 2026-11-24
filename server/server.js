@@ -286,6 +286,13 @@ function opMember(g, who, b) {
       q("UPDATE groups SET title = ?, date = ? WHERE id = ?").run(title, date, gid);
       log("editGroup", title + (date ? " · " + date : "")); return {};
     }
+    case "addMember": { // add someone by name before they join; they pick this name when they open the invite
+      const name = text(b.name, LIMITS.name);
+      if (S.countMembers.get(gid).n >= LIMITS.members) throw bad("limit");
+      if (S.members.all(gid).some((m) => !m.removed && m.name.toLowerCase() === name.toLowerCase())) throw bad("member_exists");
+      const id = rid(); S.insertMember.run(id, gid, name, t);
+      log("addMember", name); return { id };
+    }
     case "renameMe": {
       if (!by) throw bad("not_member");
       const name = text(b.name, LIMITS.name);

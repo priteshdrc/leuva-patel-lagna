@@ -97,6 +97,12 @@ test("tools: create, add, tick, soft delete, restore, purge, logged via MCP", as
   st = await call(add, "get_group", { group: "deep" });
   assert.ok(!st.data.items.flatMap((s) => s.entries).some((e) => e.id === coin.id));
 
+  assert.ok(!(await call(add, "add_member", { group: "deep", name: "દીપ" })).isError);
+  assert.ok((await call(add, "add_member", { group: "deep", name: "દીપ" })).isError); // no duplicates
+  assert.ok(!(await call(add, "update_item", { group: "deep", item: "Engagement rings", assignee: "દીપ" })).isError);
+  const j = await req("POST", "/api/join", { json: { code: c.data.code } });
+  assert.ok(j.body.members.some((m) => m.name === "દીપ")); // shows on the invite's "who are you?" list
+
   const act = await call(add, "get_activity", { group: "deep" });
   assert.ok(act.data.some((x) => /^MCP: Test (add|full)$/.test(x.who) && x.action === "addEntry"));
 
