@@ -1,0 +1,39 @@
+# Leuva Patel Lagna on the Orange Pi. Lives in /opt/leuva-lagna (see install.sh).
+# The app listens only on 127.0.0.1:8200; the shared edge Caddy (/opt/edge)
+# serves it over HTTPS, like Nifty Arena and Everything Life.
+services:
+  app:
+    image: ghcr.io/priteshdrc/leuva-patel-lagna:latest
+    container_name: leuva-lagna
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      HOST: 0.0.0.0
+      PORT: "8200"
+      # Only Caddy on this Pi can connect (127.0.0.1 below), so its
+      # X-Forwarded-For is trusted for per-visitor rate limits.
+      TRUST_PROXY: "1"
+      TZ: ${TZ:-Asia/Kolkata}
+    ports:
+      - "${APP_BIND:-127.0.0.1}:8200:8200"
+    volumes:
+      - ./data:/data
+    user: "1000:1000"
+    init: true
+    # Hardening: read-only filesystem except /data (the SQLite database) and a
+    # small /tmp; no Linux capabilities; cannot gain privileges.
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: ${APP_MEM_LIMIT:-256m}
+    pids_limit: 128
+    restart: unless-stopped
+    stop_grace_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"

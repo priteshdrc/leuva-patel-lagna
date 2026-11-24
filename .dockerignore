@@ -1,0 +1,5 @@
+*
+!server/server.js
+!server/db.js
+!src/data-*.js
+!docs/index.html

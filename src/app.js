@@ -168,9 +168,10 @@ function countText(){const d=daysTo();if(d===null)return"";if(d>0)return t("days
 
 /* ---------- Routing ---------- */
 let route="home",tab="steps",confirmFor=null,pendFilter="all";
-function readHash(){const h=(location.hash||"").slice(1);if(h.startsWith("r-")&&RITUALS.some(r=>"r-"+r.id===h))return h;if(h==="pending"||h==="setup")return h;return"home";}
+function readHash(){const h=(location.hash||"").slice(1);if(h.startsWith("r-")&&RITUALS.some(r=>"r-"+r.id===h))return h;if(h==="pending"||h==="setup"||h==="groups")return h;
+  if(/^g-[a-z2-9]{12}$/.test(h)||/^j-[A-Z0-9]{6,12}$/.test(h))return h;return"home";}
 function go(r){if(location.hash.slice(1)!==r){location.hash=r;}else{route=r;render();}}
-window.addEventListener("hashchange",()=>{const r=readHash();if(r!==route){if(r.startsWith("r-"))tab="steps";confirmFor=null;}route=r;render();window.scrollTo(0,0);});
+window.addEventListener("hashchange",()=>{const r=readHash();if(r!==route){if(r.startsWith("r-"))tab="steps";confirmFor=null;}route=r;if(typeof gRoute==="function")gRoute();render();window.scrollTo(0,0);});
 
 /* ---------- Views ---------- */
 function checkRow(e,opts){
@@ -255,6 +256,7 @@ function viewSetup(){
   h+='<section class="card"><div class="label" id="size-l">'+esc(t("size"))+'</div><div class="sizes" role="group" aria-labelledby="size-l">'+[[16,"sizeS",".9rem"],[19,"sizeM","1.05rem"],[22,"sizeL","1.25rem"]].map(x=>'<button type="button" data-fs="'+x[0]+'" aria-pressed="'+(S.fs===x[0])+'" style="font-size:'+x[2]+'">'+esc(t(x[1]))+'</button>').join("")+'</div></section>';
   h+='<section class="card"><div class="label" id="whose-l">'+esc(t("whose"))+'</div>'+sideButtons()+'<label class="label" for="date-set">'+esc(t("date"))+'</label><div class="date-row"><input type="date" id="date-set" value="'+esc(S.date)+'"></div>'+(countText()?'<p class="count">'+esc(countText())+'</p>':'')+'</section>';
   h+='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("aboutTitle"))+'</h2><p style="margin:0">'+esc(t("aboutP"))+'</p><p class="sync">'+esc(t(cloudOn?"savedCloud":"saved"))+'</p>';
+  h+=adminCard();
   if(confirmFor==="all")h+='<div class="confirm"><b>'+esc(t("resetAllQ"))+'</b><div class="row"><button type="button" class="btn" data-resetall-yes>'+esc(t("yes"))+'</button><button type="button" class="btn ghost" data-reset-no>'+esc(t("no"))+'</button></div></div>';
   else h+='<button type="button" class="danger" data-resetall>'+esc(t("resetAll"))+'</button>';
   h+='</section>';
@@ -268,12 +270,17 @@ function render(){
   $("#brand").innerHTML=esc(t("brand"))+'<small>'+esc(t("brandSub"))+'</small>';
   document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.lang===S.lang)));
   const m=$("#main");
-  const focusId=document.activeElement&&document.activeElement.id;
-  m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():viewHome())+'</div>';
-  if(focusId){const f=document.getElementById(focusId);if(f&&f.tagName==="INPUT"&&f.type!=="checkbox")f.focus();}
+  const ae=document.activeElement,focusId=ae&&ae.id,sel=ae&&typeof ae.selectionStart==="number"?[ae.selectionStart,ae.selectionEnd]:null;
+  // keep what people are typing when the page re-renders (e.g. a family member's change arrives)
+  const kept={};m.querySelectorAll("input[id],textarea[id],select[id]").forEach(el=>{if(el.type!=="checkbox"&&el.type!=="password"&&el.dataset.dirty)kept[el.id]=el.value;});
+  const groupView=()=>!G.on?'<p class="empty">'+esc(G.failed?t("gNeedServer"):t("gLoading"))+'</p>':route==="groups"?viewGroups():route.startsWith("g-")?viewGroup():viewJoin();
+  m.innerHTML='<div class="view">'+(route.startsWith("r-")?viewRitual(route.slice(2)):route==="pending"?viewPending():route==="setup"?viewSetup():(route==="groups"||route.startsWith("g-")||route.startsWith("j-"))?groupView():viewHome())+'</div>';
+  for(const id in kept){const el=document.getElementById(id);if(el){el.value=kept[id];el.dataset.dirty="1";}}
+  if(focusId){const f=document.getElementById(focusId);if(f&&(f.tagName==="INPUT"||f.tagName==="TEXTAREA")&&f.type!=="checkbox"){f.focus();if(sel)try{f.setSelectionRange(sel[0],sel[1]);}catch(e){}}}
   const tt=totals();const left=tt.a-tt.d;
-  const navs=[["home","home","navHome"],["pending","list","navPending"],["setup","gear","navSetup"]];
-  navs.forEach(x=>{const b=$("#nav-"+x[0]);const cur=x[0]===route||(x[0]==="home"&&route.startsWith("r-"));
+  const navs=[["home","home","navHome"],["groups","people","navGroups"],["pending","list","navPending"],["setup","gear","navSetup"]];
+  $("#nav-groups").hidden=!G.on;
+  navs.forEach(x=>{const b=$("#nav-"+x[0]);const cur=x[0]===route||(x[0]==="home"&&route.startsWith("r-"))||(x[0]==="groups"&&(route.startsWith("g-")||route.startsWith("j-")));
     b.innerHTML=ic(x[1])+'<span>'+esc(t(x[2]))+'</span>'+(x[0]==="pending"&&left>0?'<span class="badge">'+n(left>999?"999+":left)+'</span>':"");
     if(cur)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
   document.title=t("brand");
@@ -284,6 +291,7 @@ function render(){
 document.addEventListener("click",e=>{
   const el=e.target.closest("button,[data-open]");if(!el)return;
   const d=el.dataset;
+  if(gClick(el,e))return;
   if(d.lang!==undefined){S.lang=+d.lang;save();render();return;}
   if(el.id==="brand"){go("home");return;}
   if(d.go){go(d.go);return;}
@@ -304,12 +312,15 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("change",e=>{
   const el=e.target;
+  if(gChange(el))return;
   if(el.dataset&&el.dataset.ck){if(el.checked)S.ck[el.dataset.ck]=1;else delete S.ck[el.dataset.ck];save();
     // update in place to keep scroll position, then refresh counts
     const y=window.scrollY;render();window.scrollTo(0,y);return;}
   if(el.type==="date"){S.date=el.value||"";save();const y=window.scrollY;render();window.scrollTo(0,y);}
 });
+document.addEventListener("input",e=>{const el=e.target;if(el&&el.id&&el.dataset)el.dataset.dirty="1";});
 document.addEventListener("submit",e=>{
+  const g=e.target.closest("form");if(g&&Object.keys(g.dataset).some(k=>k.startsWith("g"))){e.preventDefault();gSubmit(g);return;}
   const f=e.target.closest("form[data-add]");if(!f)return;e.preventDefault();
   const inp=f.querySelector("input");const v=(inp.value||"").trim();if(!v)return;
   const rid=route.slice(2),kind=f.dataset.add;
@@ -318,6 +329,7 @@ document.addEventListener("submit",e=>{
   save();render();toast(t("added"));const ni=document.getElementById("add-"+kind);if(ni)ni.focus();
 });
 
+/*GROUPS*/
 route=readHash();render();
 initCloud();
 })();

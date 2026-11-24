@@ -1,0 +1,9 @@
+[Unit]
+Description=Leuva Patel Lagna: nightly database backup
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/leuva-lagna
+ExecStart=/opt/leuva-lagna/backup.sh

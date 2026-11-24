@@ -6,6 +6,8 @@ A mobile-first website, in Gujarati first with English and Hindi, that guides Sa
 - **સામાન** – a tickable list of items with typical quantities
 - **કામ** – a tickable to-do list
 
+**Groups (on the home server):** like Splid, the admin creates a group for one ceremony (e.g. "દીપની સગાઈ") and shares its code. Everyone who joins plans on the same lists, live: add, edit and tick items, to-dos, types and ritual steps; assign who brings what; note costs. Deleting only marks things dashed (restorable); only the admin deletes forever. See [SECURITY.md](SECURITY.md) and [deploy/README.md](deploy/README.md).
+
 Other features: a bride side / groom side filter, a wedding-date countdown, an "everything pending" view, your own added items, a WhatsApp share button and a text-size setting. Ticks are saved in the phone's browser (localStorage).
 
 ## Rituals covered
@@ -18,6 +20,9 @@ Other features: a bride side / groom side filter, a wedding-date countdown, an "
 |---|---|
 | `src/shell.html` | Page markup and CSS |
 | `src/app.js` | App logic: routing, checklists, storage, WhatsApp sharing |
+| `src/groups.js` | Group planning screens (inlined into app.js by the build) |
+| `server/` | Node server + API (no npm dependencies, built-in SQLite) and its tests |
+| `deploy/`, `Dockerfile` | Orange Pi deployment: signed image, auto-update, backups |
 | `src/data-0.js` … `data-3.js` | Ritual content in `[gujarati, english, hindi]` arrays (format in `src/FORMAT.md`) |
 | `build.js` | Combines everything into single-file pages |
 | `docs/index.html` | Built standalone site, ready for GitHub Pages |
@@ -30,6 +35,13 @@ node build.js
 ```
 
 No dependencies are needed. The output is one self-contained HTML file; only Google Fonts load from the network.
+
+## Run the server locally
+
+```bash
+ADMIN_PASSWORD='at-least-12-chars' node server/server.js   # http://127.0.0.1:8200
+node --test server/server.test.js
+```
 
 ## Host on GitHub Pages
 

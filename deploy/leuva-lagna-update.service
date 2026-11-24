@@ -1,0 +1,10 @@
+[Unit]
+Description=Leuva Patel Lagna: pull and deploy the latest signed image
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/leuva-lagna
+ExecStart=/opt/leuva-lagna/autoupdate.sh
