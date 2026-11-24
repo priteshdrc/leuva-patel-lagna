@@ -91,6 +91,37 @@ CREATE TABLE IF NOT EXISTS activity (
 );
 CREATE INDEX IF NOT EXISTS activity_group ON activity(group_id, id);
 
+CREATE TABLE IF NOT EXISTS mcp_tokens (   -- personal MCP tokens and OAuth connections; only hashes stored
+  id               TEXT PRIMARY KEY,
+  name             TEXT NOT NULL,
+  kind             TEXT NOT NULL CHECK (kind IN ('token','oauth')),
+  access           TEXT NOT NULL CHECK (access IN ('read','add','full')),
+  hash             TEXT NOT NULL UNIQUE,
+  expires_at       INTEGER,                -- NULL = never (personal tokens only)
+  refresh_hash     TEXT UNIQUE,
+  refresh_expires  INTEGER,
+  prev_refresh     TEXT,                   -- the refresh token just rotated out (reuse = theft)
+  client_id        TEXT,
+  created_at       INTEGER NOT NULL,
+  last_used        INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS oauth_clients (
+  id            TEXT PRIMARY KEY,
+  name          TEXT NOT NULL,
+  redirect_uris TEXT NOT NULL,             -- JSON array
+  created_at    INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS oauth_codes (
+  hash          TEXT PRIMARY KEY,
+  client_id     TEXT NOT NULL,
+  redirect_uri  TEXT NOT NULL,
+  challenge     TEXT NOT NULL,
+  access        TEXT NOT NULL,
+  expires_at    INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS admin_sessions (
   hash       TEXT PRIMARY KEY,
   created_at INTEGER NOT NULL,
@@ -102,6 +133,9 @@ function open(dataDir) {
   fs.mkdirSync(dataDir, { recursive: true });
   const db = new DatabaseSync(path.join(dataDir, "lagna.db"));
   db.exec(SCHEMA);
+  // migrations for databases made by earlier versions
+  const cols = db.prepare("PRAGMA table_info(activity)").all().map((c) => c.name);
+  if (!cols.includes("via")) db.exec("ALTER TABLE activity ADD COLUMN via TEXT");
   return db;
 }
 

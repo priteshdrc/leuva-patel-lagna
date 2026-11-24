@@ -10,7 +10,7 @@ ENV NODE_ENV=production \
     DATA_DIR=/data
 
 WORKDIR /app
-COPY server/server.js server/db.js ./server/
+COPY server/server.js server/db.js server/mcp.js ./server/
 COPY src/data-*.js ./src/
 COPY docs/index.html ./docs/index.html
 

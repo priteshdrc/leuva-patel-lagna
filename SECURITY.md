@@ -59,6 +59,11 @@ Every change is written to the group's activity log with the member's name.
   `autoupdate.sh` refuses to run any image that isn't signed by this repo's `ci.yml` on `main`.
 - Nightly SQLite backups (`VACUUM INTO`), optionally encrypted with `age`.
 
+## AI agents (MCP)
+
+See [MCP.md](MCP.md): hashed tokens with read / add / full access, OAuth 2.1 with PKCE for claude.ai (consent needs
+the admin password), rotating refresh tokens with reuse detection, every change logged as "MCP: name".
+
 ## Not covered
 
 - Members are trusted family: anyone with the code can join and pick an existing name. That's on purpose

@@ -1,5 +1,6 @@
 *
 !server/server.js
 !server/db.js
+!server/mcp.js
 !src/data-*.js
 !docs/index.html

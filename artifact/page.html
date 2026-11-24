@@ -257,6 +257,11 @@ textarea.inp{resize:vertical;line-height:1.45}
   padding:18px max(16px,env(safe-area-inset-left,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-right,0px));
   max-width:560px;margin:0 auto;box-shadow:0 -8px 30px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:10px}
 .sheet h2{font-size:1.15rem}
+.mono{font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;font-size:.82rem;letter-spacing:0;overflow-wrap:anywhere;word-break:break-all}
+.codebox .code.mono{font-size:.9rem;flex:1;min-width:0}
+.made{display:flex;flex-direction:column;gap:6px;background:color-mix(in srgb,var(--haldi) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--haldi) 50%,var(--line));border-radius:12px;padding:12px}
+.made pre{margin:0;white-space:pre-wrap;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px}
+.made .mini{align-self:flex-start}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media (max-width:370px){.langs button{padding:6px 7px;font-size:.76rem}.how li{font-size:.76rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.rit:active{transform:none}}
@@ -1487,6 +1492,25 @@ Object.assign(T,{
   gOffline:["સર્વર સાથે જોડાણ નથી — ફરી પ્રયત્ન થાય છે","Can't reach the server — retrying","सर्वर से जुड़ाव नहीं — फिर कोशिश हो रही है"],
   gMembersN:["{n} સભ્ય","{n} members","{n} सदस्य"],
   gJust:["હમણાં","just now","अभी"],gMin:["{n} મિનિટ પહેલાં","{n} min ago","{n} मिनट पहले"],gHr:["{n} કલાક પહેલાં","{n} h ago","{n} घंटे पहले"],
+  mCopy:["કૉપી","Copy","कॉपी"],
+  mTitle:["AI એજન્ટ (MCP)","AI agents (MCP)","AI एजेंट (MCP)"],
+  mHint:["Claude જેવી AI એપ તમારાં ગ્રુપ જોઈ અને બદલી શકે. દરેક ફેરફાર પ્રવૃત્તિમાં “MCP” નામ સાથે દેખાય છે.","Let an AI app like Claude read and update your groups. Every change shows in the activity log as “MCP”.","Claude जैसी AI ऐप आपके ग्रुप देख और बदल सके। हर बदलाव गतिविधि में “MCP” नाम से दिखता है।"],
+  mConnector:["claude.ai / Claude ઍપ: Settings → Connectors → Add custom connector, URL:","claude.ai / Claude app: Settings → Connectors → Add custom connector, URL:","claude.ai / Claude ऐप: Settings → Connectors → Add custom connector, URL:"],
+  mConnHint:["પછી અહીંનો એડમિન પાસવર્ડ પૂછશે.","It then asks for this site's admin password.","फिर यहाँ का एडमिन पासवर्ड पूछेगा।"],
+  mNew:["Claude Code માટે નવું ટોકન","New token for Claude Code","Claude Code के लिए नया टोकन"],
+  mName:["નામ (કઈ એપ / ઉપકરણ)","Name (which app / device)","नाम (कौन सी ऐप / डिवाइस)"],
+  mAccess:["છૂટ","Access","अनुमति"],
+  mRead:["ફક્ત જોવું","Read only","सिर्फ़ देखना"],mAdd:["જોવું + ઉમેરવું / બદલવું","Read, add and edit","देखना + जोड़ना / बदलना"],mFull:["બધું (કાયમ કાઢવું પણ)","Full (incl. delete forever)","सब (हमेशा हटाना भी)"],
+  mDays:["ક્યાં સુધી","Expires","कब तक"],mD30:["૩૦ દિવસ","30 days","30 दिन"],mD90:["૯૦ દિવસ","90 days","90 दिन"],mD365:["૧ વર્ષ","1 year","1 साल"],mD0:["ક્યારેય નહીં","Never","कभी नहीं"],
+  mCreate:["ટોકન બનાવો","Create token","टोकन बनाएँ"],
+  mOnce:["આ ટોકન ફક્ત એક જ વાર દેખાશે. હમણાં જ કૉપી કરો:","This token is shown only once. Copy it now:","यह टोकन सिर्फ़ एक बार दिखेगा। अभी कॉपी करें:"],
+  mCmd:["Claude Code માં ચલાવો:","Run in Claude Code:","Claude Code में चलाएँ:"],
+  mList:["જોડાયેલી એપ અને ટોકન","Connected apps and tokens","जुड़ी ऐप और टोकन"],
+  mNone:["હજુ કંઈ જોડાયેલું નથી.","Nothing connected yet.","अभी कुछ जुड़ा नहीं है।"],
+  mRevoke:["બંધ કરો","Revoke","बंद करें"],mRevokeQ:["આ જોડાણ બંધ કરવું છે?","Revoke this connection?","यह जुड़ाव बंद करना है?"],
+  mOauth:["એપ (લૉગિન)","app (sign-in)","ऐप (लॉगिन)"],mToken:["ટોકન","token","टोकन"],
+  mUsed:["છેલ્લે વપરાયું","last used","आख़िरी बार"],mNever:["હજુ નહીં","not yet","अभी नहीं"],mExp:["પૂરું","expires","ख़त्म"],
+  e_set_PUBLIC_URL:["સર્વરની .env માં PUBLIC_URL નાખો.","Set PUBLIC_URL in the server's .env.","सर्वर की .env में PUBLIC_URL डालें।"],
   e_wrong_code:["આ કોડનું કોઈ ગ્રુપ નથી. કોડ ફરી તપાસો.","No group has this code. Check the code again.","इस कोड का कोई ग्रुप नहीं है। कोड फिर से देखें।"],
   e_too_many_attempts:["ઘણા પ્રયત્ન થયા. ૧૦–૧૫ મિનિટ પછી ફરી કરો.","Too many tries. Try again in 10–15 minutes.","बहुत कोशिशें हुईं। 10–15 मिनट बाद फिर करें।"],
   e_wrong_password:["પાસવર્ડ ખોટો છે.","Wrong password.","पासवर्ड गलत है।"],
@@ -1742,7 +1766,7 @@ function viewSteps(){
 function viewGroupInfo(){
   const d=G.cur.data,g=d.group;
   let h='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gActivity"))+'</h2>';
-  h+=d.activity.length?'<ul class="acts">'+d.activity.slice(0,40).map(a=>'<li><b>'+esc(memberName(a.member_id))+'</b> '+esc(ACT[a.action]?tx(ACT[a.action]):a.action)+(a.detail&&a.action!=="purgeAll"?' <span class="q">“'+esc(a.detail)+'”</span>':'')+'<time>'+esc(ago(a.at))+'</time></li>').join("")+'</ul>':'<p class="hint">'+esc(t("gNoActivity"))+'</p>';
+  h+=d.activity.length?'<ul class="acts">'+d.activity.slice(0,40).map(a=>'<li><b>'+esc(a.via||memberName(a.member_id))+'</b> '+esc(ACT[a.action]?tx(ACT[a.action]):a.action)+(a.detail&&a.action!=="purgeAll"?' <span class="q">“'+esc(a.detail)+'”</span>':'')+'<time>'+esc(ago(a.at))+'</time></li>').join("")+'</ul>':'<p class="hint">'+esc(t("gNoActivity"))+'</p>';
   h+='</section>';
   h+='<section class="card"><h2 style="font-size:1.1rem">'+esc(t("gMembers"))+'</h2><ul class="mems">'+d.members.filter(m=>!m.removed).map(m=>'<li><span class="av'+(m.id===d.me.memberId?" me":"")+'">'+esc(Array.from(m.name)[0]||"?")+'</span><span class="nm">'+esc(m.name)+'</span>'+
     (canPurge()&&m.id!==d.me.memberId?(G.confirm==="mem:"+m.id?confirmBox("mem:"+m.id,t("gRemove")+"?",'data-gremove-yes="'+esc(m.id)+'"'):'<button type="button" class="mini danger2" data-gremove="'+esc(m.id)+'">'+esc(t("gRemove"))+'</button>'):'')+'</li>').join("")+'</ul></section>';
@@ -1781,7 +1805,36 @@ function adminCard(){
   if(!G.on)return"";
   let h='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("gAdminLogin"))+'</h2><p class="hint">'+esc(t("gAdminHint"))+'</p>';
   if(ADMIN)h+='<p style="margin:0">'+esc(t("gAdminOn"))+'</p><button type="button" class="btn ghost" data-glogout>'+esc(t("gLogout"))+'</button>';
+  if(ADMIN){h+='</section>'+mcpCard();return h;}
   else h+='<form class="add" data-glogin><label class="sr" for="g-pass">'+esc(t("gPassword"))+'</label><input id="g-pass" type="password" autocomplete="current-password" placeholder="'+esc(t("gPassword"))+'" maxlength="200"><button class="btn" type="submit">'+esc(t("gLogin"))+'</button></form>';
+  return h+'</section>';
+}
+
+/* ---------- MCP tokens (admin) ---------- */
+const MC={list:null,made:null,loading:false};
+async function mcpLoad(){if(MC.loading)return;MC.loading=true;try{MC.list=await api("GET","/api/admin/mcp");}catch(e){MC.list={error:e.code};}MC.loading=false;render();}
+function mcpCard(){
+  if(!MC.list&&!MC.loading)setTimeout(mcpLoad,0);
+  const url=((MC.list&&MC.list.publicUrl)||location.origin)+"/mcp";
+  let h='<section class="card"><h2 style="font-size:1.15rem">'+esc(t("mTitle"))+'</h2><p class="hint">'+esc(t("mHint"))+'</p>';
+  h+='<div class="label">'+esc(t("mConnector"))+'</div><div class="codebox"><span class="code mono" translate="no">'+esc(url)+'</span><button type="button" class="mini" data-gcopy="'+esc(url)+'">'+ic("copy")+esc(t("mCopy"))+'</button></div><p class="hint">'+esc(t("mConnHint"))+'</p>';
+  if(MC.made){
+    const cmd='claude mcp add --transport http --scope user leuva-lagna '+url+' --header "Authorization: Bearer '+MC.made+'"';
+    h+='<div class="made"><b>'+esc(t("mOnce"))+'</b><pre class="mono" translate="no">'+esc(MC.made)+'</pre><button type="button" class="mini" data-gcopy="'+esc(MC.made)+'">'+ic("copy")+esc(t("mCopy"))+'</button>'+
+      '<b>'+esc(t("mCmd"))+'</b><pre class="mono" translate="no">'+esc(cmd)+'</pre><button type="button" class="mini" data-gcopy="'+esc(cmd)+'">'+ic("copy")+esc(t("mCopy"))+'</button></div>';
+  }
+  h+='<form class="stack" data-gmcpnew><div class="label">'+esc(t("mNew"))+'</div>'+
+    '<label class="label" for="mc-name">'+esc(t("mName"))+'</label><input class="inp" id="mc-name" maxlength="60" placeholder="Claude Code – laptop">'+
+    '<label class="label" for="mc-access">'+esc(t("mAccess"))+'</label><select class="inp" id="mc-access"><option value="read">'+esc(t("mRead"))+'</option><option value="add" selected>'+esc(t("mAdd"))+'</option><option value="full">'+esc(t("mFull"))+'</option></select>'+
+    '<label class="label" for="mc-days">'+esc(t("mDays"))+'</label><select class="inp" id="mc-days"><option value="30">'+esc(t("mD30"))+'</option><option value="90" selected>'+esc(t("mD90"))+'</option><option value="365">'+esc(t("mD365"))+'</option><option value="0">'+esc(t("mD0"))+'</option></select>'+
+    '<button class="btn" type="submit">'+esc(t("mCreate"))+'</button></form>';
+  h+='<div class="label">'+esc(t("mList"))+'</div>';
+  const rows=MC.list&&MC.list.tokens||[];
+  if(MC.list&&MC.list.error)h+='<p class="hint">'+esc(errText(MC.list.error))+'</p>';
+  else if(!rows.length)h+='<p class="hint">'+esc(MC.list?t("mNone"):t("gLoading"))+'</p>';
+  else h+='<ul class="mems">'+rows.map(r=>{const lvl={read:"mRead",add:"mAdd",full:"mFull"}[r.access];
+    return '<li><span class="nm">'+esc(r.name)+'<span class="hint" style="display:block;font-weight:400">'+esc(t(r.kind==="oauth"?"mOauth":"mToken"))+' · '+esc(t(lvl))+' · '+esc(t("mUsed"))+': '+esc(r.last_used?ago(r.last_used):t("mNever"))+(r.expires_at?' · '+esc(t("mExp"))+' '+esc(new Date(r.expires_at).toLocaleDateString()):'')+'</span></span>'+
+      (G.confirm==="mcp:"+r.id?confirmBox("mcp:"+r.id,t("mRevokeQ"),'data-gmcprevoke-yes="'+esc(r.id)+'"'):'<button type="button" class="mini danger2" data-gmcprevoke="'+esc(r.id)+'">'+esc(t("mRevoke"))+'</button>')+'</li>';}).join("")+'</ul>';
   return h+'</section>';
 }
 
@@ -1810,7 +1863,9 @@ function gClick(el,e){
   if(d.gleaveYes!==undefined){const gid=G.cur.gid;api("POST","/api/g/"+gid+"/leave",{},gid).catch(()=>{});delete MY[gid];gSave(MY);G.confirm=null;go("groups");return true;}
   if(d.gclaim){doJoin({memberId:d.gclaim});return true;}
   if(d.gcopy){const v=d.gcopy;try{navigator.clipboard.writeText(v).then(()=>toast(t("copied")),()=>toast(v));}catch(err){toast(v);}return true;}
-  if(d.glogout!==undefined){api("POST","/api/admin/logout",{}).catch(()=>{});setAdmin("");G.adminGroups=null;render();return true;}
+  if(d.gmcprevoke){G.confirm="mcp:"+d.gmcprevoke;render();return true;}
+  if(d.gmcprevokeYes){G.confirm=null;api("POST","/api/admin/mcp/revoke",{id:d.gmcprevokeYes}).then(()=>{MC.list=null;MC.made=null;mcpLoad();toast(t("removed"));}).catch(e=>toast(errText(e.code)));return true;}
+  if(d.glogout!==undefined){MC.list=null;MC.made=null;api("POST","/api/admin/logout",{}).catch(()=>{});setAdmin("");G.adminGroups=null;render();return true;}
   return false;
 }
 async function doJoin(extra){
@@ -1844,6 +1899,8 @@ function gSubmit(f){
     const jobs=[];if(title!==g.title||date!==g.date)jobs.push(op({op:"editGroup",title,date}));
     if(G.cur.data.me.memberId&&me&&me!==memberName(G.cur.data.me.memberId))jobs.push(op({op:"renameMe",name:me}));
     Promise.all(jobs).then(r=>{if(r.length&&r.every(Boolean))toast(t("gSaved"));});return true;}
+  if(d.gmcpnew!==undefined){const body={name:val("mc-name")||"Claude Code",access:val("mc-access"),days:+val("mc-days")};
+    api("POST","/api/admin/mcp",body).then(r=>{MC.made=r.token;MC.list=null;mcpLoad();}).catch(e=>toast(errText(e.code)));return true;}
   if(d.gdelgroup!==undefined){const gid=G.cur.gid;
     api("POST","/api/g/"+gid+"/admin",{op:"deleteGroup",confirm:val("gd-confirm")},gid).then(()=>{delete MY[gid];gSave(MY);toast(t("removed"));go("groups");}).catch(e=>toast(errText(e.code)));return true;}
   return false;

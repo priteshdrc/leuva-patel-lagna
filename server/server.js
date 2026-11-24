@@ -123,8 +123,8 @@ const S = {
   sections: q("SELECT * FROM sections WHERE group_id = ? ORDER BY kind, pos"),
   entries: q("SELECT * FROM entries WHERE group_id = ? ORDER BY pos"),
   steps: q("SELECT * FROM steps WHERE group_id = ? ORDER BY pos"),
-  activity: q("SELECT id, member_id, action, detail, at FROM activity WHERE group_id = ? ORDER BY id DESC LIMIT 80"),
-  log: q("INSERT INTO activity (group_id, member_id, action, detail, at) VALUES (?,?,?,?,?)"),
+  activity: q("SELECT id, member_id, action, detail, at, via FROM activity WHERE group_id = ? ORDER BY id DESC LIMIT 80"),
+  log: q("INSERT INTO activity (group_id, member_id, action, detail, at, via) VALUES (?,?,?,?,?,?)"),
   adminSession: q("SELECT * FROM admin_sessions WHERE hash = ? AND expires_at > ?"),
 };
 
@@ -204,7 +204,7 @@ function state(g, who) {
 function must(row, code = "not_found") { if (!row) throw new HttpError(404, code); return row; }
 function opMember(g, who, b) {
   const by = who.memberId, t = now(), gid = g.id;
-  const log = (action, detail) => S.log.run(gid, by, action, String(detail || "").slice(0, 120), t);
+  const log = (action, detail) => S.log.run(gid, by, action, String(detail || "").slice(0, 120), t, who.via || null);
   const text = (v, max = LIMITS.text) => { const c = clean(v, max); if (!c) throw bad("text"); return c; };
   const amount = (v) => { if (v === null || v === "" || v === undefined) return null; const n = Number(v); if (!Number.isInteger(n) || n < 0 || n > 1e9) throw bad("amount"); return n; };
   const assignee = (v) => { if (!v) return null; const m = S.member.get(String(v), gid); if (!m || m.removed) throw bad("assignee"); return m.id; };
@@ -299,7 +299,7 @@ function opMember(g, who, b) {
 function opAdmin(g, who, b) {
   if (!who.admin && !who.owner) throw new HttpError(403, "admin_only");
   const gid = g.id, t = now();
-  const log = (action, detail) => S.log.run(gid, who.memberId, action, String(detail || "").slice(0, 120), t);
+  const log = (action, detail) => S.log.run(gid, who.memberId, action, String(detail || "").slice(0, 120), t, who.via || null);
   const delOnly = (table, id) => {
     const r = must(q(`SELECT * FROM ${table} WHERE id = ? AND group_id = ?`).get(String(id), gid));
     if (!r.deleted_at) throw bad("delete_first"); // permanent delete only after a soft delete
@@ -332,6 +332,37 @@ function opAdmin(g, who, b) {
     }
     default: throw bad("unknown_op");
   }
+}
+
+/* ---------------- admin password (shared by login and the OAuth consent page) ---------------- */
+async function checkAdminPassword(password, ip) {
+  if (!ADMIN_ENABLED) throw new HttpError(403, "admin_disabled");
+  if (!peek("login:" + ip, 5) || !peek("login:all", 30)) throw new HttpError(429, "too_many_attempts");
+  if (typeof password !== "string" || !safeEqual(password, CFG.adminPassword)) {
+    hit("login:" + ip, 5, 15 * 60_000); hit("login:all", 30, 15 * 60_000);
+    console.warn(`[security] failed admin password from ${ip}`);
+    await new Promise((r) => setTimeout(r, 400));
+    throw new HttpError(401, "wrong_password");
+  }
+}
+
+/* ---------------- creating a group (web and MCP) ---------------- */
+function createGroup(b, admin) {
+  if (S.countGroups.get().n >= CFG.maxGroups) throw bad("limit");
+  const title = clean(b.title, LIMITS.title), name = clean(b.name, LIMITS.name);
+  const r = TEMPLATES.get(String(b.ritual));
+  const date = String(b.date || ""); const side = ["b", "g"].includes(b.side) ? b.side : "all";
+  if (!title || !name || !r || !isDate(date)) throw bad("fields");
+  const gid = rid(), mid = rid(), mt = token(), ownerT = admin ? null : token();
+  let code; do { code = newCode(); } while (S.groupByCode.get(code));
+  tx(() => {
+    S.insertGroup.run(gid, code, title, r.id, date, side, admin ? 1 : 0, ownerT ? sha(ownerT) : null, now());
+    S.insertMember.run(mid, gid, name, now());
+    S.insertToken.run(sha(mt), mid, gid, now(), now());
+    seedGroup(gid, r, side, mid);
+    S.log.run(gid, mid, "create", title, now(), b.via || null);
+  });
+  return { groupId: gid, code, token: mt, memberId: mid, ownerToken: ownerT };
 }
 
 /* ---------------- HTTP plumbing ---------------- */
@@ -376,6 +407,10 @@ async function route(req, res) {
   const p = url.pathname, m = req.method, ip = clientIp(req);
 
   if (m === "GET" && (p === "/" || p === "/index.html")) return send(res, 200, PAGE);
+  if (p === "/mcp" || p.startsWith("/.well-known/oauth-") || p.startsWith("/oauth/") || p.startsWith("/api/admin/mcp")) {
+    if (!hit("api:" + ip, 600, 60_000)) throw new HttpError(429, "slow_down");
+    return MCP.handle(req, res, url, ip);
+  }
   if (!p.startsWith("/api/")) return send(res, 404, { error: "not_found" });
 
   // general per-IP ceiling for the whole API
@@ -386,14 +421,8 @@ async function route(req, res) {
   /* ---- admin session ---- */
   if (m === "POST" && p === "/api/admin/login") {
     if (!ADMIN_ENABLED) throw new HttpError(403, "admin_disabled");
-    if (!peek("login:" + ip, 5) || !peek("login:all", 30)) throw new HttpError(429, "too_many_attempts");
     const b = await readJson(req);
-    if (typeof b.password !== "string" || !safeEqual(b.password, CFG.adminPassword)) {
-      hit("login:" + ip, 5, 15 * 60_000); hit("login:all", 30, 15 * 60_000);
-      console.warn(`[security] failed admin login from ${ip}`);
-      await new Promise((r) => setTimeout(r, 400));
-      throw new HttpError(401, "wrong_password");
-    }
+    await checkAdminPassword(b.password, ip);
     const t = token();
     q("DELETE FROM admin_sessions WHERE expires_at < ?").run(now());
     q("INSERT INTO admin_sessions (hash, created_at, expires_at) VALUES (?,?,?)").run(sha(t), now(), now() + ADMIN_SESSION_MS);
@@ -415,22 +444,8 @@ async function route(req, res) {
     const admin = isAdmin(req);
     if (!admin && !CFG.openCreate) throw new HttpError(403, "admin_only");
     if (!admin && !hit("create:" + ip, 5, 3600_000)) throw new HttpError(429, "too_many_groups");
-    if (S.countGroups.get().n >= CFG.maxGroups) throw bad("limit");
     const b = await readJson(req);
-    const title = clean(b.title, LIMITS.title), name = clean(b.name, LIMITS.name);
-    const r = TEMPLATES.get(String(b.ritual));
-    const date = String(b.date || ""); const side = ["b", "g"].includes(b.side) ? b.side : "all";
-    if (!title || !name || !r || !isDate(date)) throw bad("fields");
-    const gid = rid(), mid = rid(), mt = token(), ownerT = admin ? null : token();
-    let code; do { code = newCode(); } while (S.groupByCode.get(code));
-    tx(() => {
-      S.insertGroup.run(gid, code, title, r.id, date, side, admin ? 1 : 0, ownerT ? sha(ownerT) : null, now());
-      S.insertMember.run(mid, gid, name, now());
-      S.insertToken.run(sha(mt), mid, gid, now(), now());
-      seedGroup(gid, r, side, mid);
-      S.log.run(gid, mid, "create", title, now());
-    });
-    return send(res, 200, { groupId: gid, code, token: mt, memberId: mid, ownerToken: ownerT });
+    return send(res, 200, createGroup({ title: b.title, name: b.name, ritual: b.ritual, date: b.date, side: b.side }, admin));
   }
 
   /* ---- join with a code ---- */
@@ -451,7 +466,7 @@ async function route(req, res) {
     }
     const t = token();
     S.insertToken.run(sha(t), mid, g.id, now(), now());
-    S.log.run(g.id, mid, "join", "", now()); bump(g.id);
+    S.log.run(g.id, mid, "join", "", now(), null); bump(g.id);
     return send(res, 200, { groupId: g.id, token: t, memberId: mid });
   }
 
@@ -488,6 +503,11 @@ async function route(req, res) {
   }
   return send(res, 404, { error: "not_found" });
 }
+
+const MCP = require("./mcp")({
+  db, q, S, tx, now, sha, rid, token, clean, isDate, normCode, hit, peek, HttpError, bad, send, readJson,
+  CFG, LIMITS, TEMPLATES, ADMIN_ENABLED, isAdmin, checkAdminPassword, createGroup, opMember, opAdmin, bump, state,
+});
 
 const server = http.createServer((req, res) => {
   route(req, res).catch((e) => {
