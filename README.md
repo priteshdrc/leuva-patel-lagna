@@ -18,7 +18,7 @@ Other features: a bride side / groom side filter, a wedding-date countdown, an "
 |---|---|
 | `src/shell.html` | Page markup and CSS |
 | `src/app.js` | App logic: routing, checklists, storage, WhatsApp sharing |
-| `src/data-1.js` … `data-3.js` | Ritual content in `[gujarati, english, hindi]` arrays (format in `src/FORMAT.md`) |
+| `src/data-0.js` … `data-3.js` | Ritual content in `[gujarati, english, hindi]` arrays (format in `src/FORMAT.md`) |
 | `build.js` | Combines everything into single-file pages |
 | `docs/index.html` | Built standalone site, ready for GitHub Pages |
 | `artifact/page.html` | Built page body for the claude.ai artifact version |
@@ -37,6 +37,6 @@ Go to **Settings → Pages**, choose **Deploy from a branch**, select branch `ma
 
 ## Editing content
 
-To change a ritual, edit the matching `src/data-*.js` file and run `node build.js`. Every text is an array of `[ગુજરાતી, English, हिन्दी]`. To mark an item or task as bride-side or groom-side only, add `"b"` or `"g"` as its 4th element.
+To change a ritual, edit the matching `src/data-*.js` file and run `node build.js`. Every text is an array of `[ગુજરાતી, English, हिन्दी]`. To mark an item or task as bride-side or groom-side only, add `"b"` or `"g"` as its 4th element. To group a list, put a heading object `{h: [gu, en, hi]}` before its entries (see `src/FORMAT.md`).
 
 > Customs differ by village and family. The lists are suggestions; please confirm with your gor maharaj and family elders.

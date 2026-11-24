@@ -25,3 +25,12 @@ RITUALS.push({
 Item names should be concrete and countable where possible: "શ્રીફળ (નાળિયેર) – ૫", "કંકુ, ચોખા, નાડાછડી", "પેંડા / મીઠાઈ – ૫ કિલો". Write quantities as typical suggestions.
 
 Community context: Saurashtra (Rajkot, Amreli, Junagadh, Bhavnagar, Jamnagar, Surat-settled) Leuva Patel families. Many revere Khodiyar Maa (Khodaldham, Kagvad) and their own kuldevi and surapura dada; say "your kuldevi" generically and mention Khodiyar Maa only as a common example. Samaj encourages simple weddings and no dahej (dowry). Customs vary by village and family — don't claim one rule is universal; phrase as "usually", "in many families".
+
+## Group headings inside items / todos
+
+A list may contain heading objects between entries: `{h: [gu, en, hi]}`.
+Use them to group items by type (e.g. "Puja items", "Gifts", "Hosting") and to-dos by timing
+("1–2 weeks before", "The day before", "After the ritual"). Headings with no visible entries
+(after the bride/groom side filter) are hidden automatically.
+
+Ticks are stored by a hash of the English text, so editing an entry's English text resets its tick.

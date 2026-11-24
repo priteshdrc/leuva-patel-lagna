@@ -75,7 +75,8 @@ const T = {
   shareFoot:["— લેઉવા પટેલ લગ્ન માર્ગદર્શિકા","— Leuva Patel Wedding Guide","— लेउवा पटेल विवाह मार्गदर्शिका"],
   of:["{a} / {b}","{a} / {b}","{a} / {b}"],
   removed:["કાઢી નાખ્યું","Removed","हटा दिया"],
-  cleared:["✓ કાઢી નાખ્યા","Ticks cleared","✓ हटा दिए"]
+  cleared:["✓ કાઢી નાખ્યા","Ticks cleared","✓ हटा दिए"],
+  yours:["તમે ઉમેરેલું","Added by you","आपने जोड़ा"]
 };
 const LANGS=["gu","en","hi"];
 
@@ -143,13 +144,19 @@ const n=(x)=>L()===0?String(x).replace(/[0-9]/g,d=>GU[d]):String(x);
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $=(s,r=document)=>r.querySelector(s);
 function sideOk(tag){return !tag||S.side==="all"||tag===S.side;}
-function entries(r,kind){ // kind: "i" items, "t" todos
+function hk(str){let h=5381;for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))|0;return (h>>>0).toString(36);}
+function entries(r,kind,withHeads){ // kind: "i" items, "t" todos
   const base=(kind==="i"?r.items:r.todos)||[];
-  const out=[];
-  base.forEach((e,i)=>{if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+i,text:tx(e),tag:e[3]||"",custom:false});});
+  let out=[];
+  base.forEach(e=>{
+    if(!Array.isArray(e)&&e&&e.h){out.push({head:tx(e.h)});return;}
+    if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+hk(e[1]||e[0]),text:tx(e),tag:e[3]||"",custom:false});
+  });
+  out=out.filter((e,i)=>!e.head||(out[i+1]&&!out[i+1].head));
   const c=((S.custom[r.id]||{})[kind])||[];
+  if(c.length&&out.some(e=>e.head))out.push({head:t("yours")});
   c.forEach(e=>out.push({key:r.id+"|c"+kind+"|"+e.id,text:e.t,tag:"",custom:true,cid:e.id}));
-  return out;
+  return withHeads?out:out.filter(e=>!e.head);
 }
 function stat(r,kind){const e=kind?entries(r,kind):entries(r,"i").concat(entries(r,"t"));const d=e.filter(x=>S.ck[x.key]).length;return{d,all:e.length};}
 function totals(){let d=0,a=0;RITUALS.forEach(r=>{const s=stat(r);d+=s.d;a+=s.all;});return{d,a};}
@@ -167,6 +174,7 @@ window.addEventListener("hashchange",()=>{const r=readHash();if(r!==route){if(r.
 
 /* ---------- Views ---------- */
 function checkRow(e,opts){
+  if(e.head)return '<li class="grp">'+esc(e.head)+'</li>';
   const on=!!S.ck[e.key];
   return '<li><label class="ck'+(on?" on":"")+'"><input type="checkbox" data-ck="'+esc(e.key)+'"'+(on?" checked":"")+'><span class="box">'+ic("check")+'</span><span class="t">'+esc(e.text)+'</span>'+tagChip(e.tag)+
     (e.custom&&!opts?'<button type="button" class="del" data-del="'+esc(e.key)+'" aria-label="'+esc(t("remove"))+'">×</button>':"")+'</label></li>';
@@ -192,7 +200,7 @@ function sideButtons(){
 }
 function shareText(title,groups){
   let s="*"+title+"*\n";
-  groups.forEach(g=>{if(g.head)s+="\n_"+g.head+"_\n";g.rows.forEach(e=>{s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
+  groups.forEach(g=>{if(g.head)s+="\n*"+g.head+"*\n";g.rows.forEach(e=>{if(e.head){s+="\n_"+e.head+"_\n";return;}s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
   return s+"\n"+t("shareFoot");
 }
 function shareBlock(text,resetKind){
@@ -219,7 +227,7 @@ function viewRitual(id){
     h+='<div class="actions"><button type="button" class="btn" data-tab="items">'+esc(t("tabItems"))+' ('+n(si.all)+')</button><button type="button" class="btn" data-tab="todos">'+esc(t("tabTodos"))+' ('+n(st.all)+')</button></div>';
     h+='<p class="note">'+esc(t("vary"))+'</p>';
   }else{
-    const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind);
+    const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind,true);
     const pct=s.all?Math.round(s.d*100/s.all):0;
     h+='<div class="listhead"><h2 style="font-size:1.15rem;flex:1">'+esc(t(kind==="i"?"itemsTitle":"todosTitle"))+'</h2><span class="pct">'+n(s.d)+' / '+n(s.all)+'</span></div>';
     h+='<div class="bar"><i style="width:'+pct+'%"></i></div>';

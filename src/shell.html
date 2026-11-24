@@ -133,6 +133,8 @@ main{padding-block:16px 24px}
 /* Checklists */
 .listhead{display:flex;align-items:center;gap:12px}
 .checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.checks .grp{font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--kanku);padding:10px 2px 0;border-bottom:2px solid var(--line)}
+.checks .grp:first-child{padding-top:0}
 .ck{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:60px;cursor:pointer;user-select:none}
 .ck input{position:absolute;opacity:0;pointer-events:none}
 .box{flex:none;width:32px;height:32px;border-radius:8px;border:2.5px solid var(--muted);display:grid;place-items:center;background:var(--surface);transition:background .15s}

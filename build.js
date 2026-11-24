@@ -1,6 +1,6 @@
 const fs=require('fs');const p=__dirname+'/src/';
 const shell=fs.readFileSync(p+'shell.html','utf8');
-const data=[1,2,3].map(i=>fs.readFileSync(p+`data-${i}.js`,'utf8')).join('\n');
+const data=[0,1,2,3].map(i=>fs.readFileSync(p+`data-${i}.js`,'utf8')).join('\n');
 const app=fs.readFileSync(p+'app.js','utf8');
 const out=shell.replace('<!--DATA-->','<script>\n'+data+'\n</script>').replace('/*APP*/',()=>app);
 fs.mkdirSync(__dirname+'/artifact',{recursive:true});

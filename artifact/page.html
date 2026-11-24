@@ -133,6 +133,8 @@ main{padding-block:16px 24px}
 /* Checklists */
 .listhead{display:flex;align-items:center;gap:12px}
 .checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.checks .grp{font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--kanku);padding:10px 2px 0;border-bottom:2px solid var(--line)}
+.checks .grp:first-child{padding-top:0}
 .ck{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:60px;cursor:pointer;user-select:none}
 .ck input{position:absolute;opacity:0;pointer-events:none}
 .box{flex:none;width:32px;height:32px;border-radius:8px;border:2.5px solid var(--muted);display:grid;place-items:center;background:var(--surface);transition:background .15s}
@@ -215,41 +217,57 @@ RITUALS.push({
   icon: "coconut",
   host: "g",
   when: ["સગપણ નક્કી થાય ત્યારે, લગ્નના ૬–૧૨ મહિના પહેલાં", "When the match is fixed, 6–12 months before the wedding", "रिश्ता तय होते ही, शादी से 6–12 महीने पहले"],
-  name: ["ચાંદલો (સગપણ નક્કી કરવું)", "Chandlo (Fixing the Match)", "चांदलो (सगपण तय करना)"],
-  short: ["દીકરીના વડીલો દીકરાને ચાંદલો કરી સંબંધ પાકો કરે", "Bride's elders put a kanku tilak on the groom to fix the match", "कन्या पक्ष के बड़े वर को कंकु का चांदलो कर रिश्ता पक्का करते हैं"],
-  about: ["બંને કુટુંબ રાજી થાય પછી દીકરીના પિતા અને વડીલો દીકરાના ઘરે જાય છે. દીકરાને કપાળે કંકુનો ચાંદલો કરી શ્રીફળ અને રૂપિયા આપે છે. આથી સંબંધ પાકો ગણાય છે.", "Once both families agree, the bride's father and elders visit the groom's home. They put a kanku tilak (chandlo) on the boy's forehead and give him a coconut and cash (shagun). From this day the match is considered final.", "दोनों परिवारों की सहमति के बाद कन्या के पिता और बड़े वर के घर जाते हैं। वर के माथे पर कंकु का चांदलो कर श्रीफल और रुपये देते हैं। इससे रिश्ता पक्का माना जाता है।"],
+  name: ["ચાંદલો (સગપણ નક્કી કરવું)", "Chandlo (Fixing the Match)", "चांदलो (रिश्ता पक्का करना)"],
+  short: ["દીકરીના વડીલો દીકરાને ચાંદલો કરી સગપણ પાકું કરે", "Bride's elders put a tilak on the boy and fix the match", "लड़की के बड़े लड़के को तिलक कर रिश्ता पक्का करते हैं"],
+  about: ["સગપણ પાકું કરવાની પહેલી વિધિ. દીકરીના પિતા અને કુટુંબના વડીલો દીકરાના ઘરે જઈ દીકરાને કંકુનો ચાંદલો કરે અને શ્રીફળ તથા શુકનના રૂપિયા આપે. ઘણા કુટુંબોમાં સાકર કે મીઠાઈ ભરેલી માટલી પણ લઈ જાય છે, એટલે તેને “ચાંદલો-માટલી” પણ કહે છે. આ દિવસથી સંબંધ પાકો ગણાય છે.", "The first ritual that makes the match official. The bride's father and family elders visit the groom's home, put a kanku tilak (chandlo) on the boy and give him a coconut and shagun money. Many families also carry a small pot (matli) filled with sakar or sweets, so it is also called Chandlo-Matli. From this day the match is considered final.", "रिश्ता पक्का करने की पहली रस्म। लड़की के पिता और परिवार के बड़े लड़के के घर जाकर उसे कंकु का तिलक (चांदलो) करते हैं और नारियल व शगुन के रुपये देते हैं। कई परिवार मिश्री या मिठाई से भरी मटकी भी ले जाते हैं, इसलिए इसे “चांदलो-माटली” भी कहते हैं। इस दिन से रिश्ता पक्का माना जाता है।"],
   steps: [
-    ["ગોર મહારાજને પૂછી સારો દિવસ અને ચોઘડિયું નક્કી કરો.", "Ask the family priest (gor maharaj) for a good day and time.", "गोर महाराज से अच्छा दिन और चोघड़िया तय करें।"],
-    ["દીકરીના પિતા, કાકા, મામા જેવા ૫–૧૧ વડીલો દીકરાના ઘરે જાય.", "5–11 elders from the bride's side (father, uncles, mama) go to the groom's home.", "कन्या पक्ष के 5–11 बड़े (पिता, काका, मामा) वर के घर जाते हैं।"],
-    ["દીકરાના ઘરે પાણી, ચા-નાસ્તાથી સ્વાગત થાય.", "The groom's family welcomes them with water, tea and snacks.", "वर पक्ष पानी, चाय-नाश्ते से स्वागत करता है।"],
-    ["દીકરાને બાજઠ પર બેસાડી કપાળે કંકુ-ચોખાનો ચાંદલો કરવામાં આવે.", "The boy sits on a low stool (bajath) and gets a kanku-rice tilak on his forehead.", "वर को बाजठ पर बिठाकर माथे पर कंकु-चावल का चांदलो किया जाता है।"],
-    ["શ્રીફળ, રૂપિયા (શુકન) અને ક્યારેક કપડાં હાથમાં આપવામાં આવે.", "He is given a coconut, shagun money and, in many families, clothes.", "उसे श्रीफल, शगुन के रुपये और कई परिवारों में कपड़े दिए जाते हैं।"],
-    ["બંને પક્ષ મોં મીઠું કરે અને ગોળ-ધાણા વહેંચે.", "Both sides share sweets and gol-dhana.", "दोनों पक्ष मुंह मीठा करते हैं और गोळ-धाणा बांटते हैं।"],
-    ["સગાઈ અને લગ્નના અંદાજિત સમયની વાત કરી લે.", "Elders talk roughly about dates for the engagement and wedding.", "बड़े सगाई और शादी के अंदाज़न समय की बात करते हैं।"]
+    ["ગોર મહારાજને પૂછી શુભ દિવસ અને ચોઘડિયું નક્કી કરો.", "Ask the gor maharaj (family priest) for a good day and time (choghadiya).", "गोर महाराज से शुभ दिन और चौघड़िया तय करें।"],
+    ["દીકરીના પિતા, કાકા, મામા, ભાઈ — ૫ થી ૧૧ વડીલો દીકરાના ઘરે જાય.", "The bride's father, uncles, mama and brother — 5 to 11 elders — go to the groom's home.", "लड़की के पिता, चाचा, मामा, भाई — 5 से 11 बड़े लड़के के घर जाते हैं।"],
+    ["દીકરાના ઘરે પાણી અને ચા-નાસ્તાથી મહેમાનોનું સ્વાગત થાય.", "The groom's family welcomes them with water, tea and snacks.", "लड़के के घर पानी और चाय-नाश्ते से मेहमानों का स्वागत होता है।"],
+    ["દીકરો બાજઠ પર બેસે. ભગવાન અને કુળદેવી સામે દીવો કરાય.", "The boy sits on a low stool (bajath). A diya is lit before God and the kuldevi.", "लड़का बाजठ (पाटा) पर बैठता है। भगवान और कुलदेवी के सामने दीया जलाया जाता है।"],
+    ["દીકરીના પિતા (કે ભાઈ) દીકરાને કંકુ-ચોખાનો ચાંદલો કરે અને નાડાછડી બાંધે.", "The bride's father (or brother) puts a kanku-rice tilak on the boy and ties the sacred thread (nadachhadi).", "लड़की के पिता (या भाई) लड़के को कंकु-चावल का तिलक करते हैं और नाड़ाछड़ी (मौली) बाँधते हैं।"],
+    ["દીકરાના હાથમાં શ્રીફળ, શુકનના રૂપિયા અને સાકરની માટલી આપે. ઘણા કુટુંબોમાં કપડાં કે ઘડિયાળ પણ અપાય છે.", "They place a coconut, shagun money and the sakar matli in the boy's hands. Many families also give clothes or a watch.", "लड़के के हाथ में नारियल, शगुन के रुपये और मिश्री की मटकी देते हैं। कई परिवारों में कपड़े या घड़ी भी दी जाती है।"],
+    ["દીકરો વડીલોને પગે લાગે. બંને પક્ષ ગોળ-ધાણા અને મીઠાઈથી મોં મીઠું કરે.", "The boy touches the elders' feet. Both sides sweeten their mouths with gol-dhana and sweets.", "लड़का बड़ों के पैर छूता है। दोनों पक्ष गोळ-धाणा और मिठाई से मुँह मीठा करते हैं।"],
+    ["જમ્યા પછી વડીલો સગાઈ અને લગ્નની આશરે તારીખ અને મહેમાનોની સંખ્યા વિશે વાત કરે.", "After the meal, elders talk about rough dates for the engagement and wedding and the number of guests.", "भोजन के बाद बड़े सगाई और शादी की अनुमानित तारीख और मेहमानों की संख्या पर बात करते हैं।"]
   ],
   items: [
-    ["શ્રીફળ (નાળિયેર) – ૨", "Coconut (shreefal) – 2", "श्रीफल (नारियल) – 2", "b"],
-    ["કંકુ, ચોખા, નાડાછડી", "Kanku, rice, sacred thread (nadachhadi)", "कंकु, चावल, नाडाछड़ी", "b"],
-    ["શુકનના રૂપિયા (કવરમાં) – ₹૧૦૧ / ₹૫૦૧ / ₹૧,૧૦૧", "Shagun cash in envelope – ₹101 / ₹501 / ₹1,101", "शगुन के रुपये लिफाफे में – ₹101 / ₹501 / ₹1,101", "b"],
-    ["પૂજાની થાળી અને નાની વાટકી", "Puja plate (thali) and a small bowl", "पूजा की थाली और छोटी कटोरी", "b"],
-    ["દીકરા માટે કપડાં (પરિવારના રિવાજ મુજબ)", "Clothes for the groom (if your family does this)", "वर के लिए कपड़े (परिवार के रिवाज अनुसार)", "b"],
-    ["પેંડા / મીઠાઈ – ૨–૩ કિલો", "Pendas / sweets – 2–3 kg", "पेड़ा / मिठाई – 2–3 किलो"],
-    ["ગોળ અને ધાણા – ૫૦૦ ગ્રામ", "Jaggery and coriander seeds – 500 g", "गुड़ और धनिया – 500 ग्राम"],
-    ["બાજઠ (નાનો પાટલો) અને આસન", "Low stool (bajath) and a seat cloth", "बाजठ (छोटी चौकी) और आसन", "g"],
-    ["ચા-નાસ્તો / જમવાની વ્યવસ્થા", "Tea, snacks or a meal for guests", "चाय-नाश्ता / भोजन की व्यवस्था", "g"],
-    ["દીવો અને અગરબત્તી", "Diya (lamp) and incense", "दीया और अगरबत्ती", "g"]
+    {h: ["પૂજા અને શુકનનો સામાન (કન્યા પક્ષ લાવે)", "Puja and shagun items (bride's side brings)", "पूजा और शगुन का सामान (कन्या पक्ष लाए)"]},
+    ["શ્રીફળ (નાળિયેર) – ૨, નાડાછડી બાંધેલાં", "Coconuts (shreefal) – 2, tied with sacred thread", "नारियल (श्रीफळ) – 2, मौली बँधे हुए", "b"],
+    ["કંકુ, ચોખા (અક્ષત), નાડાછડી", "Kanku, rice (akshat), sacred thread", "कंकु, चावल (अक्षत), नाड़ाछड़ी", "b"],
+    ["પૂજાની થાળી, નાની વાટકી અને ચમચી", "Puja plate, small bowl and spoon", "पूजा की थाली, छोटी कटोरी और चम्मच", "b"],
+    ["શુકનના રૂપિયા કવરમાં – ₹૧૦૧ / ₹૫૦૧ / ₹૧,૧૦૧ (કુટુંબ પ્રમાણે)", "Shagun money in an envelope – ₹101 / ₹501 / ₹1,101 (as per family)", "शगुन के रुपये लिफ़ाफ़े में – ₹101 / ₹501 / ₹1,101 (परिवार के अनुसार)", "b"],
+    ["ચાંદલા-માટલી: નાની માટલી કે ડબ્બો, સાકર / પેંડા ભરેલો", "Chandlo matli: small pot or box filled with sakar or pendas", "चांदलो-माटली: छोटी मटकी या डिब्बा, मिश्री / पेड़े से भरा", "b"],
+    ["સાકર / પતાસાં – સવા કિલો", "Sakar (rock sugar) or patasa – 1¼ kg", "मिश्री / बताशे – सवा किलो", "b"],
+    {h: ["ભેટ", "Gifts", "भेंट"]},
+    ["દીકરા માટે કપડાં / ઘડિયાળ (રિવાજ હોય તો)", "Clothes or a watch for the boy (if your family does this)", "लड़के के लिए कपड़े / घड़ी (रिवाज हो तो)", "b"],
+    ["દીકરાના ઘર માટે મીઠાઈનું બોક્સ – ૧–૨ કિલો", "Sweet box for the boy's family – 1–2 kg", "लड़के के घर के लिए मिठाई का डिब्बा – 1–2 किलो", "b"],
+    {h: ["દીકરાના ઘરે તૈયારી (વર પક્ષ)", "Preparation at the boy's home (groom's side)", "लड़के के घर तैयारी (वर पक्ष)"]},
+    ["બાજઠ / પાટલો અને આસન", "Low stool (bajath) and a seat cloth", "बाजठ / पाटा और आसन", "g"],
+    ["દીવો, ઘી, અગરબત્તી, ભગવાન અને કુળદેવીનો ફોટો", "Diya, ghee, incense, picture of God and kuldevi", "दीया, घी, अगरबत्ती, भगवान और कुलदेवी की तस्वीर", "g"],
+    ["ગોળ-ધાણા – ગોળ ૫૦૦ ગ્રામ, ધાણા ૨૫૦ ગ્રામ", "Gol-dhana – 500 g jaggery, 250 g coriander seeds", "गोळ-धाणा – 500 ग्राम गुड़, 250 ग्राम धनिया", "g"],
+    ["ચા-પાણી, નાસ્તો અને જમણ – ૧૦–૨૫ લોકો માટે", "Tea, snacks and a meal – for 10–25 people", "चाय-पानी, नाश्ता और भोजन – 10–25 लोगों के लिए", "g"],
+    ["બેઠક માટે ગાદલાં / ખુરશી", "Mattresses or chairs for seating", "बैठने के लिए गद्दे / कुर्सियाँ", "g"],
+    ["મહેમાનોને વળતું શ્રીફળ / મીઠાઈ (રિવાજ હોય તો)", "Return coconut or sweets for the guests (if your family does this)", "मेहमानों को लौटाने के लिए नारियल / मिठाई (रिवाज हो तो)", "g"]
   ],
   todos: [
-    ["ગોર મહારાજને ફોન કરી શુભ દિવસ નક્કી કરો", "Call the gor maharaj and fix an auspicious day", "गोर महाराज को फोन कर शुभ दिन तय करें"],
-    ["જનારા વડીલોની યાદી બનાવો અને જાણ કરો", "Decide which elders will go and inform them", "जाने वाले बड़ों की सूची बनाकर उन्हें बताएं", "b"],
-    ["ગાડી / વાહનની વ્યવસ્થા કરો", "Arrange a car or vehicle for travel", "गाड़ी / वाहन की व्यवस्था करें", "b"],
-    ["શુકનના રૂપિયા કવરમાં તૈયાર રાખો", "Keep the shagun money ready in an envelope", "शगुन के रुपये लिफाफे में तैयार रखें", "b"],
-    ["મીઠાઈ અને શ્રીફળ એક દિવસ પહેલાં લઈ લો", "Buy sweets and coconuts one day before", "मिठाई और श्रीफल एक दिन पहले ले लें"],
-    ["ઘરના નજીકના સગાંને બોલાવો", "Invite close family members to be at home", "घर के नज़दीकी रिश्तेदारों को बुलाएं", "g"],
-    ["ઘર સાફ કરી બેઠકની વ્યવસ્થા કરો", "Clean the house and arrange seating", "घर साफ कर बैठने की व्यवस्था करें", "g"],
-    ["સગાઈની અંદાજિત તારીખ વિશે બંને કુટુંબ વાત કરે", "Both families discuss a rough date for the engagement", "दोनों परिवार सगाई की अंदाज़न तारीख पर बात करें"]
+    {h: ["૧–૨ અઠવાડિયા પહેલાં", "1–2 weeks before", "1–2 हफ़्ते पहले"]},
+    ["બંને કુટુંબ ખુલ્લા મને વાત કરે: ભણતર, નોકરી, ક્યાં રહેશે, રીત-રિવાજ", "Both families talk openly: education, job, where the couple will live, customs", "दोनों परिवार खुलकर बात करें: पढ़ाई, नौकरी, कहाँ रहेंगे, रीति-रिवाज"],
+    ["ઘણા કુટુંબોમાં એક જ અટક / કુળમાં સગપણ થતું નથી — વડીલો સાથે ખાતરી કરો", "Many families avoid a match within the same surname / kul — confirm with elders", "कई परिवारों में एक ही अटक (सरनेम) / कुल में रिश्ता नहीं होता — बड़ों से पक्का करें"],
+    ["કુટુંબમાં રિવાજ હોય તો કુંડળી મેળવો", "Match horoscopes (kundli) if your family does this", "परिवार में रिवाज हो तो कुंडली मिलाएँ"],
+    ["ગોર મહારાજ પાસેથી દિવસ અને સમય નક્કી કરો", "Fix the day and time with the gor maharaj", "गोर महाराज से दिन और समय तय करें"],
+    ["કોણ કોણ જશે તે નક્કી કરી બધાને જાણ કરો", "Decide which elders will go and tell them", "कौन-कौन जाएगा तय करके सबको बताएँ", "b"],
+    ["દીકરા માટે કપડાં / ભેટ ખરીદો", "Buy clothes or a gift for the boy", "लड़के के लिए कपड़े / भेंट खरीदें", "b"],
+    {h: ["આગલે દિવસે", "The day before", "एक दिन पहले"]},
+    ["શ્રીફળ, સાકર અને મીઠાઈ ખરીદો; શુકનના રૂપિયા કવરમાં તૈયાર રાખો", "Buy coconuts, sakar and sweets; keep the shagun money ready in an envelope", "नारियल, मिश्री और मिठाई खरीदें; शगुन के रुपये लिफ़ाफ़े में तैयार रखें", "b"],
+    ["ગાડીની વ્યવસ્થા કરો અને ઘરનું લોકેશન WhatsApp પર મંગાવી લો", "Arrange a car and get the home location on WhatsApp", "गाड़ी की व्यवस्था करें और घर की लोकेशन WhatsApp पर मँगवा लें", "b"],
+    ["ઘરની સફાઈ, બેઠક ગોઠવો અને જમણનો ઓર્ડર આપો", "Clean the house, set up seating and order the meal", "घर की सफ़ाई, बैठक लगाएँ और भोजन का ऑर्डर दें", "g"],
+    ["નજીકના કુટુંબીજનોને ઘરે હાજર રહેવા કહો", "Ask close family members to be at home", "नज़दीकी परिवारजनों को घर पर रहने को कहें", "g"],
+    {h: ["વિધિ પછી", "After the ritual", "रस्म के बाद"]},
+    ["સગાઈ / ગોળ-ધાણાનો દિવસ, સ્થળ અને મહેમાન સંખ્યા નક્કી કરો", "Fix the day, place and guest count for gol-dhana and sagai", "गोळ-धाणा / सगाई का दिन, जगह और मेहमान संख्या तय करें"],
+    ["સગાંવહાલાંને ફોન કરી ખુશખબર આપો", "Call relatives and share the good news", "रिश्तेदारों को फ़ोन कर खुशखबरी दें"],
+    ["બંને પક્ષમાંથી એક-એક વ્યક્તિને સંકલન માટે નક્કી કરો અને ફોન નંબર આપ-લે કરો", "Pick one contact person from each side for planning and exchange phone numbers", "दोनों पक्षों से एक-एक व्यक्ति को तालमेल के लिए तय करें और फ़ोन नंबर लें-दें"]
   ],
-  tip: ["ઘણા લેઉવા પટેલ કુટુંબોમાં ચાંદલા પછી સંબંધ તોડવો બહુ ખરાબ ગણાય છે, એટલે બધી વાત પહેલાં ખુલ્લા મને કરી લો. દહેજની કોઈ વાત ન કરવી — સમાજ સાદા લગ્નને માન આપે છે.", "In many Leuva Patel families, breaking a match after chandlo is taken very seriously, so talk openly about everything before. Never discuss dowry — the samaj values simple weddings.", "कई लेउवा पटेल परिवारों में चांदलो के बाद रिश्ता तोड़ना बहुत बुरा माना जाता है, इसलिए सारी बात पहले खुलकर कर लें। दहेज की कोई बात न करें — समाज सादे विवाह का सम्मान करता है।"]
+  tip: ["ઘણા લેઉવા પટેલ કુટુંબોમાં ચાંદલા પછી સગપણ તોડવું બહુ ગંભીર ગણાય છે, તેથી ચાંદલા પહેલાં જ બધી વાત ખુલ્લા મને કરી લો. દહેજની વાત ક્યારેય ન કરો — સમાજ સાદા લગ્નને મહત્વ આપે છે.", "In many Leuva Patel families, breaking a match after chandlo is taken very seriously, so talk openly about everything before the chandlo. Never discuss dowry — the samaj values simple weddings.", "कई लेउवा पटेल परिवारों में चांदलो के बाद रिश्ता तोड़ना बहुत गंभीर माना जाता है, इसलिए चांदलो से पहले ही सब बात खुलकर कर लें। दहेज की बात कभी न करें — समाज सादी शादी को महत्व देता है।"]
 });
 
 RITUALS.push({
@@ -258,40 +276,56 @@ RITUALS.push({
   host: "both",
   when: ["ચાંદલા પછી, લગ્નના ૩–૬ મહિના પહેલાં", "After chandlo, 3–6 months before the wedding", "चांदलो के बाद, शादी से 3–6 महीने पहले"],
   name: ["ગોળ ધાણા", "Gol Dhana", "गोळ धाणा"],
-  short: ["ગોળ-ધાણા વહેંચી સગપણની ખુશખબર આપવી", "Sharing jaggery and coriander seeds to announce the match", "गुड़-धनिया बांटकर रिश्ते की खुशखबरी देना"],
-  about: ["ગોળ મીઠાશનું અને ધાણા સમૃદ્ધિનું પ્રતીક છે. ગોળ-ધાણા ખાઈને બંને કુટુંબ સંબંધ સ્વીકારે છે અને સગાં-વહાલાંને ખુશખબર આપે છે. ઘણા કુટુંબોમાં દીકરાવાળા દીકરીના ઘરે ભેટ અને મીઠાઈ લઈને જાય છે.", "Jaggery stands for sweetness and coriander seeds for prosperity. By eating gol-dhana together, both families accept the relationship and announce it to relatives. In many families the groom's side visits the bride's home with gifts and sweets.", "गुड़ मिठास और धनिया समृद्धि का प्रतीक है। गोळ-धाणा खाकर दोनों परिवार रिश्ता स्वीकार करते हैं और रिश्तेदारों को खुशखबरी देते हैं। कई परिवारों में वर पक्ष कन्या के घर भेंट और मिठाई लेकर जाता है।"],
+  short: ["ગોળ-ધાણા વહેંચીને સગપણની ખુશખબર આપવી", "Sharing jaggery and coriander seeds to announce the match", "गुड़-धनिया बाँटकर रिश्ते की खुशखबरी देना"],
+  about: ["ગોળ મીઠાશનું અને ધાણા સમૃદ્ધિનું પ્રતીક છે. ગોળ-ધાણા ખાઈને બંને કુટુંબ સંબંધ સ્વીકારે છે અને સગાંવહાલાંને ખુશખબર આપે છે. ઘણા કુટુંબોમાં વર પક્ષ ભેટ અને મીઠાઈ લઈને કન્યાના ઘરે જાય છે, કન્યાને ચુંદડી ઓઢાડે છે અને મહેમાનોને ગોળ-ધાણા વહેંચે છે. કેટલાક કુટુંબોમાં આ જ દિવસે વીંટી પણ પહેરાવે છે.", "Jaggery stands for sweetness and coriander seeds for prosperity. By eating gol-dhana together, both families accept the relationship and announce it to relatives. In many families the groom's side visits the bride's home with gifts and sweets, covers the bride with a chundadi and hands out gol-dhana to guests. Some families exchange rings on the same day.", "गुड़ मिठास का और धनिया समृद्धि का प्रतीक है। गोळ-धाणा खाकर दोनों परिवार रिश्ता स्वीकार करते हैं और रिश्तेदारों को खुशखबरी देते हैं। कई परिवारों में वर पक्ष भेंट और मिठाई लेकर कन्या के घर जाता है, कन्या को चुंदड़ी ओढ़ाता है और मेहमानों को गोळ-धाणा बाँटता है। कुछ परिवार इसी दिन अंगूठी भी पहनाते हैं।"],
   steps: [
-    ["બંને કુટુંબ સાથે બેસી દિવસ અને સ્થળ નક્કી કરે.", "Both families agree on the day and place.", "दोनों परिवार मिलकर दिन और जगह तय करते हैं।"],
-    ["ગોળ અને ધાણા મિક્સ કરી નાની વાટકીઓ કે પડીકાં તૈયાર કરો.", "Mix jaggery and coriander seeds and fill small bowls or packets.", "गुड़ और धनिया मिलाकर छोटी कटोरियां या पुड़िया तैयार करें।"],
-    ["ભગવાન અને કુળદેવી સામે દીવો કરી પહેલાં ગોળ-ધાણા ધરાવો.", "Light a diya and first offer gol-dhana to God and your kuldevi.", "भगवान और कुलदेवी के सामने दीया जलाकर पहले गोळ-धाणा चढ़ाएं।"],
-    ["દીકરા-દીકરીને બેસાડી વડીલો આશીર્વાદ આપે.", "The boy and girl sit together and elders bless them.", "वर-कन्या को बिठाकर बड़े आशीर्वाद देते हैं।"],
-    ["દીકરાવાળા દીકરીને ભેટ (સાડી, મીઠાઈ, ક્યારેક નાનું ઘરેણું) આપે.", "The groom's side gives the bride a gift (saree, sweets, sometimes small jewellery).", "वर पक्ष कन्या को भेंट (साड़ी, मिठाई, कभी छोटा गहना) देता है।"],
-    ["બધાને ગોળ-ધાણા અને મીઠાઈ વહેંચો.", "Distribute gol-dhana and sweets to everyone.", "सबको गोळ-धाणा और मिठाई बांटें।"],
-    ["સગાં-વહાલાંને ફોન કરી ખુશખબર આપો.", "Call relatives and share the good news.", "रिश्तेदारों को फोन कर खुशखबरी दें।"]
+    ["બંને કુટુંબ દિવસ, સમય અને કોના ઘરે થશે તે નક્કી કરે.", "Both families agree on the day, time and whose home it will be at.", "दोनों परिवार दिन, समय और किसके घर होगा यह तय करते हैं।"],
+    ["ગોળ અને ધાણા મિક્સ કરી નાની વાટકીઓ કે પડીકાં તૈયાર કરો.", "Mix jaggery and coriander seeds and fill small bowls or packets.", "गुड़ और धनिया मिलाकर छोटी कटोरियाँ या पुड़िया तैयार करें।"],
+    ["ભગવાન અને કુળદેવી સામે દીવો કરી પહેલાં ગોળ-ધાણા ધરાવો.", "Light a diya and first offer gol-dhana to God and your kuldevi.", "दीया जलाकर पहले भगवान और कुलदेवी को गोळ-धाणा चढ़ाएँ।"],
+    ["દીકરા-દીકરીને સાથે બેસાડી બંને પક્ષના વડીલો ચાંદલો કરી આશીર્વાદ આપે.", "The boy and girl sit together; elders from both sides put a tilak and bless them.", "लड़का-लड़की साथ बैठते हैं; दोनों पक्षों के बड़े तिलक कर आशीर्वाद देते हैं।"],
+    ["વર પક્ષ કન્યાને ચુંદડી ઓઢાડે અને સાડી, મીઠાઈ, ક્યારેક નાનું ઘરેણું આપે.", "The groom's side covers the bride with a chundadi and gives a saree, sweets and sometimes small jewellery.", "वर पक्ष कन्या को चुंदड़ी ओढ़ाता है और साड़ी, मिठाई, कभी छोटा गहना देता है।"],
+    ["ઘણા કુટુંબોમાં બંને પક્ષની પાંચ સૌભાગ્યવતી બહેનો આશીર્વાદ આપે.", "In many families five married women from each side give their blessings.", "कई परिवारों में दोनों पक्षों की पाँच सुहागन महिलाएँ आशीर्वाद देती हैं।"],
+    ["બધાને ગોળ-ધાણા અને મોહનથાળ / પેંડા વહેંચો.", "Hand out gol-dhana and mohanthal or pendas to everyone.", "सबको गोळ-धाणा और मोहनथाल / पेड़े बाँटें।"],
+    ["સગાંવહાલાંને ફોન કરી ખુશખબર આપો.", "Call relatives and share the good news.", "रिश्तेदारों को फ़ोन कर खुशखबरी दें।"]
   ],
   items: [
-    ["ગોળ – ૧–૨ કિલો", "Jaggery (gol) – 1–2 kg", "गुड़ – 1–2 किलो"],
-    ["ધાણા (આખા, શેકેલા) – ૫૦૦ ગ્રામ–૧ કિલો", "Coriander seeds (dhana) – 500 g–1 kg", "धनिया (साबुत) – 500 ग्राम–1 किलो"],
-    ["નાની વાટકીઓ / કાગળનાં પડીકાં – ૫૦–૧૦૦", "Small bowls or paper packets – 50–100", "छोटी कटोरियां / कागज़ की पुड़िया – 50–100"],
-    ["પેંડા / મીઠાઈ – ૩–૫ કિલો", "Pendas / sweets – 3–5 kg", "पेड़ा / मिठाई – 3–5 किलो"],
-    ["કંકુ, ચોખા, દીવો, અગરબત્તી", "Kanku, rice, diya, incense", "कंकु, चावल, दीया, अगरबत्ती"],
-    ["શ્રીફળ – ૨", "Coconut – 2", "श्रीफल – 2"],
-    ["દીકરી માટે સાડી / ડ્રેસ", "Saree or dress for the bride", "कन्या के लिए साड़ी / ड्रेस", "g"],
-    ["દીકરી માટે શુકનનું કવર", "Shagun envelope for the bride", "कन्या के लिए शगुन का लिफाफा", "g"],
-    ["દીકરા માટે શુકનનું કવર / ભેટ", "Shagun envelope or gift for the groom", "वर के लिए शगुन का लिफाफा / भेंट", "b"],
-    ["મહેમાનો માટે ચા-નાસ્તો / જમણ", "Tea, snacks or meal for guests", "मेहमानों के लिए चाय-नाश्ता / भोजन", "b"]
+    {h: ["ગોળ-ધાણા", "Gol-dhana", "गोळ-धाणा"]},
+    ["દેશી ગોળ – ૧–૨ કિલો", "Desi jaggery (gol) – 1–2 kg", "देसी गुड़ – 1–2 किलो"],
+    ["આખા ધાણા, હળવા શેકેલા – ૫૦૦ ગ્રામ–૧ કિલો", "Whole coriander seeds, lightly roasted – 500 g–1 kg", "साबुत धनिया, हल्का भुना – 500 ग्राम–1 किलो"],
+    ["નાની વાટકી / કાગળનાં પડીકાં / ડબ્બી – મહેમાન પ્રમાણે (૫૦–૧૦૦)", "Small bowls, paper packets or boxes – one per guest (50–100)", "छोटी कटोरियाँ / कागज़ की पुड़िया / डिब्बी – मेहमानों के अनुसार (50–100)"],
+    ["ગોળ-ધાણા રાખવા મોટો થાળ અને ચમચો", "Large plate and spoon to serve gol-dhana", "गोळ-धाणा रखने के लिए बड़ा थाल और चम्मच"],
+    {h: ["પૂજા", "Puja", "पूजा"]},
+    ["કંકુ, ચોખા, દીવો, ઘી, અગરબત્તી, ફૂલ", "Kanku, rice, diya, ghee, incense, flowers", "कंकु, चावल, दीया, घी, अगरबत्ती, फूल"],
+    ["શ્રીફળ – ૨", "Coconuts – 2", "नारियल – 2"],
+    ["બાજઠ / પાટલા – ૨ (દીકરા-દીકરી માટે)", "Low stools (bajath) – 2 (for the boy and girl)", "बाजठ / पाटे – 2 (लड़का-लड़की के लिए)"],
+    {h: ["ભેટ", "Gifts", "भेंट"]},
+    ["કન્યા માટે ચુંદડી / સાડી અને શ્રૃંગાર", "Chundadi or saree and shringar items for the bride", "कन्या के लिए चुंदड़ी / साड़ी और श्रृंगार", "g"],
+    ["કન્યાને શુકનનું કવર", "Shagun envelope for the bride", "कन्या को शगुन का लिफ़ाफ़ा", "g"],
+    ["વરને શુકનનું કવર / ભેટ", "Shagun envelope or gift for the groom", "वर को शगुन का लिफ़ाफ़ा / भेंट", "b"],
+    ["સામેના કુટુંબ માટે સૂકો મેવો / મીઠાઈ બોક્સ", "Dry fruit or sweet box for the other family", "दूसरे परिवार के लिए सूखे मेवे / मिठाई का डिब्बा"],
+    {h: ["મહેમાનગતિ", "Hosting guests", "मेहमाननवाज़ी"]},
+    ["મોહનથાળ / પેંડા – ૩–૫ કિલો", "Mohanthal or pendas – 3–5 kg", "मोहनथाल / पेड़े – 3–5 किलो"],
+    ["ચા-નાસ્તો કે જમણ – મહેમાન સંખ્યા પ્રમાણે", "Tea and snacks or a meal – as per guest count", "चाय-नाश्ता या भोजन – मेहमानों की संख्या के अनुसार"],
+    ["બેઠક: ગાદલાં / ખુરશી, ફોટા માટે ફૂલોની સાદી સજાવટ", "Seating (mattresses or chairs) and simple flower decoration for photos", "बैठक: गद्दे / कुर्सियाँ, फ़ोटो के लिए फूलों की सादी सजावट"]
   ],
   todos: [
-    ["બંને કુટુંબ સાથે દિવસ અને સમય નક્કી કરો", "Fix the day and time with the other family", "दूसरे परिवार के साथ दिन और समय तय करें"],
-    ["કેટલા લોકો આવશે તે ગણી લો", "Count how many people will come", "कितने लोग आएंगे, गिन लें"],
-    ["ગોળ-ધાણાનાં પડીકાં એક દિવસ પહેલાં બનાવી લો", "Pack the gol-dhana a day in advance", "गोळ-धाणा की पुड़िया एक दिन पहले बना लें"],
-    ["મીઠાઈનો ઓર્ડર આપો", "Order sweets", "मिठाई का ऑर्डर दें"],
-    ["દીકરી માટે ભેટ ખરીદો", "Buy a gift for the bride", "कन्या के लिए भेंट खरीदें", "g"],
-    ["જમણ કે નાસ્તાની વ્યવસ્થા કરો", "Arrange the meal or snacks", "भोजन या नाश्ते की व्यवस्था करें", "b"],
-    ["નજીકનાં સગાંને ફોન કરી બોલાવો", "Call and invite close relatives", "नज़दीकी रिश्तेदारों को फोन कर बुलाएं"],
-    ["ફોટા પાડવા માટે કોઈને જવાબદારી આપો", "Ask someone to take photos", "फोटो खींचने की ज़िम्मेदारी किसी को दें"]
+    {h: ["૧ અઠવાડિયું પહેલાં", "1 week before", "1 हफ़्ता पहले"]},
+    ["સામેના કુટુંબ સાથે દિવસ, સમય અને સ્થળ નક્કી કરો", "Fix the day, time and place with the other family", "दूसरे परिवार के साथ दिन, समय और जगह तय करें"],
+    ["બંને પક્ષના કેટલા લોકો આવશે તે ગણો", "Count how many people will come from both sides", "दोनों पक्षों से कितने लोग आएँगे गिन लें"],
+    ["સગાંવહાલાંને ફોન / WhatsApp પર આમંત્રણ આપો", "Invite relatives by phone or WhatsApp", "रिश्तेदारों को फ़ोन / WhatsApp पर न्योता दें"],
+    ["કન્યા માટે ચુંદડી / સાડી ખરીદો", "Buy the chundadi or saree for the bride", "कन्या के लिए चुंदड़ी / साड़ी खरीदें", "g"],
+    ["મીઠાઈ અને જમણ / નાસ્તાનો ઓર્ડર આપો", "Order sweets and the meal or snacks", "मिठाई और भोजन / नाश्ते का ऑर्डर दें", "b"],
+    {h: ["આગલે દિવસે", "The day before", "एक दिन पहले"]},
+    ["ગોળ-ધાણા મિક્સ કરી વાટકી / પડીકાં ભરો", "Mix gol-dhana and fill the bowls or packets", "गोळ-धाणा मिलाकर कटोरियाँ / पुड़िया भरें"],
+    ["શુકનનાં કવર તૈયાર કરી ઉપર નામ લખો", "Prepare shagun envelopes and write names on them", "शगुन के लिफ़ाफ़े तैयार कर उन पर नाम लिखें"],
+    ["ફોટા લેનાર વ્યક્તિ નક્કી કરો", "Decide who will take photos", "फ़ोटो कौन लेगा तय करें"],
+    ["બેઠક અને સાદી સજાવટ તૈયાર કરો", "Set up seating and simple decoration", "बैठक और सादी सजावट तैयार करें", "b"],
+    {h: ["પ્રસંગ પછી", "After the ceremony", "रस्म के बाद"]},
+    ["પાડોશી અને ગામમાં ગોળ-ધાણા વહેંચો", "Share gol-dhana with neighbours and the village", "पड़ोसियों और गाँव में गोळ-धाणा बाँटें"],
+    ["સગાઈ માટે દીકરા-દીકરીની વીંટીનું માપ લઈ લો", "Take the boy's and girl's ring sizes for the sagai", "सगाई के लिए लड़का-लड़की की अंगूठी का नाप ले लें"],
+    ["સગાઈની તારીખ અને હૉલ વિશે વાત આગળ વધારો", "Move ahead with the sagai date and hall", "सगाई की तारीख और हॉल की बात आगे बढ़ाएँ"]
   ],
-  tip: ["ગોળ-ધાણા વધારે બનાવજો — પાડોશીઓ અને ગામમાં પણ વહેંચવાનો રિવાજ ઘણાં કુટુંબોમાં છે. પહેલો ભાગ કુળદેવી (જેમ કે ખોડિયાર માં) ને ધરાવવાનું ભૂલશો નહીં.", "Make extra gol-dhana — many families also share it with neighbours and the village. Don't forget to offer the first portion to your kuldevi (for example Khodiyar Maa).", "गोळ-धाणा ज़्यादा बनाएं — कई परिवारों में पड़ोसियों और गांव में भी बांटने का रिवाज है। पहला भाग कुलदेवी (जैसे खोडियार मां) को चढ़ाना न भूलें।"]
+  tip: ["ગોળ-ધાણા વધારે બનાવજો — ઘણા કુટુંબો પાડોશી અને ગામમાં પણ વહેંચે છે. પહેલો ભાગ તમારાં કુળદેવી (જેમ કે ખોડિયાર માં) ને ધરાવવાનું ભૂલશો નહીં.", "Make extra gol-dhana — many families also share it with neighbours and the village. Don't forget to offer the first portion to your kuldevi (for example Khodiyar Maa).", "गोळ-धाणा ज़्यादा बनाएँ — कई परिवार पड़ोसियों और गाँव में भी बाँटते हैं। पहला भाग अपनी कुलदेवी (जैसे खोडियार माँ) को चढ़ाना न भूलें।"]
 });
 
 RITUALS.push({
@@ -300,44 +334,69 @@ RITUALS.push({
   host: "b",
   when: ["લગ્નના ૧–૬ મહિના પહેલાં", "1–6 months before the wedding", "शादी से 1–6 महीने पहले"],
   name: ["સગાઈ (રીંગ સેરેમની)", "Sagai (Ring Ceremony)", "सगाई (रिंग सेरेमनी)"],
-  short: ["વીંટી પહેરાવી અને ચૂંદડી ઓઢાડી સગાઈ કરવી", "Exchange of rings and covering the bride with a chundadi", "अंगूठी पहनाकर और चूंदड़ी ओढ़ाकर सगाई करना"],
-  about: ["સગાઈમાં દીકરો અને દીકરી એકબીજાને વીંટી પહેરાવે છે. દીકરાવાળા દીકરીને ચૂંદડી ઓઢાડે છે અને સાડી, ઘરેણાં, મીઠાઈ આપે છે. ઘણાં કુટુંબોમાં આ પ્રસંગ દીકરીના ઘરે કે હોલમાં થાય છે.", "At the sagai the boy and girl put rings on each other's fingers. The groom's family covers the bride with a chundadi (red tie-dye odhani) and gives her saree, jewellery and sweets. In many families it is held at the bride's home or a hall.", "सगाई में वर और कन्या एक-दूसरे को अंगूठी पहनाते हैं। वर पक्ष कन्या को चूंदड़ी ओढ़ाता है और साड़ी, गहने, मिठाई देता है। कई परिवारों में यह कन्या के घर या हॉल में होती है।"],
+  short: ["વીંટીની આપ-લે અને કન્યાને ચુંદડી ઓઢાડવી", "Ring exchange and covering the bride with the chundadi", "अंगूठी की अदला-बदली और कन्या को चुंदड़ी ओढ़ाना"],
+  about: ["સગાઈમાં દીકરો-દીકરી એકબીજાને વીંટી પહેરાવે છે. વર પક્ષ કન્યાને ચુંદડી (લાલ બાંધણી) ઓઢાડે અને સાડી, દાગીના અને મીઠાઈ આપે. કન્યા પક્ષ વરને ચાંદલો કરી કપડાં કે ભેટ આપે. મોટે ભાગે કન્યાના ઘરે, વાડીમાં કે હૉલમાં થાય છે.", "At the sagai the boy and girl put rings on each other's fingers. The groom's side covers the bride with a chundadi (red bandhani odhani) and gives her a saree, jewellery and sweets. The bride's side puts a tilak on the groom and gives him clothes or a gift. It is usually held at the bride's home, a community wadi or a hall.", "सगाई में लड़का-लड़की एक-दूसरे को अंगूठी पहनाते हैं। वर पक्ष कन्या को चुंदड़ी (लाल बांधणी) ओढ़ाता है और साड़ी, गहने और मिठाई देता है। कन्या पक्ष वर को तिलक कर कपड़े या भेंट देता है। ज़्यादातर कन्या के घर, वाड़ी या हॉल में होती है।"],
   steps: [
-    ["ગોર મહારાજ ગણેશ પૂજા કરાવે.", "The gor maharaj starts with Ganesh puja.", "गोर महाराज गणेश पूजा करवाते हैं।"],
-    ["દીકરીના ઘરવાળા દીકરા અને જાનૈયાનું સ્વાગત કરે.", "The bride's family welcomes the groom and his family.", "कन्या पक्ष वर और उसके परिवार का स्वागत करता है।"],
-    ["દીકરાને ચાંદલો કરી દીકરીવાળા કપડાં / ભેટ આપે.", "The bride's side puts a tilak on the groom and gives him clothes or a gift.", "कन्या पक्ष वर को तिलक कर कपड़े / भेंट देता है।"],
-    ["દીકરાની બહેન કે મમ્મી દીકરીને ચૂંદડી ઓઢાડે અને સાડી-ઘરેણાં આપે.", "The groom's sister or mother covers the bride with the chundadi and gives saree and jewellery.", "वर की बहन या मां कन्या को चूंदड़ी ओढ़ाती है और साड़ी-गहने देती है।"],
-    ["દીકરો-દીકરી એકબીજાને વીંટી પહેરાવે.", "The boy and girl exchange rings.", "वर-कन्या एक-दूसरे को अंगूठी पहनाते हैं।"],
+    ["ગોર મહારાજ ગણેશ પૂજાથી શરૂઆત કરે.", "The gor maharaj begins with Ganesh puja.", "गोर महाराज गणेश पूजा से शुरुआत करते हैं।"],
+    ["કન્યા પક્ષ વર અને તેના કુટુંબનું સ્વાગત કરે.", "The bride's side welcomes the groom and his family.", "कन्या पक्ष वर और उसके परिवार का स्वागत करता है।"],
+    ["કન્યા પક્ષ વરને ચાંદલો કરી શ્રીફળ, શુકન અને કપડાં / ભેટ આપે.", "The bride's side puts a tilak on the groom and gives him a coconut, shagun and clothes or a gift.", "कन्या पक्ष वर को तिलक कर नारियल, शगुन और कपड़े / भेंट देता है।"],
+    ["વરનાં બહેન કે માતા કન્યાને ચુંદડી ઓઢાડે અને સાડી, દાગીના, શ્રૃંગાર આપે.", "The groom's sister or mother covers the bride with the chundadi and gives a saree, jewellery and shringar.", "वर की बहन या माँ कन्या को चुंदड़ी ओढ़ाती हैं और साड़ी, गहने, श्रृंगार देती हैं।"],
+    ["ઘણા કુટુંબોમાં પાંચ સૌભાગ્યવતી બહેનો કન્યાને ચાંદલો કરી આશીર્વાદ આપે.", "In many families five married women put a tilak on the bride and bless her.", "कई परिवारों में पाँच सुहागन महिलाएँ कन्या को तिलक कर आशीर्वाद देती हैं।"],
+    ["દીકરો-દીકરી એકબીજાને વીંટી પહેરાવે.", "The boy and girl exchange rings.", "लड़का-लड़की एक-दूसरे को अंगूठी पहनाते हैं।"],
     ["બંને વડીલોને પગે લાગી આશીર્વાદ લે.", "Both touch the elders' feet for blessings.", "दोनों बड़ों के पैर छूकर आशीर्वाद लेते हैं।"],
-    ["બધા મોં મીઠું કરે, ફોટા પડે અને જમણ થાય.", "Everyone has sweets, photos are taken and a meal is served.", "सब मुंह मीठा करते हैं, फोटो होती है और भोजन होता है।"]
+    ["બધાનું મોં મીઠું કરાવી, ફોટા પાડી, જમણ થાય.", "Everyone has sweets, photos are taken and a meal is served.", "सबका मुँह मीठा कराकर, फ़ोटो खींचकर भोजन होता है।"]
   ],
   items: [
-    ["સગાઈની વીંટી – ૨ (દીકરા અને દીકરી માટે)", "Engagement rings – 2 (for boy and girl)", "सगाई की अंगूठी – 2 (वर और कन्या के लिए)"],
-    ["ચૂંદડી (લાલ બાંધણી)", "Chundadi (red bandhani odhani)", "चूंदड़ी (लाल बांधणी)", "g"],
-    ["દીકરી માટે સાડી – ૧–૫", "Sarees for the bride – 1–5", "कन्या के लिए साड़ी – 1–5", "g"],
-    ["દીકરી માટે ઘરેણાં / સોનાનો સેટ (રિવાજ મુજબ)", "Jewellery for the bride (as per custom)", "कन्या के लिए गहने (रिवाज अनुसार)", "g"],
-    ["શૃંગારની થાળી (બંગડી, ચાંદલા, સિંદૂર, મહેંદી)", "Shringar plate (bangles, bindi, cosmetics, mehendi)", "श्रृंगार थाली (चूड़ी, बिंदी, सिंदूर, मेहंदी)", "g"],
-    ["દીકરા માટે કપડાં / ભેટ", "Clothes or gift for the groom", "वर के लिए कपड़े / भेंट", "b"],
-    ["શ્રીફળ – ૫", "Coconut – 5", "श्रीफल – 5"],
-    ["કંકુ, ચોખા, નાડાછડી, દીવો", "Kanku, rice, sacred thread, diya", "कंकु, चावल, नाडाछड़ी, दीया"],
-    ["પેંડા / મીઠાઈનાં બોક્સ – ૫–૧૦ કિલો", "Sweet boxes – 5–10 kg", "मिठाई के डिब्बे – 5–10 किलो"],
-    ["સૂકો મેવો / ભેટની ટોપલી", "Dry fruit / gift baskets", "सूखे मेवे / भेंट की टोकरी"],
-    ["વીંટી મૂકવાની ડબ્બી અને સુંદર થાળી", "Ring box and decorated plate", "अंगूठी की डिब्बी और सजी थाली"],
-    ["હોલ / મંડપ, ખુરશી, સજાવટ", "Hall or tent, chairs, decoration", "हॉल / मंडप, कुर्सियां, सजावट", "b"],
-    ["મહેમાનો માટે જમણ", "Meal for guests", "मेहमानों के लिए भोजन", "b"]
+    {h: ["વીંટી અને પૂજા", "Rings and puja", "अंगूठी और पूजा"]},
+    ["સગાઈની વીંટી – ૨ (માપ પહેલાં લઈ લો)", "Engagement rings – 2 (take sizes in advance)", "सगाई की अंगूठियाँ – 2 (नाप पहले ले लें)"],
+    ["વીંટી માટે સજાવેલી થાળી / રીંગ ટ્રે", "Decorated plate or ring tray", "अंगूठी के लिए सजी थाली / रिंग ट्रे"],
+    ["ગણેશ પૂજાનો સામાન (ગોર મહારાજ યાદી આપે તે)", "Ganesh puja items (as per the gor maharaj's list)", "गणेश पूजा का सामान (गोर महाराज की सूची अनुसार)"],
+    ["કંકુ, ચોખા, નાડાછડી, દીવો, ઘી, અગરબત્તી, ફૂલ", "Kanku, rice, sacred thread, diya, ghee, incense, flowers", "कंकु, चावल, नाड़ाछड़ी, दीया, घी, अगरबत्ती, फूल"],
+    ["શ્રીફળ – ૫", "Coconuts – 5", "नारियल – 5"],
+    ["સાકર / પતાસાં – સવા કિલો", "Sakar or patasa – 1¼ kg", "मिश्री / बताशे – सवा किलो"],
+    {h: ["કન્યા માટે (વર પક્ષ લાવે)", "For the bride (groom's side brings)", "कन्या के लिए (वर पक्ष लाए)"]},
+    ["ચુંદડી (લાલ બાંધણી)", "Chundadi (red bandhani odhani)", "चुंदड़ी (लाल बांधणी)", "g"],
+    ["સાડી – ૧ થી ૫ (ઘણા કુટુંબોમાં ઘરચોળું)", "Sarees – 1 to 5 (a gharchola in many families)", "साड़ियाँ – 1 से 5 (कई परिवारों में घरचोळा)", "g"],
+    ["દાગીના (કુટુંબના રિવાજ પ્રમાણે)", "Jewellery (as per family custom)", "गहने (परिवार के रिवाज अनुसार)", "g"],
+    ["શ્રૃંગારની થાળી: બંગડી, ચાંદલા, કાજળ, મહેંદી, અત્તર", "Shringar plate: bangles, bindis, kajal, mehendi, perfume", "श्रृंगार की थाली: चूड़ियाँ, बिंदी, काजल, मेहंदी, इत्र", "g"],
+    ["કન્યાના ઘર માટે મીઠાઈ અને સૂકા મેવાની ટોપલી", "Sweets and a dry fruit basket for the bride's family", "कन्या के घर के लिए मिठाई और सूखे मेवे की टोकरी", "g"],
+    {h: ["વર માટે (કન્યા પક્ષ આપે)", "For the groom (bride's side gives)", "वर के लिए (कन्या पक्ष दे)"]},
+    ["વર માટે કપડાં / ભેટ", "Clothes or a gift for the groom", "वर के लिए कपड़े / भेंट", "b"],
+    ["વરને શ્રીફળ અને શુકનનું કવર", "Coconut and shagun envelope for the groom", "वर को नारियल और शगुन का लिफ़ाफ़ा", "b"],
+    ["વરના કુટુંબીજનો માટે ભેટ (રિવાજ હોય તો)", "Gifts for the groom's family (if your family does this)", "वर के परिवारजनों के लिए भेंट (रिवाज हो तो)", "b"],
+    {h: ["હૉલ અને મહેમાનગતિ", "Hall and hosting", "हॉल और मेहमाननवाज़ी"]},
+    ["હૉલ / વાડી, ખુરશી, સ્ટેજ અને સ્ટેજ પર બે ખુરશી", "Hall or wadi, chairs, stage with two chairs on it", "हॉल / वाड़ी, कुर्सियाँ, स्टेज और स्टेज पर दो कुर्सियाँ", "b"],
+    ["સાઉન્ડ સિસ્ટમ અને માઇક", "Sound system and mic", "साउंड सिस्टम और माइक", "b"],
+    ["જમણ (કેટરર) – મહેમાન સંખ્યા પ્રમાણે", "Meal (caterer) – as per guest count", "भोजन (केटरर) – मेहमानों की संख्या के अनुसार", "b"],
+    ["પીવાનું પાણી, ટિશ્યૂ, કચરાપેટી", "Drinking water, tissues, dustbins", "पीने का पानी, टिशू, कूड़ेदान", "b"],
+    ["ફોટોગ્રાફર / વિડિયોગ્રાફર", "Photographer / videographer", "फ़ोटोग्राफ़र / वीडियोग्राफ़र"]
   ],
   todos: [
-    ["ગોર મહારાજ સાથે મુહૂર્ત નક્કી કરો", "Fix the muhurat with the gor maharaj", "गोर महाराज से मुहूर्त तय करें"],
-    ["હોલ / જગ્યા બુક કરો", "Book the hall or venue", "हॉल / जगह बुक करें", "b"],
-    ["વીંટીનું માપ લઈ ખરીદી કરો", "Take ring sizes and buy the rings", "अंगूठी का नाप लेकर खरीदारी करें"],
-    ["ચૂંદડી, સાડી અને ઘરેણાંની ખરીદી કરો", "Buy chundadi, sarees and jewellery", "चूंदड़ी, साड़ी और गहनों की खरीदारी करें", "g"],
-    ["જમણ માટે રસોઈયા / કેટરરને ઓર્ડર આપો", "Book the cook or caterer", "रसोइया / कैटरर बुक करें", "b"],
-    ["ફોટોગ્રાફર બુક કરો", "Book a photographer", "फोटोग्राफर बुक करें"],
-    ["મહેમાનોની યાદી બનાવી ફોન / WhatsApp કરો", "Make a guest list and call or WhatsApp them", "मेहमानों की सूची बनाकर फोन / WhatsApp करें"],
-    ["બ્યુટી પાર્લર અને મહેંદીનો સમય બુક કરો", "Book beauty parlour and mehendi", "ब्यूटी पार्लर और मेहंदी बुक करें", "b"],
-    ["આવવા-જવા માટે ગાડીની વ્યવસ્થા કરો", "Arrange cars for travel", "आने-जाने के लिए गाड़ी की व्यवस्था करें", "g"]
+    {h: ["૧–૨ મહિના પહેલાં", "1–2 months before", "1–2 महीने पहले"]},
+    ["ગોર મહારાજ પાસેથી મુહૂર્ત નક્કી કરો", "Fix the muhurat with the gor maharaj", "गोर महाराज से मुहूर्त तय करें"],
+    ["બંને પક્ષ મળીને મહેમાન સંખ્યા નક્કી કરો (સાદાઈ રાખો)", "Agree on the guest count together (keep it simple)", "दोनों पक्ष मिलकर मेहमानों की संख्या तय करें (सादगी रखें)"],
+    ["હૉલ / વાડી બુક કરી એડવાન્સ આપો", "Book the hall or wadi and pay the advance", "हॉल / वाड़ी बुक कर एडवांस दें", "b"],
+    ["કેટરર નક્કી કરી મેનુ ફાઇનલ કરો", "Choose the caterer and finalise the menu", "केटरर तय कर मेन्यू फ़ाइनल करें", "b"],
+    ["ફોટોગ્રાફર બુક કરો", "Book the photographer", "फ़ोटोग्राफ़र बुक करें"],
+    {h: ["૨–૩ અઠવાડિયા પહેલાં", "2–3 weeks before", "2–3 हफ़्ते पहले"]},
+    ["વીંટીનું માપ લઈ વીંટી ખરીદો", "Take ring sizes and buy the rings", "अंगूठी का नाप लेकर अंगूठियाँ खरीदें"],
+    ["ચુંદડી, સાડી અને દાગીના ખરીદો", "Buy the chundadi, sarees and jewellery", "चुंदड़ी, साड़ियाँ और गहने खरीदें", "g"],
+    ["વર માટે કપડાં / ભેટ ખરીદો", "Buy clothes or a gift for the groom", "वर के लिए कपड़े / भेंट खरीदें", "b"],
+    ["સગાંવહાલાંને ફોન / WhatsApp પર આમંત્રણ આપો", "Invite relatives by phone or WhatsApp", "रिश्तेदारों को फ़ोन / WhatsApp पर न्योता दें"],
+    ["કન્યા માટે બ્યુટી પાર્લર અને મહેંદી બુક કરો", "Book the beauty parlour and mehendi for the bride", "कन्या के लिए ब्यूटी पार्लर और मेहंदी बुक करें", "b"],
+    {h: ["છેલ્લું અઠવાડિયું", "The last week", "आख़िरी हफ़्ता"]},
+    ["વર પક્ષ કેટલી ગાડીમાં અને કેટલા વાગે આવશે તે નક્કી કરો", "Confirm how many cars the groom's side will come in, and at what time", "वर पक्ष कितनी गाड़ियों में और कितने बजे आएगा तय करें"],
+    ["વર પક્ષ માટે ગાડીઓની વ્યવસ્થા કરો", "Arrange cars for the groom's side", "वर पक्ष के लिए गाड़ियों की व्यवस्था करें", "g"],
+    ["હૉલ અને કેટરરને મહેમાનનો છેલ્લો આંકડો જણાવો", "Tell the hall and caterer the final guest count", "हॉल और केटरर को मेहमानों की अंतिम संख्या बताएँ", "b"],
+    ["ભેટ પેક કરો અને દરેક ઉપર કોના માટે છે તે લખો", "Pack the gifts and label who each one is for", "भेंट पैक करें और हर एक पर किसके लिए है लिखें"],
+    ["વીંટી અને શુકનનાં કવર એક જવાબદાર વ્યક્તિને સોંપો", "Hand the rings and shagun envelopes to one responsible person", "अंगूठियाँ और शगुन के लिफ़ाफ़े एक ज़िम्मेदार व्यक्ति को सौंपें"],
+    {h: ["પ્રસંગ પછી", "After the ceremony", "रस्म के बाद"]},
+    ["હૉલ, કેટરર અને ફોટોગ્રાફરનું બાકી પેમેન્ટ કરો", "Pay the balance to the hall, caterer and photographer", "हॉल, केटरर और फ़ोटोग्राफ़र का बाकी भुगतान करें", "b"],
+    ["મળેલા ચાંદલા / ભેટની નોંધ રાખો", "Note down the gifts and cash (chandla) received", "मिले हुए चांदला / भेंट का रिकॉर्ड रखें"],
+    ["ફોટા બંને કુટુંબ સાથે શેર કરો", "Share the photos with both families", "फ़ोटो दोनों परिवारों के साथ शेयर करें"],
+    ["લગ્ન લખવા અને કંકોત્રીની તૈયારી શરૂ કરો", "Start preparing for lagna lakhva and the kankotri", "लग्न लिखवाने और कंकोत्री की तैयारी शुरू करें"]
   ],
-  tip: ["ચૂંદડી ઓઢાડવી એ સગાઈનો સૌથી મહત્વનો ભાગ છે, એટલે ચૂંદડી સારી અને સમયસર ખરીદો. ભેટ-સોગાદ આપવામાં દેખાડો ન કરો — લેઉવા પટેલ સમાજ સાદાઈ અને દહેજ વગરના લગ્નને પ્રોત્સાહન આપે છે.", "Covering the bride with the chundadi is the most important part of the sagai, so buy a good one in time. Keep gifts sensible — the Leuva Patel samaj encourages simple, dowry-free weddings.", "चूंदड़ी ओढ़ाना सगाई का सबसे महत्वपूर्ण हिस्सा है, इसलिए अच्छी चूंदड़ी समय पर खरीदें। भेंट में दिखावा न करें — लेउवा पटेल समाज सादे और दहेज-मुक्त विवाह को बढ़ावा देता है।"]
+  tip: ["ચુંદડી ઓઢાડવી એ સગાઈનો સૌથી મહત્વનો ભાગ છે, તેથી સારી ચુંદડી સમયસર ખરીદી લો. ભેટ સાદી અને સમજદારીથી રાખો — લેઉવા પટેલ સમાજ સાદા અને દહેજ વગરના લગ્નને પ્રોત્સાહન આપે છે.", "Covering the bride with the chundadi is the most important part of the sagai, so buy a good one in time. Keep gifts sensible — the Leuva Patel samaj encourages simple, dowry-free weddings.", "चुंदड़ी ओढ़ाना सगाई का सबसे ज़रूरी हिस्सा है, इसलिए अच्छी चुंदड़ी समय पर खरीद लें। भेंट सादी और समझदारी से रखें — लेउवा पटेल समाज सादी और बिना दहेज की शादी को बढ़ावा देता है।"]
 });
 
 RITUALS.push({
@@ -1015,7 +1074,8 @@ const T = {
   shareFoot:["— લેઉવા પટેલ લગ્ન માર્ગદર્શિકા","— Leuva Patel Wedding Guide","— लेउवा पटेल विवाह मार्गदर्शिका"],
   of:["{a} / {b}","{a} / {b}","{a} / {b}"],
   removed:["કાઢી નાખ્યું","Removed","हटा दिया"],
-  cleared:["✓ કાઢી નાખ્યા","Ticks cleared","✓ हटा दिए"]
+  cleared:["✓ કાઢી નાખ્યા","Ticks cleared","✓ हटा दिए"],
+  yours:["તમે ઉમેરેલું","Added by you","आपने जोड़ा"]
 };
 const LANGS=["gu","en","hi"];
 
@@ -1083,13 +1143,19 @@ const n=(x)=>L()===0?String(x).replace(/[0-9]/g,d=>GU[d]):String(x);
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $=(s,r=document)=>r.querySelector(s);
 function sideOk(tag){return !tag||S.side==="all"||tag===S.side;}
-function entries(r,kind){ // kind: "i" items, "t" todos
+function hk(str){let h=5381;for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))|0;return (h>>>0).toString(36);}
+function entries(r,kind,withHeads){ // kind: "i" items, "t" todos
   const base=(kind==="i"?r.items:r.todos)||[];
-  const out=[];
-  base.forEach((e,i)=>{if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+i,text:tx(e),tag:e[3]||"",custom:false});});
+  let out=[];
+  base.forEach(e=>{
+    if(!Array.isArray(e)&&e&&e.h){out.push({head:tx(e.h)});return;}
+    if(sideOk(e[3]))out.push({key:r.id+"|"+kind+"|"+hk(e[1]||e[0]),text:tx(e),tag:e[3]||"",custom:false});
+  });
+  out=out.filter((e,i)=>!e.head||(out[i+1]&&!out[i+1].head));
   const c=((S.custom[r.id]||{})[kind])||[];
+  if(c.length&&out.some(e=>e.head))out.push({head:t("yours")});
   c.forEach(e=>out.push({key:r.id+"|c"+kind+"|"+e.id,text:e.t,tag:"",custom:true,cid:e.id}));
-  return out;
+  return withHeads?out:out.filter(e=>!e.head);
 }
 function stat(r,kind){const e=kind?entries(r,kind):entries(r,"i").concat(entries(r,"t"));const d=e.filter(x=>S.ck[x.key]).length;return{d,all:e.length};}
 function totals(){let d=0,a=0;RITUALS.forEach(r=>{const s=stat(r);d+=s.d;a+=s.all;});return{d,a};}
@@ -1107,6 +1173,7 @@ window.addEventListener("hashchange",()=>{const r=readHash();if(r!==route){if(r.
 
 /* ---------- Views ---------- */
 function checkRow(e,opts){
+  if(e.head)return '<li class="grp">'+esc(e.head)+'</li>';
   const on=!!S.ck[e.key];
   return '<li><label class="ck'+(on?" on":"")+'"><input type="checkbox" data-ck="'+esc(e.key)+'"'+(on?" checked":"")+'><span class="box">'+ic("check")+'</span><span class="t">'+esc(e.text)+'</span>'+tagChip(e.tag)+
     (e.custom&&!opts?'<button type="button" class="del" data-del="'+esc(e.key)+'" aria-label="'+esc(t("remove"))+'">×</button>':"")+'</label></li>';
@@ -1132,7 +1199,7 @@ function sideButtons(){
 }
 function shareText(title,groups){
   let s="*"+title+"*\n";
-  groups.forEach(g=>{if(g.head)s+="\n_"+g.head+"_\n";g.rows.forEach(e=>{s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
+  groups.forEach(g=>{if(g.head)s+="\n*"+g.head+"*\n";g.rows.forEach(e=>{if(e.head){s+="\n_"+e.head+"_\n";return;}s+=(S.ck[e.key]?"✅ ":"⬜ ")+e.text+"\n";});});
   return s+"\n"+t("shareFoot");
 }
 function shareBlock(text,resetKind){
@@ -1159,7 +1226,7 @@ function viewRitual(id){
     h+='<div class="actions"><button type="button" class="btn" data-tab="items">'+esc(t("tabItems"))+' ('+n(si.all)+')</button><button type="button" class="btn" data-tab="todos">'+esc(t("tabTodos"))+' ('+n(st.all)+')</button></div>';
     h+='<p class="note">'+esc(t("vary"))+'</p>';
   }else{
-    const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind);
+    const kind=tab==="items"?"i":"t";const s=kind==="i"?si:st;const rows=entries(r,kind,true);
     const pct=s.all?Math.round(s.d*100/s.all):0;
     h+='<div class="listhead"><h2 style="font-size:1.15rem;flex:1">'+esc(t(kind==="i"?"itemsTitle":"todosTitle"))+'</h2><span class="pct">'+n(s.d)+' / '+n(s.all)+'</span></div>';
     h+='<div class="bar"><i style="width:'+pct+'%"></i></div>';
